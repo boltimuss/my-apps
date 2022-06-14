@@ -47,15 +47,14 @@ public class Main extends Application {
 		Axis altitude = new Axis();
 		altitude.setAscending(false).
 			setGraphLocation(new Point2D(50,50)).
-			setHeight(320).
-			setPlotPrintIncrement(10).
 			setStartingValue(320).
 			setEndingValue(0).
 			addTextColorRanges(new ColorRange(Color.BLACK, 0.0, 320.0)).
-			setDivisions(new double[] {10.0, 5.0}).
+			setDivisions(new double[] {10.0, 5.0, 2.5}).
 			setLinear(false).
-			setNonLinearDeltaTick(.452).
-			setStartingNonLinearDeltaTick(13.0).
+//			setNonLinearDeltaTick(0.46875 / 1.5).
+			setNonLinearDeltaTick(0.454545 / 1.5).
+			setStartingNonLinearDeltaTick(35.0 / 1.50).
 			setFontSize(9.5).
 			setSide(SIDE.LEFT);
 		

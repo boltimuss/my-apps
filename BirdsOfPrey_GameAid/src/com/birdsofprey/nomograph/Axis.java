@@ -17,7 +17,9 @@ public class Axis {
 	
 	private double fontSize;
 	private SIDE side;
-	private LinkedList<LinkedList<Double>> yAxisValues = new LinkedList<LinkedList<Double>>();
+//	private LinkedList<LinkedList<Double>> yAxisValues = new LinkedList<LinkedList<Double>>();
+	private LinkedList<Tick> yAxisValues = new LinkedList<Tick>();
+	private boolean valuesInit = false;
 	
 	/**
 	 * The location in the graph where the axis is located
@@ -27,12 +29,7 @@ public class Axis {
 	/**
 	 * the height of the axis
 	 */
-	private int height;
-	
-	/**
-	 * how often a value is printed on the graph
-	 */
-	private double plotPrintIncrement;
+	private double height;
 	
 	/**
 	 * each value represents the delta-value for each tick. Index 0 is for the printed
@@ -66,7 +63,7 @@ public class Axis {
 	private boolean isLinear;
 	
 	/**
-	 * the amount by which the spacing between ticks gradually grows
+	 * the amount by which the spacing between ticks gradually grows/shrinks
 	 */
 	private double nonLinearDeltaTick;
 	
@@ -76,7 +73,7 @@ public class Axis {
 	private double startingNonLinearDeltaTick;
 	
 	/**
-	 * the starting amount for non linear increments between ticks
+	 * the starting amount for linear increments between ticks
 	 */
 	private double startingLinearDeltaTick;
 	
@@ -94,24 +91,6 @@ public class Axis {
 		return this;
 	}
 
-	public int getHeight() {
-		return height;
-	}
-
-	public Axis setHeight(int height) {
-		this.height = height;
-		return this;
-	}
-
-	public double getPlotPrintIncrement() {
-		return plotPrintIncrement;
-	}
-
-	public Axis setPlotPrintIncrement(double plotPrintIncrement) {
-		this.plotPrintIncrement = plotPrintIncrement;
-		return this;
-	}
-
 	public double[] getDivisions() {
 		return divisions;
 	}
@@ -120,10 +99,6 @@ public class Axis {
 		this.divisions = divisions;
 		
 		yAxisValues = new LinkedList<>();
-		for (int i = 0; i < divisions.length; i++)
-		{
-			yAxisValues.add(new LinkedList<>());
-		}
 		return this;
 	}
 
@@ -200,6 +175,10 @@ public class Axis {
 	
 	public void draw(GraphicsContext gc)
 	{
+		if (!valuesInit) calculateValues();
+		
+		height = Math.abs(yAxisValues.get(0).getyValue() - yAxisValues.getLast().getyValue());
+		
 		/* draw main axis spine */
 		gc.setFill(Color.BLACK);
 		gc.setLineWidth(2.0);
@@ -208,104 +187,118 @@ public class Axis {
 		gc.stroke();
 		
 		/* draw each tick */
-		double yLoc = graphLocation.getY();
-		double value = startingValue;
-		int tickIndex = 0;
-		double deltaSpacing = startingNonLinearDeltaTick;
-		boolean firstTick = true;
-		double stopEndingValue = endingValue;
-		int step = 0;
-		
-		if (!ascending)
+		for (Tick tick:yAxisValues)
 		{
-			while (tickIndex < divisions.length) 
-			{
-				while (value >= stopEndingValue) 
-				{
-					
-					
-					if (tickIndex == 0)
-					{
-						yAxisValues.get(tickIndex).add(value);
-					}
-					else
-					{
-						
-					}
-					
-					drawTick(gc, tickIndex, yLoc, value);
-					step++;
-					value -= divisions[0];
-					
-					if (isLinear)
-					{
-						yLoc += linearDeltaTick;
-					}
-					else
-					{
-						if (firstTick)
-						{
-							yLoc += (deltaSpacing);
-							firstTick = false;
-						}
-						else
-						{
-							yLoc += (deltaSpacing);
-							deltaSpacing -= Math.pow(nonLinearDeltaTick, 2);
-						}
-					}
-				}
-				
-				tickIndex++;
-				if (tickIndex < divisions.length) 
-				{
-					yLoc = graphLocation.getY();
-					value = startingValue;
-					deltaSpacing = startingNonLinearDeltaTick;
-					firstTick = true;
-					stopEndingValue = endingValue;
-					step = 0;
-				}
-			}
+			drawTick(gc, tick);
 		}
-		
 	}
 	
-	private void drawTick(GraphicsContext gc, int index, double yValue, double value)
+	private void calculateValues()
+	{
+		valuesInit = true;
+		seedInitialValues();
+		int div = 1;
+		double currentValue = 0;
+		double nextValue = 0;
+		double currentYValue = 0;
+		double nextYValue = 0;
+		double newYValue = 0;
+		double newValue = 0;
+		LinkedList<Tick> newList = new LinkedList<Tick>();
+		int addedElements = 1;
+		
+		while (div < divisions.length)
+		{
+			
+			for (Tick tick:yAxisValues)
+			{
+				newList.add(new Tick(tick));
+			}
+			
+			for (int step = 0; step < yAxisValues.size() - 1; step++)
+			{
+				currentValue = yAxisValues.get(step).getValue();
+				nextValue = yAxisValues.get(step+1).getValue();
+				currentYValue = yAxisValues.get(step).getyValue();
+				nextYValue = yAxisValues.get(step+1).getyValue();
+				
+				if (!ascending)
+				{
+					newValue = currentValue - (Math.abs(currentValue - nextValue) / 2.0);
+				}
+				
+				else
+				{
+					newValue = (Math.abs(currentValue - nextValue) / 2.0) + currentValue;
+				}
+				newYValue = (Math.abs(currentYValue - nextYValue) / 2.0) + currentYValue;
+				
+				newList.add(step+addedElements, new Tick(div,newYValue,newValue));
+				addedElements++;
+			}
+			
+			for (Tick tick:newList)
+			{
+				yAxisValues.add(new Tick(tick));
+			}
+			
+			div++;
+		}
+	}
+	
+	private void seedInitialValues()
+	{
+		double value = startingValue;
+		double deltaValue = 0;
+		double yValue = graphLocation.getY();
+		double deltaTick = startingNonLinearDeltaTick;
+		
+		yAxisValues.add(new Tick(0,yValue,value+deltaValue));
+		value += (!ascending) ? -divisions[0] : divisions[0];
+		yValue += deltaTick;
+		deltaTick -= nonLinearDeltaTick;
+		
+		for (int i = 1; i <= ((Math.abs(startingValue - endingValue)) / divisions[0]); i++)
+		{
+			yAxisValues.add(new Tick(0,yValue,value+deltaValue));
+			value += (!ascending) ? -divisions[0] : divisions[0];
+			yValue += deltaTick;
+			deltaTick -= nonLinearDeltaTick;
+		}
+	}
+	
+	private void drawTick(GraphicsContext gc, Tick tick)
 	{
 		
 		/* setup values */
 		int tickWidth = 8;
-		double leftSideTick = graphLocation.getX() - (tickWidth - (index * 3));
-		double rightSideTick = graphLocation.getX() + (tickWidth - (index * 3));
+		double leftSideTick = graphLocation.getX() - (tickWidth - (tick.getDivision() * 3));
+		double rightSideTick = graphLocation.getX() + (tickWidth - (tick.getDivision()  * 3));
 		
 		/* draw tick */
 		gc.setFill(Color.BLACK);
-		gc.setLineWidth(2.0 - (index * .5));
+		gc.setLineWidth(1.0);
 		
 		switch (side)
 		{
 			case LEFT:
-				gc.moveTo(leftSideTick, yValue);
-				gc.lineTo(graphLocation.getX(), yValue);
+				gc.strokeLine(leftSideTick, tick.getyValue(), graphLocation.getX(), tick.getyValue());
 				break;
 			case RIGHT:
-				gc.moveTo(graphLocation.getX(), yValue);
-				gc.lineTo(rightSideTick, yValue);
+				gc.strokeLine(graphLocation.getX(), tick.getyValue(), rightSideTick, tick.getyValue());
 				break;
 			case BOTH:
-				gc.moveTo(leftSideTick, yValue);
-				gc.lineTo(rightSideTick, yValue);
+				gc.strokeLine(leftSideTick, tick.getyValue(), rightSideTick, tick.getyValue());
 				break;
 		}
 		
 		gc.stroke();
 		
 		/* draw text if needed */
-		if (index == 0)
+		if (tick.getDivision() == 0)
 		{
 			gc.setFont(Font.font(fontSize));
-			gc.fillText(""+value, leftSideTick - 34, yValue + 4);
+			gc.fillText(""+tick.getValue(), leftSideTick - 34, tick.getyValue() + 4);
 		}
 		
 	}
