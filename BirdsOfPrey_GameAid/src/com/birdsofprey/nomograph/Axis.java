@@ -1,14 +1,24 @@
 package com.birdsofprey.nomograph;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class Axis {
 
+	static public enum SIDE {
+		LEFT,
+		RIGHT,
+		BOTH
+	}
+	
+	private double fontSize;
+	private SIDE side;
+	private LinkedList<LinkedList<Double>> yAxisValues = new LinkedList<LinkedList<Double>>();
+	
 	/**
 	 * The location in the graph where the axis is located
 	 */
@@ -108,6 +118,12 @@ public class Axis {
 
 	public Axis setDivisions(double[] divisions) {
 		this.divisions = divisions;
+		
+		yAxisValues = new LinkedList<>();
+		for (int i = 0; i < divisions.length; i++)
+		{
+			yAxisValues.add(new LinkedList<>());
+		}
 		return this;
 	}
 
@@ -172,6 +188,16 @@ public class Axis {
 		return this;
 	}
 	
+	public Axis setFontSize(double fontSize) {
+		this.fontSize = fontSize;
+		return this;
+	}
+	
+	public Axis setSide(SIDE side) {
+		this.side = side;
+		return this;
+	}
+	
 	public void draw(GraphicsContext gc)
 	{
 		/* draw main axis spine */
@@ -186,44 +212,101 @@ public class Axis {
 		double value = startingValue;
 		int tickIndex = 0;
 		double deltaSpacing = startingNonLinearDeltaTick;
+		boolean firstTick = true;
+		double stopEndingValue = endingValue;
+		int step = 0;
 		
 		if (!ascending)
 		{
-			while (value >= endingValue) 
+			while (tickIndex < divisions.length) 
 			{
-				drawTick(gc, tickIndex, divisions.length, yLoc, value);
-				
-				value += divisions[tickIndex];
-				tickIndex++;
-				
-				if (isLinear)
+				while (value >= stopEndingValue) 
 				{
-					yLoc += linearDeltaTick;
+					
+					
+					if (tickIndex == 0)
+					{
+						yAxisValues.get(tickIndex).add(value);
+					}
+					else
+					{
+						
+					}
+					
+					drawTick(gc, tickIndex, yLoc, value);
+					step++;
+					value -= divisions[0];
+					
+					if (isLinear)
+					{
+						yLoc += linearDeltaTick;
+					}
+					else
+					{
+						if (firstTick)
+						{
+							yLoc += (deltaSpacing);
+							firstTick = false;
+						}
+						else
+						{
+							yLoc += (deltaSpacing);
+							deltaSpacing -= Math.pow(nonLinearDeltaTick, 2);
+						}
+					}
 				}
-				else
+				
+				tickIndex++;
+				if (tickIndex < divisions.length) 
 				{
-					yLoc += (deltaSpacing + nonLinearDeltaTick);
+					yLoc = graphLocation.getY();
+					value = startingValue;
+					deltaSpacing = startingNonLinearDeltaTick;
+					firstTick = true;
+					stopEndingValue = endingValue;
+					step = 0;
 				}
 			}
 		}
 		
 	}
 	
-	private void drawTick(GraphicsContext gc, int index, int numIndices, double yValue, double value)
+	private void drawTick(GraphicsContext gc, int index, double yValue, double value)
 	{
 		
 		/* setup values */
-		double leftSideTick = graphLocation.getX() - (20 - (index * 3));
-		double rightSideTick = leftSideTick * 2;
+		int tickWidth = 8;
+		double leftSideTick = graphLocation.getX() - (tickWidth - (index * 3));
+		double rightSideTick = graphLocation.getX() + (tickWidth - (index * 3));
 		
 		/* draw tick */
 		gc.setFill(Color.BLACK);
 		gc.setLineWidth(2.0 - (index * .5));
-		gc.moveTo(leftSideTick, yValue);
-		gc.lineTo(rightSideTick, graphLocation.getY() + yValue);
+		
+		switch (side)
+		{
+			case LEFT:
+				gc.moveTo(leftSideTick, yValue);
+				gc.lineTo(graphLocation.getX(), yValue);
+				break;
+			case RIGHT:
+				gc.moveTo(graphLocation.getX(), yValue);
+				gc.lineTo(rightSideTick, yValue);
+				break;
+			case BOTH:
+				gc.moveTo(leftSideTick, yValue);
+				gc.lineTo(rightSideTick, yValue);
+				break;
+		}
+		
 		gc.stroke();
 		
 		/* draw text if needed */
+		if (index == 0)
+		{
+			gc.setFont(Font.font(fontSize));
+			gc.fillText(""+value, leftSideTick - 34, yValue + 4);
+		}
 		
 	}
 }
