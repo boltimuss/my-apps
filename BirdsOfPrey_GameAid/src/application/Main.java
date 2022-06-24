@@ -4,6 +4,7 @@ import com.birdsofprey.nomograph.Axis;
 import com.birdsofprey.nomograph.Axis.SIDE;
 import com.birdsofprey.nomograph.ColorRange;
 import com.birdsofprey.nomograph.Nomograph;
+import com.birdsofprey.nomograph.data.NomographData;
 
 import javafx.application.Application;
 import javafx.geometry.Point2D;
@@ -16,7 +17,7 @@ import javafx.scene.paint.Color;
 
 public class Main extends Application {
 	
-	private Canvas canvas = new Canvas(500, 800);
+	private Canvas canvas = new Canvas(500, 900);
 	private Nomograph nomo1;
 	
 	@Override
@@ -28,7 +29,7 @@ public class Main extends Application {
 			
 			BorderPane root = new BorderPane();
 			root.getChildren().add(canvas);
-			Scene scene = new Scene(root,500, 800);
+			Scene scene = new Scene(root,500, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -46,35 +47,46 @@ public class Main extends Application {
 		
 		Axis altitude = new Axis();
 		altitude.setAscending(false).
-			setGraphLocation(new Point2D(50,50)).
+			setGraphLocation(new Point2D(50,100)).
 			setStartingValue(320).
 			setEndingValue(0).
 			addTextColorRanges(new ColorRange(Color.BLACK, 0.0, 320.0)).
-			setDivisions(new double[] {10.0, 5.0, 2.5}).
-			setLinear(false).
-//			setNonLinearDeltaTick(0.46875 / 1.5).
-			setNonLinearDeltaTick(0.454545 / 1.5).
-			setStartingNonLinearDeltaTick(35.0 / 1.50).
+			setDivisions(new double[] {10.0, 5.0}).
+			setDataPoints(NomographData.altitude).
+			setZoom(8.0).
 			setFontSize(9.5).
 			setSide(SIDE.LEFT);
 		
-//		Axis KEAS = new Axis();
-//		altitude.setAscending(true).
-//			setGraphLocation(new Point2D(150,50)).
-//			setHeight(320).
-//			setPlotPrintIncrement(10).
-//			setStartingValue(320).
-//			setEndingValue(0).
-//			addTextColorRanges(new ColorRange(Color.BLACK, 0.0, 320.0)).
-//			setDivisions(new double[] {10.0, 5.0}).
+		Axis KEAS_left = new Axis();
+		KEAS_left.setAscending(true).
+			setGraphLocation(new Point2D(150,-33)).
+			setStartingValue(40).
+			setEndingValue(1000).
+			addTextColorRanges(new ColorRange(Color.BLACK, 60.0, 775.0)).
+			addTextColorRanges(new ColorRange(Color.ORANGE, 840.0, 1000.0)).
+			setDivisions(new double[] {40.0, 20.0, 10.0}).
+			setDataPoints(NomographData.KEAS).
+			setZoom(8.0).
+			setFontSize(9.5).
+			setSide(SIDE.LEFT);
+		
+//		Axis KEAS_left = new Axis();
+//		KEAS_left.setAscending(true).
+//			setGraphLocation(new Point2D(150,77)).
+//			setStartingValue(40).
+//			setEndingValue(1000).
+//			addTextColorRanges(new ColorRange(Color.BLACK, 60.0, 775.0)).
+//			addTextColorRanges(new ColorRange(Color.ORANGE, 840.0, 1000.0)).
+//			setDivisions(new double[] {40.0, 20.0, 10.0}).
 //			setLinear(false).
-//			setNonLinearDeltaTick(.452).
-//			setStartingNonLinearDeltaTick(13.0).
+//			setNonLinearDeltaTick(1.25).
+//			setParabolicExponent(4).
+//			setStartingNonLinearDeltaTick(54).
 //			setFontSize(9.5).
 //			setSide(SIDE.LEFT);
 		
 		nomo1.addAxis(altitude);
-//		nomo1.addAxis(KEAS);
+		nomo1.addAxis(KEAS_left);
 	}
 
 	public static void main(String[] args) {

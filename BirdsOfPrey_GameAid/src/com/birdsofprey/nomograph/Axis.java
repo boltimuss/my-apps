@@ -2,6 +2,8 @@ package com.birdsofprey.nomograph;
 
 import java.util.LinkedList;
 
+import com.birdsofprey.nomograph.data.NomographData;
+
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -17,9 +19,9 @@ public class Axis {
 	
 	private double fontSize;
 	private SIDE side;
-//	private LinkedList<LinkedList<Double>> yAxisValues = new LinkedList<LinkedList<Double>>();
 	private LinkedList<Tick> yAxisValues = new LinkedList<Tick>();
 	private boolean valuesInit = false;
+	private double parabolicExponent;
 	
 	/**
 	 * The location in the graph where the axis is located
@@ -82,6 +84,21 @@ public class Axis {
 	 */
 	private double linearDeltaTick;
 	
+	private double[] dataPoints;
+	
+	private double zoom;
+	
+	
+	public Axis setZoom(double zoom) {
+		this.zoom = zoom;
+		return this;
+	}
+
+	public Axis setDataPoints(double[] dataPoints) {
+		this.dataPoints = dataPoints;
+		return this;
+	}
+
 	public Point2D getGraphLocation() {
 		return graphLocation;
 	}
@@ -173,6 +190,12 @@ public class Axis {
 		return this;
 	}
 	
+	public Axis setParabolicExponent(double parabolicExponent) {
+		this.parabolicExponent = parabolicExponent;
+		return this;
+	}
+
+	
 	public void draw(GraphicsContext gc)
 	{
 		if (!valuesInit) calculateValues();
@@ -249,21 +272,18 @@ public class Axis {
 	private void seedInitialValues()
 	{
 		double value = startingValue;
-		double deltaValue = 0;
 		double yValue = graphLocation.getY();
-		double deltaTick = startingNonLinearDeltaTick;
+		double deltaValue = 0;
 		
 		yAxisValues.add(new Tick(0,yValue,value+deltaValue));
 		value += (!ascending) ? -divisions[0] : divisions[0];
-		yValue += deltaTick;
-		deltaTick -= nonLinearDeltaTick;
+		yValue += (dataPoints[0] * zoom);
 		
 		for (int i = 1; i <= ((Math.abs(startingValue - endingValue)) / divisions[0]); i++)
 		{
 			yAxisValues.add(new Tick(0,yValue,value+deltaValue));
 			value += (!ascending) ? -divisions[0] : divisions[0];
-			yValue += deltaTick;
-			deltaTick -= nonLinearDeltaTick;
+			yValue += (dataPoints[i] * zoom);
 		}
 	}
 	
@@ -271,7 +291,7 @@ public class Axis {
 	{
 		
 		/* setup values */
-		int tickWidth = 8;
+		int tickWidth = 10;
 		double leftSideTick = graphLocation.getX() - (tickWidth - (tick.getDivision() * 3));
 		double rightSideTick = graphLocation.getX() + (tickWidth - (tick.getDivision()  * 3));
 		

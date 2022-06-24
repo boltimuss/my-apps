@@ -1,0 +1,61 @@
+package com.flightleader.hex;
+
+import java.util.HashMap;
+
+import org.hexworks.mixite.core.api.contract.SatelliteData;
+
+public class HexData implements SatelliteData {
+
+	private double movementCost = 1;
+	private boolean opaque;
+	private boolean passable;
+	private HashMap<String, Object> data = new HashMap<String, Object>();
+	private String name;
+	
+	@Override
+	public double getMovementCost() {
+		return movementCost;
+	}
+
+	@Override
+	public boolean getOpaque() {
+		return opaque;
+	}
+
+	@Override
+	public boolean getPassable() {
+		return passable;
+	}
+
+	@Override
+	public void setMovementCost(double arg0) {
+		movementCost = arg0;
+	}
+
+	@Override
+	public void setOpaque(boolean arg0) {
+		opaque = arg0;
+	}
+
+	@Override
+	public void setPassable(boolean arg0) {
+		passable = arg0;
+	}
+
+	public HashMap<String, Object> getData() {
+		return data;
+	}
+
+	public void setData(HashMap<String, Object> data) {
+		this.data = data;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}
