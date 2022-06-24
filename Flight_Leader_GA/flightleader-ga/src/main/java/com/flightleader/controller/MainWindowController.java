@@ -38,6 +38,9 @@ public class MainWindowController implements Subscriber {
 	private Point2D canvasDrag;
 	private Point2D canvasTranslation;
 	private Point2D zoomOrigin;
+	private Point2D oldZoomOrigin = new Point2D(0,0);
+	private boolean zoomChange = false;
+	private double oldZoom = 1.0;
 	private double dx = 0;
 	private double dy = 0;
 	
@@ -58,7 +61,9 @@ public class MainWindowController implements Subscriber {
             	
             	event.consume();
             	double delta = 1.2;
-            	
+            	zoomChange = true;
+            	oldZoomOrigin = new Point2D(zoomOrigin.getX(), zoomOrigin.getY());
+            	oldZoom = zoom;
             	zoomOrigin = new Point2D(event.getX(), event.getY());
             	
                 if (event.getDeltaY() < 0)
@@ -78,16 +83,45 @@ public class MainWindowController implements Subscriber {
     
     private void drawCanvas()
     {
-
     	GraphicsContext gc = canvas.getGraphicsContext2D();
     	gc.setTransform(new Affine());
     	gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     	gc.translate(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
     	
-    	gc.translate(zoomOrigin.getX(), zoomOrigin.getY());
-		gc.scale(zoom, zoom);
-    	gc.translate(-zoomOrigin.getX(), -zoomOrigin.getY());
+//    	gc.translate(zoomOrigin.getX(), zoomOrigin.getY());
     	
+    	Affine a = gc.getTransform();
+    	Affine a2 = gc.getTransform();
+    	a.appendScale(zoom, zoom, zoomOrigin);
+    	a2.appendScale(zoom	, zoom, oldZoomOrigin);
+    	
+		if (zoomChange)
+		{
+			zoomChange = false;
+			System.out.println("----------------------------------------------------------------");
+			System.out.println("a: "+a);
+			System.out.println("zoomOrigin: "+zoomOrigin);
+			System.out.println("----------------------------------------------------------------");
+			System.out.println("a2: "+a2);
+			System.out.println("oldZoomOrigin: "+oldZoomOrigin);
+//			gc.translate(a.getTx()-a2.getTx(), a.getTy()-a2.getTy());
+			gc.setTransform(a2);
+			
+		}
+		else {
+			gc.setTransform(a);
+		}
+	
+		
+//    	gc.translate(zoomOrigin.getX(), zoomOrigin.getY());
+//		gc.scale(zoom, zoom);
+//    	gc.translate(-zoomOrigin.getX(), -zoomOrigin.getY());
+	
+		drawHexes(gc);
+    }
+    
+    private void drawHexes(GraphicsContext gc) 
+    {
     	for (int col = 0; col < ACTUAL_GRID_WIDTH; col++)
     	{
     		for (int row = 0; row < ACTUAL_GRID_HEIGHT ; row++)
@@ -120,7 +154,6 @@ public class MainWindowController implements Subscriber {
 		        gc.fillText(hex.getSatelliteData().get().getName(), points.get(2).getCoordinateX()-1, points.get(2).getCoordinateY()-4);
     		}
     	}
-    	
     }
     
     public void onMouseClicked(MouseEvent event)
