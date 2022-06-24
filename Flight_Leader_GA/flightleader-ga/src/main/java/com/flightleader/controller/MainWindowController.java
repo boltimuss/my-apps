@@ -37,12 +37,9 @@ public class MainWindowController implements Subscriber {
 	private Point2D dragStart;
 	private Point2D canvasDrag;
 	private Point2D canvasTranslation;
-	private Point2D zoomOrigin;
-	private Point2D oldZoomOrigin = new Point2D(0,0);
-	private boolean zoomChange = false;
-	private double oldZoom = 1.0;
-	private double dx = 0;
-	private double dy = 0;
+	private Point2D topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner;
+	private boolean hardstopLeft, hardstopTop, hardstop,Right, hardstopBottom;
+	private Point2D oldCanvasDrag;
 	
 	@FXML
 	Canvas canvas;
@@ -51,7 +48,6 @@ public class MainWindowController implements Subscriber {
     public void initialize() {
        
     	MessageBus.getInstanceOf().addSubscriber("windowSizeChanged", this);
-    	zoomOrigin = new Point2D(0,0);
     	canvasDrag = new Point2D(0,0);
     	canvasTranslation = new Point2D(0,0);
     	
@@ -60,16 +56,15 @@ public class MainWindowController implements Subscriber {
             public void handle(ScrollEvent event) {
             	
             	event.consume();
-            	double delta = 1.2;
-            	zoomChange = true;
-            	oldZoomOrigin = new Point2D(zoomOrigin.getX(), zoomOrigin.getY());
-            	oldZoom = zoom;
-            	zoomOrigin = new Point2D(event.getX(), event.getY());
             	
                 if (event.getDeltaY() < 0)
-                	zoom /= delta;
+                {
+                	zoom -= .25;
+                }
                 else
-                	zoom *= delta;
+                {
+                	zoom += .25;
+                }
             	
             	zoom = Math.max(0.5, zoom);
             	zoom = Math.min(44.0, zoom);
@@ -86,37 +81,14 @@ public class MainWindowController implements Subscriber {
     	GraphicsContext gc = canvas.getGraphicsContext2D();
     	gc.setTransform(new Affine());
     	gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-    	gc.translate(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
     	
-//    	gc.translate(zoomOrigin.getX(), zoomOrigin.getY());
+    	double width = canvas.getWidth();
+    	double height = canvas.getHeight();
     	
-    	Affine a = gc.getTransform();
-    	Affine a2 = gc.getTransform();
-    	a.appendScale(zoom, zoom, zoomOrigin);
-    	a2.appendScale(zoom	, zoom, oldZoomOrigin);
-    	
-		if (zoomChange)
-		{
-			zoomChange = false;
-			System.out.println("----------------------------------------------------------------");
-			System.out.println("a: "+a);
-			System.out.println("zoomOrigin: "+zoomOrigin);
-			System.out.println("----------------------------------------------------------------");
-			System.out.println("a2: "+a2);
-			System.out.println("oldZoomOrigin: "+oldZoomOrigin);
-//			gc.translate(a.getTx()-a2.getTx(), a.getTy()-a2.getTy());
-			gc.setTransform(a2);
-			
-		}
-		else {
-			gc.setTransform(a);
-		}
-	
+    	gc.translate(((width - (width*zoom))/2), ((height - (height*zoom))/2));
+		gc.scale(zoom, zoom);
+		gc.translate(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
 		
-//    	gc.translate(zoomOrigin.getX(), zoomOrigin.getY());
-//		gc.scale(zoom, zoom);
-//    	gc.translate(-zoomOrigin.getX(), -zoomOrigin.getY());
-	
 		drawHexes(gc);
     }
     
@@ -167,41 +139,50 @@ public class MainWindowController implements Subscriber {
     
     public void onMouseDragged(MouseEvent event)
     {
-    	if (dragStart == null)
+    	if (event.getButton() == MouseButton.SECONDARY) 
     	{
-    		dragStart = new Point2D(event.getX(), event.getY());
-    	}
-    	
-    	clampTranslation(event.getX(), event.getY());
-    	drawCanvas();
+
+    		canvasDrag = new Point2D((event.getSceneX() - dragStart.getX()) * (1 / zoom),
+    				(event.getSceneY() - dragStart.getY()) * (1 / zoom));
+    		
+    		checkBounds(event);
+    		drawCanvas();
+    		event.consume();
+      }
     }
     
-    private void clampTranslation(double x, double y)
+    private void checkBounds(MouseEvent event)
     {
-    	if (dragStart == null) return;
     	
-    	double newX = x - dragStart.getX();
-    	double newY = y - dragStart.getY();
-
-//    	if (newX + canvasTranslation.getX() > canvas.getWidth() -75)
-//    	{
-//    		newX = canvas.getWidth() - canvasTranslation.getX() - 75;
-//    	}
-//    	else if (newX + canvasTranslation.getX() < ACTUAL_GRID_WIDTH * -44.25)
-//    	{
-//    		newX = (ACTUAL_GRID_WIDTH * -44.25) - canvasTranslation.getX();
-//    	}
-//    	
-//    	if (newY + canvasTranslation.getY() > canvas.getHeight() -118)
-//    	{
-//    		newY = canvas.getHeight() - canvasTranslation.getY() - 118;
-//    	}
-//    	else if (newY + canvasTranslation.getY() < ACTUAL_GRID_HEIGHT * -51.18)
-//    	{
-//    		newY =  (ACTUAL_GRID_HEIGHT * -51.18) - canvasTranslation.getY();
-//    	}
+    	double width = canvas.getWidth();
+    	double height = canvas.getHeight();
     	
-    	canvasDrag = new Point2D(newX, newY);
+    	Affine a = new Affine();
+    	a.appendTranslation(((width - (width*zoom))/2), ((height - (height*zoom))/2));
+		a.appendScale(zoom, zoom);
+		a.appendTranslation(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
+		
+		topLeftCorner = a.transform(new Point2D(0,0));
+		topRightCorner = a.transform(new Point2D(canvas.getWidth(),0));
+		bottomLeftCorner = a.transform(new Point2D(0,canvas.getHeight()));
+		bottomRightCorner = a.transform(new Point2D(canvas.getWidth(),canvas.getHeight()));
+		
+		if (topLeftCorner.getX() >= 0) 
+		{
+			canvasDrag = new Point2D(canvasDrag.getX()-topLeftCorner.getX(), canvasDrag.getY());
+			hardstopLeft = true;
+		}
+		
+		System.out.println("canvasDrag"+canvasDrag);
+		System.out.println("topLeftCorner"+topLeftCorner);
+    }
+    
+    public void onMousePressed(MouseEvent event)
+    {
+    	if (event.getButton() == MouseButton.SECONDARY) 
+    	{
+    		dragStart = new Point2D(event.getSceneX(), event.getSceneY());
+	    }
     }
     
     public void onMouseReleased(MouseEvent event)
@@ -209,11 +190,10 @@ public class MainWindowController implements Subscriber {
     	
     	if (event.getButton() == MouseButton.SECONDARY)
     	{
-    		return;
+        	canvasTranslation = canvasTranslation.add(canvasDrag);
+        	canvasDrag = new Point2D(0,0);
+        	event.consume();
     	}
-    	
-    	dragStart = null;
-    	canvasTranslation = canvasTranslation.add(canvasDrag);
     }
 
 	@Override
@@ -228,7 +208,6 @@ public class MainWindowController implements Subscriber {
 				{
 					canvas.setWidth(d.getWidth());
 					canvas.setHeight(d.getHeight());
-					clampTranslation(0,0);
 					drawCanvas();
 				}
 				break;

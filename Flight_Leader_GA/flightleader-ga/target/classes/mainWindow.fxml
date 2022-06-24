@@ -17,6 +17,6 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Canvas fx:id="canvas" height="1846.0" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" onMouseReleased="#onMouseReleased" width="2670.0" />
+      <Canvas fx:id="canvas" height="1846.0" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" width="2670.0" />
    </children>
 </VBox>
