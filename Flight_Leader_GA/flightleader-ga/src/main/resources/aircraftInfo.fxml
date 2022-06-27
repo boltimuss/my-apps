@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightleader.aircraft.AircraftInfoController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightleader.aircraft.AircraftInfoController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints minWidth="10.0" />
@@ -29,7 +29,7 @@
    <children>
       <HBox alignment="CENTER_RIGHT" spacing="4.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="saveBTN" mnemonicParsing="false" text="Save" />
+            <Button fx:id="saveBTN" mnemonicParsing="false" onAction="#onSave" text="Save" />
             <Button fx:id="cancelBTN" mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
          </children>
          <GridPane.margin>
@@ -265,7 +265,7 @@
                               <Font name="Verdana" size="14.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="entryDateDP" prefHeight="25.0" prefWidth="300.0" promptText="Entry Date">
+                        <DatePicker fx:id="entryDateDP" editable="false" onAction="#onEntryDate" prefHeight="25.0" prefWidth="300.0" promptText="Entry Date">
                            <HBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </HBox.margin>
@@ -282,7 +282,7 @@
                               <Font name="Verdana" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="maxSpeedCB" prefHeight="25.0" prefWidth="300.0">
+                        <ComboBox fx:id="maxSpeedCB" onAction="#validateTokenSelected" prefHeight="25.0" prefWidth="300.0">
                            <HBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </HBox.margin>
@@ -299,7 +299,7 @@
                               <Font name="Verdana" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="maxAltitudeCB" prefHeight="25.0" prefWidth="300.0">
+                        <ComboBox fx:id="maxAltitudeCB" onAction="#validateTokenSelected" prefHeight="25.0" prefWidth="300.0">
                            <HBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </HBox.margin>
@@ -316,7 +316,7 @@
                               <Font name="Verdana" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="primaryUseCB" prefHeight="25.0" prefWidth="300.0">
+                        <ComboBox fx:id="primaryUseCB" onAction="#validateTokenSelected" prefHeight="25.0" prefWidth="300.0">
                            <HBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </HBox.margin>
@@ -454,7 +454,7 @@
                               <Font name="Verdana" size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="200.0" prefWidth="300.0">
+                        <TextArea fx:id="notesTA" prefHeight="200.0" prefWidth="300.0">
                            <HBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </HBox.margin>

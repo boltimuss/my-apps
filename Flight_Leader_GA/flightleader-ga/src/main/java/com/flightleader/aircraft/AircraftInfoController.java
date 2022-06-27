@@ -6,10 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.flightleader.aircraft.Aircraft.ACCELERATION;
 import com.flightleader.aircraft.Aircraft.SUPERSONIC;
-import com.flightleader.hex.HexUtils;
+import com.flightleader.messagebus.MessageBus;
 import com.google.gson.Gson;
 
 import javafx.application.Platform;
@@ -17,9 +19,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,11 +41,22 @@ public class AircraftInfoController {
 	private ImageView tokenImage;
 	private Aircraft aircraft;
 	private boolean antiTextLoop;
+	private boolean canSaveCB, canSaveTF;
+	
+	@FXML
+	Button saveBTN;
+	
+	@FXML
+	TextArea notesTA;
 	
 	@FXML
 	Canvas tokenView;
 	
-	@FXML TextField aircraftNameTF;
+	@FXML TextField aircraftNameTF, crewQualityAValue, crewQualityBValue, crewQualityCValue, crewQualityDValue, crewQualityEValue, 
+	crewQualityFValue;
+	
+	@FXML
+	DatePicker entryDateDP;
 	
 	@FXML
 	ComboBox<String> turnTypeCB, sizeCB, accelerationCB, afterburnerCB, supersonicCB, missileRailsCB, internalGunCB,
@@ -77,8 +91,115 @@ public class AircraftInfoController {
 		    aircraft.aircraftName = newValue;
 		    repaintToken(); 
 		});
+		
+		addTextFieldValidationListener(aircraftNameTF, false);
+		addTextFieldValidationListener(crewQualityAValue, true);
+		addTextFieldValidationListener(crewQualityBValue, true);
+		addTextFieldValidationListener(crewQualityCValue, true);
+		addTextFieldValidationListener(crewQualityDValue, true);
+		addTextFieldValidationListener(crewQualityEValue, true);
+		addTextFieldValidationListener(crewQualityFValue, true);
+		
+		saveBTN.setDisable(true);
 		repaintToken(); 
     }
+	
+	public void loadAircraft(Aircraft aircraft)
+	{
+		aircraftNameTF.setText(aircraft.getAircraftName());
+		DateTimeFormatter customDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate localDate = LocalDate.parse(aircraft.getEntryDate(), customDateTimeFormatter);
+		entryDateDP.setValue(localDate);
+		maxSpeedCB.getSelectionModel().select(aircraft.getMaxSpeed()-1);
+		maxAltitudeCB.getSelectionModel().select(aircraft.getMaxAltitude()-1);
+		missileRailsCB.getSelectionModel().select(aircraft.getMissileRails());
+		internalGunCB.getSelectionModel().select(aircraft.getInternalGuns().ordinal());
+		turnTypeCB.getSelectionModel().select(aircraft.getTurnType().ordinal());
+		sizeCB.getSelectionModel().select(aircraft.getSize().ordinal());
+		accelerationCB.getSelectionModel().select(aircraft.getAcceleration().ordinal());
+		afterburnerCB.getSelectionModel().select(aircraft.getAfterburner().ordinal());
+		supersonicCB.getSelectionModel().select(aircraft.getSupersonic().ordinal());
+		radarCB.getSelectionModel().select(aircraft.getRadar());
+		counterMeasureCB.getSelectionModel().select(aircraft.getCountermeasure());
+		crewSizeCB.getSelectionModel().select(aircraft.getCrewSize());
+		canopyTypeCB.getSelectionModel().select(aircraft.getCanopyType().ordinal());
+		primaryUseCB.getSelectionModel().select(aircraft.getPrimaryUse().ordinal());
+		notesTA.setText(aircraft.getNotes());
+		crewQualityAValue.setText(""+aircraft.getCrewQualityAValue());
+		crewQualityBValue.setText(""+aircraft.getCrewQualityBValue());
+		crewQualityCValue.setText(""+aircraft.getCrewQualityCValue());
+		crewQualityDValue.setText(""+aircraft.getCrewQualityDValue());
+		crewQualityEValue.setText(""+aircraft.getCrewQualityEValue());
+		crewQualityFValue.setText(""+aircraft.getCrewQualityFValue());
+		if (aircraft.tokenImage != null && !aircraft.tokenImage.isEmpty())
+		{
+			try {
+				tokenImage = new ImageView(new Image(new FileInputStream(aircraft.getTokenImage())));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		this.aircraft = aircraft;
+		checkComboBoxesForSaving();
+		checkTextFieldsForSaving();
+		
+		repaintToken(); 
+	}
+	
+	public void onEntryDate()
+	{
+		aircraft.setEntryDate(entryDateDP.getValue().toString());
+		checkTextFieldsForSaving();
+	}
+	
+	private void addTextFieldValidationListener(TextField tf, boolean numericOnly)
+	{
+		tf.textProperty().addListener((observable, oldValue, newValue) -> {
+			
+			if (!newValue.matches("\\d*") && numericOnly) {
+	            tf.setText(newValue.replaceAll("[^\\d]", ""));
+	        }
+			
+			checkTextFieldsForSaving();
+			
+		});
+	}
+	
+	private void checkTextFieldsForSaving()
+	{
+		canSaveTF = true;
+		
+		canSaveTF &= !aircraftNameTF.getText().isEmpty() && !aircraftNameTF.getText().isBlank();
+		canSaveTF &= !crewQualityAValue.getText().isEmpty() && !crewQualityAValue.getText().isBlank();
+		canSaveTF &= !crewQualityBValue.getText().isEmpty() && !crewQualityBValue.getText().isBlank();
+		canSaveTF &= !crewQualityCValue.getText().isEmpty() && !crewQualityCValue.getText().isBlank();
+		canSaveTF &= !crewQualityDValue.getText().isEmpty() && !crewQualityDValue.getText().isBlank();
+		canSaveTF &= !crewQualityEValue.getText().isEmpty() && !crewQualityEValue.getText().isBlank();
+		canSaveTF &= !crewQualityFValue.getText().isEmpty() && !crewQualityFValue.getText().isBlank();
+		canSaveTF &= (entryDateDP.getValue() != null);
+		
+		saveBTN.setDisable(!(canSaveTF && canSaveCB));
+	}
+	
+	private void checkComboBoxesForSaving()
+	{
+		canSaveCB = true;
+		canSaveCB &= turnTypeCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= accelerationCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= supersonicCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= missileRailsCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= internalGunCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= radarCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= counterMeasureCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= crewSizeCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= canopyTypeCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= maxSpeedCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= maxAltitudeCB.getSelectionModel().getSelectedIndex() > -1;
+		canSaveCB &= primaryUseCB.getSelectionModel().getSelectedIndex() > -1;
+		
+		saveBTN.setDisable(!(canSaveTF && canSaveCB));
+	}
 	
 	@SuppressWarnings("unchecked")
 	public void validateTokenSelected(@SuppressWarnings("exports") ActionEvent event)
@@ -128,7 +249,17 @@ public class AircraftInfoController {
 			case "primaryUseCB":
 				aircraft.primaryUse = Aircraft.PRIMARY_USE.values()[primaryUseCB.getSelectionModel().getSelectedIndex()];
 				break;
+			case "maxSpeedCB":
+				aircraft.maxSpeed = Integer.valueOf(maxSpeedCB.getSelectionModel().getSelectedItem());
+				break;
+			case "maxAltitudeCB":
+				aircraft.maxAltitude = Integer.valueOf(maxAltitudeCB.getSelectionModel().getSelectedItem());
+				break;
+			default:
+					break;
 		}
+		
+		checkComboBoxesForSaving();
 		
 		repaintToken();
 	}
@@ -158,8 +289,8 @@ public class AircraftInfoController {
 	        maxAltitudeCB.getItems().addAll(aircraftProps.maxAltitude);
 	        primaryUseCB.getItems().addAll(aircraftProps.primaryUse);
 			
-	        sizeCB.getSelectionModel().clearAndSelect(1);
-	        afterburnerCB.getSelectionModel().clearAndSelect(1);
+	        sizeCB.getSelectionModel().select(1);
+	        afterburnerCB.getSelectionModel().select(1);
 			reader.close();
 			
 		} catch (Exception e) {
@@ -174,7 +305,7 @@ public class AircraftInfoController {
 		gc.clearRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
 		gc.setFill(Color.rgb(156, 206, 250));
 		gc.fillRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
-		gc.drawImage(tokenImage.getImage(), 25, 25, 50, 50);
+		gc.drawImage(tokenImage.getImage(), 25, 18, 50, 65);
 		drawRadarCountermeasuresCanopy(gc);
 		drawCrewSize(gc);
 		drawAircraftNameAndIdent(gc);
@@ -191,13 +322,13 @@ public class AircraftInfoController {
         gc.setFill(Color.BLACK);
         if (aircraft.missileRails > 9)
         {
-        	gc.fillText(""+(aircraft.missileRails-10), 22, 88);
+        	gc.fillText(""+(aircraft.missileRails-10), 18, 88);
         	gc.setLineWidth(2.0);
-        	gc.strokeLine(23, 91, 28, 91);
+        	gc.strokeLine(19, 91, 24, 91);
         }
         else if (aircraft.missileRails >= 0)
         {
-        	gc.fillText(""+aircraft.missileRails, 22, 88);
+        	gc.fillText(""+aircraft.missileRails, 18, 88);
         }
         
         if (aircraft.internalGuns == null) return;
@@ -208,11 +339,11 @@ public class AircraftInfoController {
 	        	break;
 	        
 	        case CANNON:
-	        	gc.fillText("C", 29, 88);
+	        	gc.fillText("C", 25, 88);
 	        	break;
 	        	
 	        case MACHINE_GUN:
-	        	gc.fillText("M", 29, 88);
+	        	gc.fillText("M", 25, 88);
 	        	break;
         }
 	}
@@ -274,7 +405,7 @@ public class AircraftInfoController {
         {
         	gc.fillText(""+(aircraft.radar-10), 63, 30);
         	gc.setLineWidth(2.0);
-        	gc.strokeLine(62,34, 66, 34);
+        	gc.strokeLine(66,33, 70, 33);
         }
         else if (aircraft.radar >= 0)
         {
@@ -285,7 +416,7 @@ public class AircraftInfoController {
         {
         	gc.fillText(""+(aircraft.countermeasure-10), 70, 30);
         	gc.setLineWidth(2.0);
-        	gc.strokeLine(69,34, 73, 34);
+        	gc.strokeLine(73,33, 77, 33);
         }
         else if (aircraft.countermeasure >= 0)
         {
@@ -313,6 +444,7 @@ public class AircraftInfoController {
 		 if (selectedFile != null) {
 			 try {
 				tokenImage = new ImageView(new Image(new FileInputStream(selectedFile.getAbsolutePath())));
+				aircraft.tokenImage = selectedFile.getAbsolutePath();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -325,6 +457,19 @@ public class AircraftInfoController {
 		stage.close();
 	}
 	
+	public void onSave(ActionEvent event)
+	{
+		aircraft.notes = notesTA.getText();
+		aircraft.setCrewQualityAValue(Integer.valueOf(crewQualityAValue.getText()));
+		aircraft.setCrewQualityBValue(Integer.valueOf(crewQualityBValue.getText()));
+		aircraft.setCrewQualityCValue(Integer.valueOf(crewQualityCValue.getText()));
+		aircraft.setCrewQualityDValue(Integer.valueOf(crewQualityDValue.getText()));
+		aircraft.setCrewQualityEValue(Integer.valueOf(crewQualityEValue.getText()));
+		aircraft.setCrewQualityFValue(Integer.valueOf(crewQualityFValue.getText()));
+		MessageBus.getInstanceOf().broadcastMessage("aircraftSaved", aircraft);
+		stage.close();
+	}
+
 	public void onKeyTyped(KeyEvent event)
 	{
 		

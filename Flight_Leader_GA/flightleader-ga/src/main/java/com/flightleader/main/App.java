@@ -44,6 +44,7 @@ public class App extends Application {
         	
             @Override
             public void handle(WindowEvent e) {
+            	MessageBus.getInstanceOf().broadcastMessage("saveBeforeExit", null);
              Platform.exit();
              System.exit(0);
             }

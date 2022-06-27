@@ -6,8 +6,9 @@ module com.flightleader.flightleader_ga {
 	requires javafx.base;
 	requires com.google.gson;
 	requires java.base;
+	requires java.desktop;
     exports com.flightleader.main;
     exports com.flightleader.aircraft to com.google.gson;
     opens com.flightleader.controller to javafx.fxml;
-    opens com.flightleader.aircraft to javafx.fxml;
+    opens com.flightleader.aircraft;
 }

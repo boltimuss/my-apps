@@ -6,13 +6,13 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightleader.controller.MainWindowController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flightleader.controller.MainWindowController">
    <children>
       <MenuBar fx:id="addAircraft">
         <menus>
           <Menu mnemonicParsing="false" text="Scenario">
             <items>
-              <MenuItem mnemonicParsing="false" text="New" />
+              <MenuItem mnemonicParsing="false" onAction="#newScenario" text="New" />
                   <MenuItem mnemonicParsing="false" text="Open" />
                   <MenuItem mnemonicParsing="false" text="Save" />
             </items>
@@ -20,8 +20,7 @@
             <Menu mnemonicParsing="false" text="Aircraft">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#addAircraft" text="Add" />
-                  <MenuItem mnemonicParsing="false" text="List" />
-                  <MenuItem mnemonicParsing="false" onAction="#addAircraft" text="Import" />
+                  <MenuItem mnemonicParsing="false" onAction="#listAircraft" text="List" />
               </items>
             </Menu>
         </menus>
