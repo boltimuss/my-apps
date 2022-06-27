@@ -108,6 +108,11 @@ public class HexUtils {
 		return instance.calculator.calculateDistanceBetween(srcHex, destHex);
 	}
 	
+	public double getHexSize()
+	{
+		return RADIUS;
+	}
+	
 	public HexagonalGrid<HexData> getHexGrid()
 	{
 		return grid;

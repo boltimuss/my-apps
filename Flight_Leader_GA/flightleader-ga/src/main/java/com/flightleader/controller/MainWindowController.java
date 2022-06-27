@@ -1,5 +1,6 @@
 package com.flightleader.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.hexworks.mixite.core.api.CubeCoordinate;
@@ -7,17 +8,23 @@ import org.hexworks.mixite.core.api.Hexagon;
 import org.hexworks.mixite.core.api.HexagonalGrid;
 import org.hexworks.mixite.core.api.Point;
 
+import com.flightleader.aircraft.AircraftInfoController;
 import com.flightleader.hex.HexData;
 import com.flightleader.hex.HexUtils;
 import com.flightleader.messagebus.MessageBus;
 import com.flightleader.messagebus.Subscriber;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseDragEvent;
@@ -28,6 +35,7 @@ import javafx.scene.text.Font;
 import javafx.scene.transform.Affine;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Transform;
+import javafx.stage.Stage;
 
 public class MainWindowController implements Subscriber {
 
@@ -38,11 +46,9 @@ public class MainWindowController implements Subscriber {
 	private Point2D canvasDrag;
 	private Point2D canvasTranslation;
 	private Point2D topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner;
-	private boolean hardstopLeft, hardstopTop, hardstop,Right, hardstopBottom;
-	private Point2D oldCanvasDrag;
 	
 	@FXML
-	Canvas canvas;
+	private Canvas canvas;
 	
     @FXML
     public void initialize() {
@@ -84,7 +90,6 @@ public class MainWindowController implements Subscriber {
     	
     	double width = canvas.getWidth();
     	double height = canvas.getHeight();
-    	
     	gc.translate(((width - (width*zoom))/2), ((height - (height*zoom))/2));
 		gc.scale(zoom, zoom);
 		gc.translate(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
@@ -121,7 +126,7 @@ public class MainWindowController implements Subscriber {
 			        		points.get(5).getCoordinateY()}, 
 		        		6);
 		        
-		        gc.setFont(Font.font("monospaced", 11.0));
+		        gc.setFont(Font.font("monospaced", 11.0*(HexUtils.getInstanceOf().getHexSize()/32)));
 		        gc.setFill(Color.BLACK);
 		        gc.fillText(hex.getSatelliteData().get().getName(), points.get(2).getCoordinateX()-1, points.get(2).getCoordinateY()-4);
     		}
@@ -145,36 +150,9 @@ public class MainWindowController implements Subscriber {
     		canvasDrag = new Point2D((event.getSceneX() - dragStart.getX()) * (1 / zoom),
     				(event.getSceneY() - dragStart.getY()) * (1 / zoom));
     		
-    		checkBounds(event);
     		drawCanvas();
     		event.consume();
       }
-    }
-    
-    private void checkBounds(MouseEvent event)
-    {
-    	
-    	double width = canvas.getWidth();
-    	double height = canvas.getHeight();
-    	
-    	Affine a = new Affine();
-    	a.appendTranslation(((width - (width*zoom))/2), ((height - (height*zoom))/2));
-		a.appendScale(zoom, zoom);
-		a.appendTranslation(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
-		
-		topLeftCorner = a.transform(new Point2D(0,0));
-		topRightCorner = a.transform(new Point2D(canvas.getWidth(),0));
-		bottomLeftCorner = a.transform(new Point2D(0,canvas.getHeight()));
-		bottomRightCorner = a.transform(new Point2D(canvas.getWidth(),canvas.getHeight()));
-		
-		if (topLeftCorner.getX() >= 0) 
-		{
-			canvasDrag = new Point2D(canvasDrag.getX()-topLeftCorner.getX(), canvasDrag.getY());
-			hardstopLeft = true;
-		}
-		
-		System.out.println("canvasDrag"+canvasDrag);
-		System.out.println("topLeftCorner"+topLeftCorner);
     }
     
     public void onMousePressed(MouseEvent event)
@@ -194,6 +172,23 @@ public class MainWindowController implements Subscriber {
         	canvasDrag = new Point2D(0,0);
         	event.consume();
     	}
+    }
+    
+    public void addAircraft(ActionEvent event)
+    {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/aircraftInfo.fxml"));
+    	Parent root = null;
+		try {
+			root = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	AircraftInfoController controller = loader.getController();
+        Scene scene = new Scene(root, 640, 740);
+        Stage stage = new Stage();
+        controller.setStage(stage);
+        stage.setScene(scene);
+        stage.show();
     }
 
 	@Override
