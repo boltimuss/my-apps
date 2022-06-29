@@ -67,6 +67,7 @@ public class HexUtils {
 				hex.setSatelliteData(hd);
 			}
 		}
+		
 	}
 	
 	public static HexUtils getInstanceOf()

@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 import com.flightleader.aircraft.Aircraft.ACCELERATION;
 import com.flightleader.aircraft.Aircraft.SUPERSONIC;
+import com.flightleader.controller.ViewController;
 import com.flightleader.messagebus.MessageBus;
 import com.google.gson.Gson;
 
@@ -35,9 +36,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-public class AircraftInfoController {
+public class AircraftInfoController extends ViewController {
 
-	private Stage stage;
 	private ImageView tokenImage;
 	private Aircraft aircraft;
 	private boolean antiTextLoop;
@@ -73,6 +73,7 @@ public class AircraftInfoController {
 		loadAircraftJsonProperties();
 		aircraft = new Aircraft();
 		tokenImage = new ImageView(new Image(getClass().getResourceAsStream("/bogey.png")));
+		aircraft.setTokenImage(null);
 		aircraftNameTF.textProperty().addListener((observable, oldValue, newValue) -> {
 		    if (newValue.length() >= 7 && !antiTextLoop) {
 		    	antiTextLoop = true;
@@ -106,6 +107,11 @@ public class AircraftInfoController {
 	
 	public void loadAircraft(Aircraft aircraft)
 	{
+		if (aircraft == null) 
+		{
+			aircraft = new Aircraft();
+			return;
+		}
 		aircraftNameTF.setText(aircraft.getAircraftName());
 		DateTimeFormatter customDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate localDate = LocalDate.parse(aircraft.getEntryDate(), customDateTimeFormatter);
@@ -301,19 +307,20 @@ public class AircraftInfoController {
 	public void repaintToken()
 	{
 		GraphicsContext gc = tokenView.getGraphicsContext2D();
-		gc.setTransform(new Affine());
-		gc.clearRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
-		gc.setFill(Color.rgb(156, 206, 250));
-		gc.fillRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
-		gc.drawImage(tokenImage.getImage(), 25, 18, 50, 65);
-		drawRadarCountermeasuresCanopy(gc);
-		drawCrewSize(gc);
-		drawAircraftNameAndIdent(gc);
-		drawWeapons(gc);
-		drawTurnType(gc);
-		gc.setFill(Color.BLACK);
-		gc.setLineWidth(1.5);
-		gc.strokeRect(0, 0, 100, 100);
+		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.rgb(156, 206, 250));
+//		gc.setTransform(new Affine());
+//		gc.clearRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
+//		gc.setFill(Color.rgb(156, 206, 250));
+//		gc.fillRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
+//		gc.drawImage(tokenImage.getImage(), 25, 18, 50, 65);
+//		drawRadarCountermeasuresCanopy(gc);
+//		drawCrewSize(gc);
+//		drawAircraftNameAndIdent(gc);
+//		drawWeapons(gc);
+//		drawTurnType(gc);
+//		gc.setFill(Color.BLACK);
+//		gc.setLineWidth(1.5);
+//		gc.strokeRect(0, 0, 100, 100);
 	}
 	
 	private void drawWeapons(GraphicsContext gc)
@@ -452,11 +459,6 @@ public class AircraftInfoController {
 		 }
 	}
 	
-	public void onCancel(ActionEvent event)
-	{
-		stage.close();
-	}
-	
 	public void onSave(ActionEvent event)
 	{
 		aircraft.notes = notesTA.getText();
@@ -468,10 +470,5 @@ public class AircraftInfoController {
 		aircraft.setCrewQualityFValue(Integer.valueOf(crewQualityFValue.getText()));
 		MessageBus.getInstanceOf().broadcastMessage("aircraftSaved", aircraft);
 		stage.close();
-	}
-
-	public void onKeyTyped(KeyEvent event)
-	{
-		
 	}
 }

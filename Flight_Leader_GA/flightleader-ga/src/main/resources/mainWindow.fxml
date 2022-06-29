@@ -10,11 +10,16 @@
    <children>
       <MenuBar fx:id="addAircraft">
         <menus>
+            <Menu mnemonicParsing="false" text="Game">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Scenario">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#newScenario" text="New" />
-                  <MenuItem mnemonicParsing="false" text="Open" />
-                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#listScenarios" text="List Scenarios" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Aircraft">
@@ -25,6 +30,6 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Canvas fx:id="canvas" height="1846.0" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" width="2670.0" />
+      <Canvas fx:id="canvas" height="1846.0" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" onMouseMoved="#onMouseMoved" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" width="2670.0" />
    </children>
 </VBox>

@@ -9,6 +9,8 @@ module com.flightleader.flightleader_ga {
 	requires java.desktop;
     exports com.flightleader.main;
     exports com.flightleader.aircraft to com.google.gson;
+    exports com.flightleader.scenario;
     opens com.flightleader.controller to javafx.fxml;
+    opens com.flightleader.scenario; 
     opens com.flightleader.aircraft;
 }

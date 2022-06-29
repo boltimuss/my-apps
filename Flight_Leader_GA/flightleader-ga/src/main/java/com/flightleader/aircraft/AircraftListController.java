@@ -3,6 +3,7 @@ package com.flightleader.aircraft;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.flightleader.controller.ViewController;
 import com.flightleader.messagebus.MessageBus;
 import com.flightleader.messagebus.Subscriber;
 
@@ -11,10 +12,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class AircraftListController implements Subscriber {
+public class AircraftListController extends ViewController implements Subscriber {
 
 	private HashMap<String, Aircraft> aircraftList;
-	private Stage stage;
 	
 	@FXML
 	private TableView<Aircraft> aircraftListView;
@@ -27,11 +27,6 @@ public class AircraftListController implements Subscriber {
 		{
 			aircraftListView.getItems().add(list.get(aircraft));
 		}
-	}
-	
-	public void setStage(Stage stage)
-	{
-		this.stage = stage;
 	}
 	
 	@FXML

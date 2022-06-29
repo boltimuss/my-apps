@@ -1,13 +1,39 @@
 package com.flightleader.aircraft;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import com.flightleader.aircraft.Aircraft.ACCELERATION;
+import com.flightleader.aircraft.Aircraft.SUPERSONIC;
 import com.flightleader.messagebus.MessageBus;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.transform.Affine;
 
 public class Aircraft {
 
+	public enum CREW_QUALITY 
+	{
+		EXPERIENCED("Experienced"), AVERAGE("Average"), INEXPERIENCED("Inexperienced");
+		
+		String name;
+		private CREW_QUALITY(String newName) {
+			name = newName;
+		}
+		
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+	
 	public enum TURNTYPE
 	{
 		A("A"), B("B"), D("D"), E("E"), F("F");
@@ -16,6 +42,8 @@ public class Aircraft {
 		private TURNTYPE(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -29,6 +57,8 @@ public class Aircraft {
 		private SIZE(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -42,6 +72,8 @@ public class Aircraft {
 		private ACCELERATION(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -55,6 +87,8 @@ public class Aircraft {
 		private AFTERBURNER(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -68,6 +102,8 @@ public class Aircraft {
 		private SUPERSONIC(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -81,6 +117,8 @@ public class Aircraft {
 		private INTERNAL_GUNS(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -94,6 +132,8 @@ public class Aircraft {
 		private CANOPY_TYPE(String newName) {
 			name = newName;
 		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -113,6 +153,28 @@ public class Aircraft {
 		private PRIMARY_USE(String newName) {
 			name = newName;
 		}
+		
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+	
+	public enum FACING
+	{
+		NORTH("North"),
+		NORTH_EAST("Northeast"), 
+		SOUTH_EAST("Southeast"), 
+		SOUTH("South"), 
+		SOUTH_WEST("Southwest"),
+		NORTH_WEST("Northwest");
+		
+		String name;
+		private FACING(String newName) {
+			name = newName;
+		}
+		
+		@Override
 		public String toString() {
 			return name;
 		}
@@ -173,6 +235,7 @@ public class Aircraft {
 		crewQualityDValue 	= airC.crewQualityDValue;
 		crewQualityEValue 	= airC.crewQualityEValue;
 		crewQualityFValue 	= airC.crewQualityFValue;
+		crewQuality			= airC.crewQuality;
 		
 		Aircraft a = this;
 		editBTN.setOnAction(new EventHandler<ActionEvent>() {
@@ -195,6 +258,7 @@ public class Aircraft {
 	
 	public transient Button editBTN;
 	public transient Button deleteBTN;
+	public transient Image tokenImageIcon;
 	public String entryDate;
 	public String tokenImage;
 	public int id = -1;
@@ -219,6 +283,9 @@ public class Aircraft {
 	public String notes;
 	public int crewQualityAValue, crewQualityBValue, crewQualityCValue, crewQualityDValue, crewQualityEValue, 
 					crewQualityFValue;
+	public CREW_QUALITY crewQuality;
+	public FACING facing;
+	public String hexLocation;
 	
 	public String getTokenImage() {
 		return tokenImage;
@@ -400,5 +467,180 @@ public class Aircraft {
 	public void setCrewQualityFValue(int crewQualityFValue) {
 		this.crewQualityFValue = crewQualityFValue;
 	}
+	public CREW_QUALITY getCrewQuality() {
+		return crewQuality;
+	}
+	public void setCrewQuality(CREW_QUALITY crewQuality) {
+		this.crewQuality = crewQuality;
+	}
+
+	public FACING getFacing() {
+		return facing;
+	}
+
+	public void setFacing(FACING facing) {
+		this.facing = facing;
+	}
+
+	public String getHexLocation() {
+		return hexLocation;
+	}
+
+	public void setHexLocation(String hexLocation) {
+		this.hexLocation = hexLocation;
+	}
 	
+	public void draw(GraphicsContext gc, 
+							   double width, 
+							   double height, 
+							   double imgX, 
+							   double imgY,
+							   Color backgroundColor)
+	{
+		gc.setTransform(new Affine());
+		gc.clearRect(0, 0, width, height);
+		gc.setFill(backgroundColor);
+		gc.fillRect(0, 0, width, height);
+		
+		if (tokenImage != null && !tokenImage.isEmpty())
+		{
+			try {
+				tokenImageIcon = new Image(new FileInputStream(getTokenImage()));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			tokenImageIcon = new Image(getClass().getResourceAsStream("/bogey.png"));
+		}
+		
+		gc.drawImage(tokenImageIcon, 25+imgX, 18+imgY, 50, 65);
+		drawRadarCountermeasuresCanopy(gc, imgX, imgY);
+		drawCrewSize(gc, imgX, imgY);
+		drawAircraftNameAndIdent(gc, imgX, imgY);
+		drawWeapons(gc, imgX, imgY);
+		drawTurnType(gc, imgX, imgY);
+		gc.setFill(Color.BLACK);
+		gc.setLineWidth(1.5);
+		gc.strokeRect(0, 0, 100, 100);
+	}
+	
+	private void drawWeapons(GraphicsContext gc, double imgX, double imgY)
+	{
+		gc.setFont(Font.font("monospaced", 12.0));
+        gc.setFill(Color.BLACK);
+        if (missileRails > 9)
+        {
+        	gc.fillText(""+(missileRails-10), 18+imgX, 88+imgY);
+        	gc.setLineWidth(2.0);
+        	gc.strokeLine(19+imgX, 91+imgY, 24+imgX, 91+imgY);
+        }
+        else if (missileRails >= 0)
+        {
+        	gc.fillText(""+missileRails, 18+imgX, 88+imgY);
+        }
+        
+        if (internalGuns == null) return;
+        
+        switch (internalGuns)
+        {
+	        case NONE:
+	        	break;
+	        
+	        case CANNON:
+	        	gc.fillText("C", 25+imgX, 88+imgY);
+	        	break;
+	        	
+	        case MACHINE_GUN:
+	        	gc.fillText("M", 25+imgX, 88+imgY);
+	        	break;
+        }
+	}
+	
+	private void drawRadarCountermeasuresCanopy(GraphicsContext gc, double imgX, double imgY)
+	{
+		if (canopyType == Aircraft.CANOPY_TYPE.BUBBLE_CANOPY)
+		{
+			gc.setFill(Color.WHITE);
+			gc.fillOval(62+imgX, 17+imgY, 19, 15);
+		}
+		gc.setFont(Font.font("monospaced", 16.0));
+        gc.setFill(Color.BLACK);
+        
+        if (radar > 9)
+        {
+        	gc.fillText(""+(radar-10), 63+imgX, 30+imgY);
+        	gc.setLineWidth(2.0);
+        	gc.strokeLine(66+imgX,33+imgY, 70+imgX, 33+imgY);
+        }
+        else if (radar >= 0)
+        {
+        	gc.fillText(""+radar, 63+imgX, 30+imgY);
+        }
+        
+        if (countermeasure > 9)
+        {
+        	gc.fillText(""+(countermeasure-10), 70+imgX, 30+imgY);
+        	gc.setLineWidth(2.0);
+        	gc.strokeLine(73+imgX,33+imgY, 77+imgX, 33+imgY);
+        }
+        else if (countermeasure >= 0)
+        {
+        	gc.fillText(""+countermeasure, 70+imgX, 30+imgY);
+        }
+	}
+	
+	private void drawCrewSize(GraphicsContext gc, double imgX, double imgY)
+	{
+		if (crewSize < 1) return;
+		
+		for (int i = 1; i <= crewSize; i++)
+		{
+			gc.fillOval(56+imgX, (32-(i*6))+imgY, 5, 5);
+		}
+	}
+	
+	private void drawAircraftNameAndIdent(GraphicsContext gc, double imgX, double imgY)
+	{
+		gc.setFont(Font.font("monospaced", 12.0));
+        gc.setFill(Color.BLACK);
+        Affine a = gc.getTransform();
+        gc.rotate(-90);
+        gc.translate(-156+imgX, 22+imgY);
+        gc.fillText(aircraftName, 78+imgX, 64+imgY);
+        gc.setTransform(a);
+        
+        if (id > 0) gc.fillText(""+id, 68+imgX, 88+imgY);
+	}
+	
+	private void drawTurnType(GraphicsContext gc, double imgX, double imgY)
+	{
+		gc.setFont(Font.font("monospaced", 12.0));
+        gc.setFill(Color.BLACK);
+        
+		if (size == Aircraft.SIZE.SMALL && turnType != null)
+		{
+			gc.fillText(turnType.toString().toLowerCase(), 22+imgX, 32+imgY);
+		}
+		else if (turnType != null)
+		{
+			gc.fillText(turnType.toString(), 22+imgX, 32+imgY);
+		}
+		
+		if (afterburner == Aircraft.AFTERBURNER.NO && acceleration != null)
+		{
+			gc.fillText((acceleration == ACCELERATION.NORMAL) ? "n" : "h", 29+imgX, 32+imgY);
+		}
+		else if (acceleration != null)
+		{
+			gc.fillText((acceleration == ACCELERATION.NORMAL) ? "N" : "H", 29+imgX, 32+imgY);
+		}
+		
+		if (supersonic != null && supersonic == SUPERSONIC.NO)
+		{
+			gc.setLineWidth(2.0);
+        	gc.strokeLine(23+imgX,34+imgY, 34+imgX, 34+imgY);
+		}
+	}
 }

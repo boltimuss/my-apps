@@ -342,7 +342,7 @@
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="crewQualityAValue" onKeyTyped="#onKeyTyped" prefWidth="50.0">
+                                    <TextField fx:id="crewQualityAValue" prefWidth="50.0">
                                        <HBox.margin>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
@@ -359,7 +359,7 @@
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="crewQualityBValue" onKeyTyped="#onKeyTyped" prefWidth="50.0">
+                                    <TextField fx:id="crewQualityBValue" prefWidth="50.0">
                                        <HBox.margin>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
@@ -376,7 +376,7 @@
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="crewQualityCValue" onKeyTyped="#onKeyTyped" prefWidth="50.0">
+                                    <TextField fx:id="crewQualityCValue" prefWidth="50.0">
                                        <HBox.margin>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
@@ -393,7 +393,7 @@
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="crewQualityDValue" onKeyTyped="#onKeyTyped" prefWidth="50.0">
+                                    <TextField fx:id="crewQualityDValue" prefWidth="50.0">
                                        <HBox.margin>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
@@ -410,7 +410,7 @@
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="crewQualityEValue" onKeyTyped="#onKeyTyped" prefWidth="50.0">
+                                    <TextField fx:id="crewQualityEValue" prefWidth="50.0">
                                        <HBox.margin>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
@@ -427,7 +427,7 @@
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextField fx:id="crewQualityFValue" onKeyTyped="#onKeyTyped" prefWidth="50.0">
+                                    <TextField fx:id="crewQualityFValue" prefWidth="50.0">
                                        <HBox.margin>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                        </HBox.margin>
