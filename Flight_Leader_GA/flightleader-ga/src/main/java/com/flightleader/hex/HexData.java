@@ -61,13 +61,4 @@ public class HexData implements SatelliteData {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public List<Aircraft> getAircraft() {
-		return aircraft;
-	}
-
-	public void setAircraft(List<Aircraft> aircraft) {
-		this.aircraft = (LinkedList<Aircraft>) aircraft;
-	}
-
 }
