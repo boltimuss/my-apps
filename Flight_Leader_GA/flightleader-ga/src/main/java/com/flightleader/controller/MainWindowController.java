@@ -57,7 +57,11 @@ public class MainWindowController implements Subscriber {
 	private HashMap<String, Scenario> scenarios = new HashMap<>();
 	private Aircraft chosenAircraft;
 	private boolean scenarioPlacingAircraft;
+	private boolean scenarioMode;
 	private String placingAircraftHexName = "";
+	private double placingAircraftX, placingAircraftY;
+	private Hexagon<HexData> placingAircraftHex;
+	private Scenario scenario;
 	
 	@FXML
 	private Canvas canvas;
@@ -75,7 +79,7 @@ public class MainWindowController implements Subscriber {
     	MessageBus.getInstanceOf().addSubscriber("scenarioSaved", this);
     	MessageBus.getInstanceOf().addSubscriber("getAircraftList", this);
     	MessageBus.getInstanceOf().addSubscriber("placeAircraft", this);
-    	MessageBus.getInstanceOf().addSubscriber("stopPlaceAircraft", this);
+    	MessageBus.getInstanceOf().addSubscriber("endScenarioMode", this);
     	MessageBus.getInstanceOf().addSubscriber("chosenAircraft", this);
     	
     	canvasDrag = new Point2D(0,0);
@@ -89,15 +93,15 @@ public class MainWindowController implements Subscriber {
             	
                 if (event.getDeltaY() < 0)
                 {
-                	zoom -= .25;
+                	zoom -= .50;
                 }
                 else
                 {
-                	zoom += .25;
+                	zoom += .50;
                 }
             	
             	zoom = Math.max(0.5, zoom);
-            	zoom = Math.min(44.0, zoom);
+            	zoom = Math.min(10.0, zoom);
 
             	drawCanvas();
     	        
@@ -113,7 +117,7 @@ public class MainWindowController implements Subscriber {
     	GraphicsContext gc = canvas.getGraphicsContext2D();
     	gc.setTransform(new Affine());
     	gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-    	
+		
     	double width = canvas.getWidth();
     	double height = canvas.getHeight();
     	gc.translate(((width - (width*zoom))/2), ((height - (height*zoom))/2));
@@ -121,6 +125,7 @@ public class MainWindowController implements Subscriber {
 		gc.translate(canvasTranslation.getX()+ canvasDrag.getX(), canvasTranslation.getY()+canvasDrag.getY());
 		
 		drawHexes(gc);
+		drawAircraft(gc);
     }
     
     private void drawHexes(GraphicsContext gc) 
@@ -177,32 +182,38 @@ public class MainWindowController implements Subscriber {
 		        gc.setFill(Color.BLACK); 
 		        gc.fillText(hex.getSatelliteData().get().getName(), points.get(2).getCoordinateX()-1, points.get(2).getCoordinateY()-4);
 		        
-		        List<Aircraft> hexAircraftList = hex.getSatelliteData().get().getAircraft();
-		        if (!hexAircraftList.isEmpty())
+		        if (scenarioPlacingAircraft && placingAircraftHexName.equals(hex.getSatelliteData().get().getName()))
 		        {
-		        	Image tokenImage = null;
-					try {
-						if (hexAircraftList.get(0).getTokenImage() == null)
-						{
-							tokenImage = new Image(getClass().getResourceAsStream("/bogey.png"));							
-						}
-						else
-						{
-							tokenImage = new Image(new FileInputStream(hexAircraftList.get(0).getTokenImage()));
-						}
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}
-		        	gc.drawImage(tokenImage, col, row, 30, 30);
+		        	placingAircraftX = points.get(3).getCoordinateX();
+		        	placingAircraftY = points.get(3).getCoordinateY();
+		        	placingAircraftHex = hex;
 		        }
     		}
     	}
     }
     
+    private void drawAircraft(GraphicsContext gc)
+    {
+    	if (scenarioPlacingAircraft && 
+    		placingAircraftHex != null &&
+    		placingAircraftHexName.equals(placingAircraftHex.getSatelliteData().get().getName()))
+        {
+        	Affine a = gc.getTransform();
+        	gc.translate(placingAircraftHex.getCenterX()-13, placingAircraftHex.getCenterY()-13);
+        	gc.scale(.25, .25);
+        	chosenAircraft.draw(gc, 100, 100, 0, 0, Color.rgb(156, 206, 250));
+        	gc.setTransform(a);
+        }
+    }
+    
     public void onMouseClicked(MouseEvent event)
     {
-    	if (event.getButton() == MouseButton.SECONDARY)
+    	if (event.getButton() == MouseButton.PRIMARY && scenarioPlacingAircraft) 
     	{
+    		scenarioPlacingAircraft = false;
+    		chosenAircraft.setHexLocation(placingAircraftHexName);
+    		scenario.getPlayerAircraft().add(chosenAircraft);
+    		drawCanvas();
     	}
     	
     	event.consume();
@@ -231,45 +242,33 @@ public class MainWindowController implements Subscriber {
     
     public void onMouseMoved(MouseEvent event)
     {
-    	if (event.getButton() != MouseButton.SECONDARY && 
-    		event.getButton() != MouseButton.PRIMARY &&
-    		scenarioPlacingAircraft) 
+    	if (event.getButton() != MouseButton.SECONDARY && scenarioPlacingAircraft)
     	{
-        	double width = canvas.getWidth();
+    		double width = canvas.getWidth();
         	double height = canvas.getHeight();
-    		double mouseX = event.getSceneX();
-    		double mouseY = event.getSceneY();
-    		mouseX-= ((width - (width*zoom))/2);
-        	mouseY-= ((height - (height*zoom))/2);
-        	mouseX/= zoom;
-        	mouseY/= zoom;
-        	mouseX-= canvasTranslation.getX()+ canvasDrag.getX();
-        	mouseY-= canvasTranslation.getY()+canvasDrag.getY();
-        	mouseY-=24;
+    		double transX = canvasTranslation.getX()+ canvasDrag.getX();
+    		double transY = canvasTranslation.getY()+ canvasDrag.getY();
+    		double zoomX = ((width - (width*zoom))/2);
+    		double zoomY = ((height - (height*zoom))/2);
+    		
+    		Point2D mep = new Point2D(
+    				((event.getSceneX() - zoomX)/zoom)-transX, 
+    				((event.getSceneY() - 25 - zoomY)/zoom)-transY
+    		);
         	
-        	if (!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mouseX, mouseY).isPresent()) return;
+        	if (mep.getX() < 0 || mep.getY() < 0) return;
         	
-        	Hexagon<HexData> hex = HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mouseX, mouseY).get();
-        	List<Aircraft> hexAircraftList = hex.getSatelliteData().get().getAircraft();
-        	String hexName = hex.getSatelliteData().get().getName();
-        	System.out.println(hexName + " -> ("+mouseX+","+mouseY+")");
+        	if (!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).isPresent() ||
+        		!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).get().getSatelliteData().isPresent())
+    		{
+        		return;
+    		}
         	
+        	Hexagon<HexData> hex = HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).get();
+        	placingAircraftHexName = hex.getSatelliteData().get().getName();
         	
-        	
-//        	if (placingAircraftHexName.isEmpty() || !hexName.equals(placingAircraftHexName)) {
-//        		
-//        		if (!placingAircraftHexName.isEmpty())
-//        		{
-//        			HexUtils.getInstanceOf().getHexagonByName(placingAircraftHexName).getSatelliteData().get().getAircraft().clear();
-//        		}
-//        		placingAircraftHexName = hex.getSatelliteData().get().getName();
-//        		hexAircraftList.add(chosenAircraft);
-//            	hex.getSatelliteData().get().setAircraft(hexAircraftList);
-//            	drawCanvas();
-//        	}
-
-
-	    }
+        	drawCanvas();
+    	}
     }
     
     public void onMouseReleased(MouseEvent event)
@@ -367,7 +366,7 @@ public class MainWindowController implements Subscriber {
 				drawCanvas();
 				break;
 				
-			case "stopPlaceAircraft":
+			case "endScenarioMode":
 				scenarioPlacingAircraft = false;
 				drawCanvas();
 				break;
@@ -481,6 +480,8 @@ public class MainWindowController implements Subscriber {
 	
 	public void newScenario()
 	{
+		scenarioMode = true;
 		ScenarioViewController controller = openNewView("/scenarioView.fxml", null, new Dimension2D(616, 400));
+		scenario = controller.getScenario();
 	}
 }

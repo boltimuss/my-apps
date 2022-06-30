@@ -15,7 +15,6 @@ public class HexData implements SatelliteData {
 	private boolean passable;
 	private HashMap<String, Object> data = new HashMap<>();
 	private String name;
-	private LinkedList<Aircraft> aircraft = new LinkedList<>();
 	
 	@Override
 	public double getMovementCost() {

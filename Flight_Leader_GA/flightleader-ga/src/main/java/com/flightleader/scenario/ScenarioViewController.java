@@ -54,6 +54,11 @@ public class ScenarioViewController extends ViewController {
 		scenario = new Scenario();
 	}
 	
+	public Scenario getScenario()
+	{
+		return scenario;
+	}
+	
 	public void loadScenario(Scenario scenario)
 	{
 		titleTF.setText(scenario.getTitle());
@@ -76,7 +81,7 @@ public class ScenarioViewController extends ViewController {
 	@Override
 	public void onCancel(ActionEvent event)
 	{
-		MessageBus.getInstanceOf().broadcastMessage("stopPlaceAircraft", null);
+		MessageBus.getInstanceOf().broadcastMessage("endScenarioMode", null);
 		stage.close();
 	}
 	

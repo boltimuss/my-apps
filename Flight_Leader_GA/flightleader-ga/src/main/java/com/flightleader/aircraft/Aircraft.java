@@ -497,7 +497,6 @@ public class Aircraft {
 							   double imgY,
 							   Color backgroundColor)
 	{
-		gc.setTransform(new Affine());
 		gc.clearRect(0, 0, width, height);
 		gc.setFill(backgroundColor);
 		gc.fillRect(0, 0, width, height);

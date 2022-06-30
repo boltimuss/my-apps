@@ -36,8 +36,8 @@ public class Scenario {
 	private String options;
 	private String enemyVictoryPoints;
 	private String playerVictoryPoints;
-	private LinkedList<Aircraft> enemyAircraft;
-	private LinkedList<Aircraft> playerAircraft;
+	private LinkedList<Aircraft> enemyAircraft = new LinkedList<Aircraft>();
+	private LinkedList<Aircraft> playerAircraft = new LinkedList<Aircraft>();
 	private boolean enemyController;
 	private boolean playerController;
 	public transient Button editBTN;
