@@ -11,6 +11,7 @@ import org.hexworks.mixite.core.api.Point;
 import org.hexworks.mixite.core.api.contract.SatelliteData;
 
 import javafx.geometry.Dimension2D;
+import javafx.geometry.Point2D;
 
 /**
  * Class used for hex calculations
@@ -84,10 +85,40 @@ public class HexUtils {
 	{
 		for (Hexagon<HexData> hex:grid.getHexagons())
 		{
-			if (hex.getSatelliteData().get().getName().equals(name)) return hex;
+			if (hex.getSatelliteData().isPresent() && hex.getSatelliteData().get().getName().equals(name)) return hex;
 		}
 		
 		return null;
+	}
+	
+	public Hexagon<HexData> getHexagonByMouseLocation(
+			double canvasWidth, 
+			double canvasHeight, 
+			double translationX,
+			double translationY,
+			double zoom,
+			double mouseX, 
+			double mouseY)
+	{
+		double width = canvasWidth;
+    	double height = canvasHeight;
+		double zoomX = ((width - (width*zoom))/2);
+		double zoomY = ((height - (height*zoom))/2);
+		
+		Point2D mep = new Point2D(
+				((mouseX - zoomX)/zoom)-translationX, 
+				((mouseY - 25 - zoomY)/zoom)-translationY
+		);
+    	
+    	if (mep.getX() < 0 || mep.getY() < 0) return null;
+    	
+    	if (!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).isPresent() ||
+    		!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).get().getSatelliteData().isPresent())
+		{
+    		return null;
+		}
+    	
+    	return HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).get();
 	}
 	
 	public Hexagon<HexData> getHexagonByCoordinate(int col, int row)

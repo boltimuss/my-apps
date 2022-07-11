@@ -26,24 +26,49 @@ import com.flightleader.scenario.ScenarioListController;
 import com.flightleader.scenario.ScenarioViewController;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Dimension2D;
+import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Affine;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class MainWindowController implements Subscriber {
 
@@ -56,18 +81,19 @@ public class MainWindowController implements Subscriber {
 	private HashMap<String, Aircraft> aircraftList = new HashMap<>();
 	private HashMap<String, Scenario> scenarios = new HashMap<>();
 	private Aircraft chosenAircraft;
-	private boolean scenarioPlacingAircraft;
 	private boolean scenarioMode;
 	private String placingAircraftHexName = "";
-	private double placingAircraftX, placingAircraftY;
 	private Hexagon<HexData> placingAircraftHex;
 	private Scenario scenario;
+	private Stage aircraftPopup;
+	private Stage stage;
+	private boolean showPopup;
 	
 	@FXML
 	private Canvas canvas;
 	
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
        
     	MessageBus.getInstanceOf().addSubscriber("windowSizeChanged", this);
     	MessageBus.getInstanceOf().addSubscriber("aircraftSaved", this);
@@ -112,6 +138,67 @@ public class MainWindowController implements Subscriber {
     	drawCanvas();
     }
     
+	private void initAircraftPopup(List<Aircraft> ac) throws IOException
+    {
+    	
+		aircraftPopup = new Stage();
+		aircraftPopup.initStyle(StageStyle.UNDECORATED);
+		aircraftPopup.initModality(Modality.NONE);
+		aircraftPopup.initOwner(stage);
+		ScrollPane sp = new ScrollPane();
+		sp.fitToWidthProperty().set(true);
+		VBox dialogVbox = new VBox(2);
+		VBox.setMargin(dialogVbox, new Insets(2));
+		VBox.setVgrow(sp, Priority.ALWAYS);
+		
+		for (Aircraft a:ac)
+		{
+			HBox h = new HBox();
+//			h.setMaxWidth(320);
+			HBox.setMargin(h, new Insets(4.0));
+			h.setAlignment(Pos.CENTER);
+			h.setStyle("-fx-border-color: black ;");
+			h.setSpacing(4.0);
+			ImageView iv = new ImageView(new Image(new FileInputStream(a.tokenImage)));
+			iv.setFitWidth(25);
+			iv.setFitHeight(34);
+			h.getChildren().add(iv);
+			h.getChildren().add(new Label(a.aircraftName+": "));
+			h.getChildren().add(new Label("Altitude: "+a.currentAltitude));
+			h.getChildren().add(new Label(" Speed: "+a.currentSpeed));
+			h.getChildren().add(new Label(" Throttle: "+a.throttle));
+			
+			if (scenarioMode)
+			{
+				Button delete = new Button("delete");
+				h.getChildren().add(delete);
+				delete.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+
+					@Override
+					public void handle(ActionEvent event) {
+						ac.remove(a);
+						dialogVbox.getChildren().remove(h);
+					}});
+			}
+			
+			dialogVbox.getChildren().add(h);
+		}
+		
+		sp.setVmax(150);
+//        sp.setPrefSize(330, 100);
+		sp.setContent(dialogVbox);
+		sp.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
+		
+        Scene dialogScene = new Scene(sp, 330, 150);
+        aircraftPopup.setScene(dialogScene);
+        aircraftPopup.show();
+    }
+    
+    public void setStage(Stage stage)
+    {
+    	this.stage = stage;
+    }
+    
     private void drawCanvas()
     {
     	GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -141,9 +228,9 @@ public class MainWindowController implements Subscriber {
 		        gc.setStroke(Color.BLACK);
 		        gc.setLineWidth(2);
 		        
-		        if (scenarioPlacingAircraft)
+		        if (scenarioMode)
 		        {
-		        	gc.setFill(Color.YELLOW);
+		        	gc.setFill(Color.rgb(0, 133, 249));
 		        	gc.fillPolygon(
 				        		new double[]{
 					        		points.get(0).getCoordinateX(),
@@ -182,10 +269,8 @@ public class MainWindowController implements Subscriber {
 		        gc.setFill(Color.BLACK); 
 		        gc.fillText(hex.getSatelliteData().get().getName(), points.get(2).getCoordinateX()-1, points.get(2).getCoordinateY()-4);
 		        
-		        if (scenarioPlacingAircraft && placingAircraftHexName.equals(hex.getSatelliteData().get().getName()))
+		        if (scenarioMode && placingAircraftHexName.equals(hex.getSatelliteData().get().getName()))
 		        {
-		        	placingAircraftX = points.get(3).getCoordinateX();
-		        	placingAircraftY = points.get(3).getCoordinateY();
 		        	placingAircraftHex = hex;
 		        }
     		}
@@ -194,7 +279,8 @@ public class MainWindowController implements Subscriber {
     
     private void drawAircraft(GraphicsContext gc)
     {
-    	if (scenarioPlacingAircraft && 
+    	if (scenarioMode && 
+    		chosenAircraft != null &&
     		placingAircraftHex != null &&
     		placingAircraftHexName.equals(placingAircraftHex.getSatelliteData().get().getName()))
         {
@@ -204,15 +290,60 @@ public class MainWindowController implements Subscriber {
         	chosenAircraft.draw(gc, 100, 100, 0, 0, Color.rgb(156, 206, 250));
         	gc.setTransform(a);
         }
+    	
+    	if (scenarioMode)
+        {
+    		for (Aircraft ac:scenario.getPlayerAircraft())
+    		{
+    			Affine a = gc.getTransform();
+    			Hexagon<HexData> hex = HexUtils.getInstanceOf().getHexagonByName(ac.getHexLocation());
+            	gc.translate(hex.getCenterX()-13, hex.getCenterY()-13);
+            	gc.scale(.25, .25);
+            	ac.draw(gc, 100, 100, 0, 0, Color.rgb(156, 206, 250));
+            	gc.setTransform(a);
+    		}
+        }
     }
     
-    public void onMouseClicked(MouseEvent event)
+    public void onMouseClicked(MouseEvent event) throws IOException
     {
-    	if (event.getButton() == MouseButton.PRIMARY && scenarioPlacingAircraft) 
+    	if (showPopup)
     	{
-    		scenarioPlacingAircraft = false;
+    		aircraftPopup.hide();
+    	}
+    	
+    	if (event.getButton() == MouseButton.PRIMARY && scenarioMode) 
+    	{
     		chosenAircraft.setHexLocation(placingAircraftHexName);
-    		scenario.getPlayerAircraft().add(chosenAircraft);
+    		scenario.getPlayerAircraft().add(new Aircraft(chosenAircraft));
+    		drawCanvas();
+    	}
+    	else if (event.getButton() == MouseButton.SECONDARY && scenarioMode)
+    	{
+    		Hexagon<HexData> hex = HexUtils.getInstanceOf().getHexagonByMouseLocation(
+    				canvas.getWidth(), 
+    				canvas.getHeight(),
+    				canvasTranslation.getX()+ canvasDrag.getX(),
+    				canvasTranslation.getY()+ canvasDrag.getY(),
+    				zoom,
+    				event.getSceneX(),
+    				event.getSceneY());
+    		if (hex == null) return;
+    		String hexName = hex.getSatelliteData().get().getName();
+    		List<Aircraft> pa = scenario.getPlayerAircraftByHex(hexName);
+    		
+    		if (pa.size() == 1)
+    		{
+    			scenario.removePlayerAircraftByHex(hexName);
+    		}
+    		else if (pa.size() > 1)
+    		{
+    	    	initAircraftPopup(pa);
+    	    	aircraftPopup.setX(event.getSceneX()+stage.getX());
+    	    	aircraftPopup.setY(event.getSceneY()+stage.getY());
+    	    	aircraftPopup.show();
+    	    	showPopup = true;
+    		}
     		drawCanvas();
     	}
     	
@@ -242,29 +373,17 @@ public class MainWindowController implements Subscriber {
     
     public void onMouseMoved(MouseEvent event)
     {
-    	if (event.getButton() != MouseButton.SECONDARY && scenarioPlacingAircraft)
+    	if (event.getButton() != MouseButton.SECONDARY && scenarioMode)
     	{
-    		double width = canvas.getWidth();
-        	double height = canvas.getHeight();
-    		double transX = canvasTranslation.getX()+ canvasDrag.getX();
-    		double transY = canvasTranslation.getY()+ canvasDrag.getY();
-    		double zoomX = ((width - (width*zoom))/2);
-    		double zoomY = ((height - (height*zoom))/2);
-    		
-    		Point2D mep = new Point2D(
-    				((event.getSceneX() - zoomX)/zoom)-transX, 
-    				((event.getSceneY() - 25 - zoomY)/zoom)-transY
-    		);
-        	
-        	if (mep.getX() < 0 || mep.getY() < 0) return;
-        	
-        	if (!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).isPresent() ||
-        		!HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).get().getSatelliteData().isPresent())
-    		{
-        		return;
-    		}
-        	
-        	Hexagon<HexData> hex = HexUtils.getInstanceOf().getHexGrid().getByPixelCoordinate(mep.getX(), mep.getY()).get();
+    		Hexagon<HexData> hex = HexUtils.getInstanceOf().getHexagonByMouseLocation(
+    				canvas.getWidth(), 
+    				canvas.getHeight(),
+    				canvasTranslation.getX()+ canvasDrag.getX(),
+    				canvasTranslation.getY()+ canvasDrag.getY(),
+    				zoom,
+    				event.getSceneX(),
+    				event.getSceneY());
+    		if (hex == null) return;
         	placingAircraftHexName = hex.getSatelliteData().get().getName();
         	
         	drawCanvas();
@@ -358,16 +477,16 @@ public class MainWindowController implements Subscriber {
 				return aircraftList;
 				
 			case "chosenAircraft":
-				chosenAircraft = aircraftList.get(message);
+				chosenAircraft = new Aircraft(aircraftList.get(message));
 				break;
 				
 			case "placeAircraft":
-				scenarioPlacingAircraft = true;
+				scenarioMode = true;
 				drawCanvas();
 				break;
 				
 			case "endScenarioMode":
-				scenarioPlacingAircraft = false;
+				scenarioMode = false;
 				drawCanvas();
 				break;
 		}

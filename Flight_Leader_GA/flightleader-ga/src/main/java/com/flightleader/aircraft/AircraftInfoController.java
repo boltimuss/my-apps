@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -42,6 +43,9 @@ public class AircraftInfoController extends ViewController {
 	private Aircraft aircraft;
 	private boolean antiTextLoop;
 	private boolean canSaveCB, canSaveTF;
+	
+	@FXML
+	CheckBox improvedGunneryCB;
 	
 	@FXML
 	Button saveBTN;
@@ -137,6 +141,8 @@ public class AircraftInfoController extends ViewController {
 		crewQualityDValue.setText(""+aircraft.getCrewQualityDValue());
 		crewQualityEValue.setText(""+aircraft.getCrewQualityEValue());
 		crewQualityFValue.setText(""+aircraft.getCrewQualityFValue());
+		improvedGunneryCB.setSelected(aircraft.improvedGunnery);
+		
 		if (aircraft.tokenImage != null && !aircraft.tokenImage.isEmpty())
 		{
 			try {
@@ -308,137 +314,6 @@ public class AircraftInfoController extends ViewController {
 	{
 		GraphicsContext gc = tokenView.getGraphicsContext2D();
 		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.rgb(156, 206, 250));
-//		gc.setTransform(new Affine());
-//		gc.clearRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
-//		gc.setFill(Color.rgb(156, 206, 250));
-//		gc.fillRect(0, 0, tokenView.getWidth(), tokenView.getHeight());
-//		gc.drawImage(tokenImage.getImage(), 25, 18, 50, 65);
-//		drawRadarCountermeasuresCanopy(gc);
-//		drawCrewSize(gc);
-//		drawAircraftNameAndIdent(gc);
-//		drawWeapons(gc);
-//		drawTurnType(gc);
-//		gc.setFill(Color.BLACK);
-//		gc.setLineWidth(1.5);
-//		gc.strokeRect(0, 0, 100, 100);
-	}
-	
-	private void drawWeapons(GraphicsContext gc)
-	{
-		gc.setFont(Font.font("monospaced", 12.0));
-        gc.setFill(Color.BLACK);
-        if (aircraft.missileRails > 9)
-        {
-        	gc.fillText(""+(aircraft.missileRails-10), 18, 88);
-        	gc.setLineWidth(2.0);
-        	gc.strokeLine(19, 91, 24, 91);
-        }
-        else if (aircraft.missileRails >= 0)
-        {
-        	gc.fillText(""+aircraft.missileRails, 18, 88);
-        }
-        
-        if (aircraft.internalGuns == null) return;
-        
-        switch (aircraft.internalGuns)
-        {
-	        case NONE:
-	        	break;
-	        
-	        case CANNON:
-	        	gc.fillText("C", 25, 88);
-	        	break;
-	        	
-	        case MACHINE_GUN:
-	        	gc.fillText("M", 25, 88);
-	        	break;
-        }
-	}
-	
-	private void drawAircraftNameAndIdent(GraphicsContext gc)
-	{
-		gc.setFont(Font.font("monospaced", 12.0));
-        gc.setFill(Color.BLACK);
-        Affine a = gc.getTransform();
-        gc.rotate(-90);
-        gc.translate(-156, 22);
-        gc.fillText(aircraft.aircraftName, 78, 64);
-        gc.setTransform(a);
-        
-        if (aircraft.id > 0) gc.fillText(""+aircraft.id, 68, 88);
-	}
-	
-	private void drawTurnType(GraphicsContext gc)
-	{
-		gc.setFont(Font.font("monospaced", 12.0));
-        gc.setFill(Color.BLACK);
-        
-		if (aircraft.size == Aircraft.SIZE.SMALL && aircraft.turnType != null)
-		{
-			gc.fillText(aircraft.turnType.toString().toLowerCase(), 22, 32);
-		}
-		else if (aircraft.turnType != null)
-		{
-			gc.fillText(aircraft.turnType.toString(), 22, 32);
-		}
-		
-		if (aircraft.afterburner == Aircraft.AFTERBURNER.NO && aircraft.acceleration != null)
-		{
-			gc.fillText((aircraft.acceleration == ACCELERATION.NORMAL) ? "n" : "h", 29, 32);
-		}
-		else if (aircraft.acceleration != null)
-		{
-			gc.fillText((aircraft.acceleration == ACCELERATION.NORMAL) ? "N" : "H", 29, 32);
-		}
-		
-		if (aircraft.supersonic != null && aircraft.supersonic == SUPERSONIC.NO)
-		{
-			gc.setLineWidth(2.0);
-        	gc.strokeLine(23,34, 34, 34);
-		}
-	}
-	
-	private void drawRadarCountermeasuresCanopy(GraphicsContext gc)
-	{
-		if (aircraft.canopyType == Aircraft.CANOPY_TYPE.BUBBLE_CANOPY)
-		{
-			gc.setFill(Color.WHITE);
-			gc.fillOval(62, 17, 19, 15);
-		}
-		gc.setFont(Font.font("monospaced", 16.0));
-        gc.setFill(Color.BLACK);
-        
-        if (aircraft.radar > 9)
-        {
-        	gc.fillText(""+(aircraft.radar-10), 63, 30);
-        	gc.setLineWidth(2.0);
-        	gc.strokeLine(66,33, 70, 33);
-        }
-        else if (aircraft.radar >= 0)
-        {
-        	gc.fillText(""+aircraft.radar, 63, 30);
-        }
-        
-        if (aircraft.countermeasure > 9)
-        {
-        	gc.fillText(""+(aircraft.countermeasure-10), 70, 30);
-        	gc.setLineWidth(2.0);
-        	gc.strokeLine(73,33, 77, 33);
-        }
-        else if (aircraft.countermeasure >= 0)
-        {
-        	gc.fillText(""+aircraft.countermeasure, 70, 30);
-        }
-	}
-	
-	private void drawCrewSize(GraphicsContext gc)
-	{
-		if (aircraft.crewSize < 1) return;
-		
-		for (int i = 1; i <= aircraft.crewSize; i++)
-		{
-			gc.fillOval(56, 32-(i*6), 5, 5);
-		}
 	}
 	
 	public void selectTokenImage(MouseEvent event)
@@ -457,6 +332,12 @@ public class AircraftInfoController extends ViewController {
 			}
 			 repaintToken();
 		 }
+	}
+	
+	public void improvedGunneryChange()
+	{
+		aircraft.improvedGunnery = improvedGunneryCB.isSelected();
+		repaintToken();
 	}
 	
 	public void onSave(ActionEvent event)

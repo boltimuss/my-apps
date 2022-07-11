@@ -1,6 +1,8 @@
 package com.flightleader.scenario;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.flightleader.aircraft.Aircraft;
 import com.flightleader.messagebus.MessageBus;
@@ -36,8 +38,8 @@ public class Scenario {
 	private String options;
 	private String enemyVictoryPoints;
 	private String playerVictoryPoints;
-	private LinkedList<Aircraft> enemyAircraft = new LinkedList<Aircraft>();
-	private LinkedList<Aircraft> playerAircraft = new LinkedList<Aircraft>();
+	private ConcurrentLinkedQueue<Aircraft> enemyAircraft = new ConcurrentLinkedQueue<Aircraft>();
+	private ConcurrentLinkedQueue<Aircraft> playerAircraft = new ConcurrentLinkedQueue<Aircraft>();
 	private boolean enemyController;
 	private boolean playerController;
 	public transient Button editBTN;
@@ -176,17 +178,17 @@ public class Scenario {
 	public void setPlayerVictoryPoints(String playerVictoryPoints) {
 		this.playerVictoryPoints = playerVictoryPoints;
 	}
-	public LinkedList<Aircraft> getEnemyAircraft() {
+	public ConcurrentLinkedQueue<Aircraft> getEnemyAircraft() {
 		return enemyAircraft;
 	}
-	public void setEnemyAircraft(LinkedList<Aircraft> enemyAircraft) {
+	public void setEnemyAircraft(ConcurrentLinkedQueue<Aircraft> enemyAircraft) {
 		this.enemyAircraft = enemyAircraft;
 	}
-	public LinkedList<Aircraft> getPlayerAircraft() {
+	public ConcurrentLinkedQueue<Aircraft> getPlayerAircraft() {
 		return playerAircraft;
 	}
-	public void setPlayerAircraft(LinkedList<Aircraft> playerAircraft) {
-		this.playerAircraft = playerAircraft;
+	public void setPlayerAircraft(List<Aircraft> playerAircraft) {
+		this.playerAircraft = (ConcurrentLinkedQueue<Aircraft>) playerAircraft;
 	}
 	public boolean isEnemyController() {
 		return enemyController;
@@ -215,5 +217,49 @@ public class Scenario {
 
 	public void setDeleteBTN(Button deleteBTN) {
 		this.deleteBTN = deleteBTN;
+	}
+	
+	public void removePlayerAircraftByHex(String hexName)
+	{
+		for (Aircraft ac:playerAircraft)
+		{
+			if (ac.getHexLocation().equals(hexName)) 
+			{
+				playerAircraft.remove(ac);
+			}
+		}
+	}
+	
+	public void removeEnemyAircraftByHex(String hexName)
+	{
+		for (Aircraft ac:enemyAircraft)
+		{
+			if (ac.getHexLocation().equals(hexName)) 
+			{
+				enemyAircraft.remove(ac);
+			}
+		}
+	}
+	
+	public List<Aircraft> getPlayerAircraftByHex(String hexName)
+	{
+		LinkedList<Aircraft> l = new LinkedList<Aircraft>();
+		for (Aircraft ac:playerAircraft)
+		{
+			if (ac.getHexLocation().equals(hexName)) l.add(ac);
+		}
+		
+		return l;
+	}
+	
+	public List<Aircraft> getEnemyAircraftByHex(String hexName)
+	{
+		LinkedList<Aircraft> l = new LinkedList<Aircraft>();
+		for (Aircraft ac:enemyAircraft)
+		{
+			if (ac.getHexLocation().equals(hexName)) l.add(ac);
+		}
+		
+		return l;
 	}
 }

@@ -180,6 +180,23 @@ public class Aircraft {
 		}
 	}
 	
+	public enum THROTTLE
+	{
+		IDLE("Idle"),
+		MIL("Military"), 
+		AFTER_BURNER("AfterBurner");
+		
+		String name;
+		private THROTTLE(String newName) {
+			name = newName;
+		}
+		
+		@Override
+		public String toString() {
+			return name;
+		}
+	}
+	
 	public Aircraft() {
 		
 		editBTN = new Button("edit");
@@ -236,6 +253,8 @@ public class Aircraft {
 		crewQualityEValue 	= airC.crewQualityEValue;
 		crewQualityFValue 	= airC.crewQualityFValue;
 		crewQuality			= airC.crewQuality;
+		hexLocation			= airC.hexLocation;
+		improvedGunnery	= airC.improvedGunnery;
 		
 		Aircraft a = this;
 		editBTN.setOnAction(new EventHandler<ActionEvent>() {
@@ -286,6 +305,8 @@ public class Aircraft {
 	public CREW_QUALITY crewQuality;
 	public FACING facing;
 	public String hexLocation;
+	public boolean improvedGunnery;
+	public THROTTLE throttle = THROTTLE.IDLE;
 	
 	public String getTokenImage() {
 		return tokenImage;
@@ -490,6 +511,14 @@ public class Aircraft {
 		this.hexLocation = hexLocation;
 	}
 	
+	public boolean isImprovedGunnery() {
+		return improvedGunnery;
+	}
+
+	public void setImprovedGunnery(boolean improvedGunnery) {
+		this.improvedGunnery = improvedGunnery;
+	}
+
 	public void draw(GraphicsContext gc, 
 							   double width, 
 							   double height, 
@@ -527,8 +556,16 @@ public class Aircraft {
 	
 	private void drawWeapons(GraphicsContext gc, double imgX, double imgY)
 	{
+		
+		if (improvedGunnery)
+		{
+			gc.setFill(Color.WHITE);
+			gc.fillOval(16+imgX, 76+imgY, 19, 16);
+		}
+		
 		gc.setFont(Font.font("monospaced", 12.0));
         gc.setFill(Color.BLACK);
+        
         if (missileRails > 9)
         {
         	gc.fillText(""+(missileRails-10), 18+imgX, 88+imgY);
