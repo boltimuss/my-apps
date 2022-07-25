@@ -1,5 +1,8 @@
 package com.flightleader.aircraft;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -213,5 +216,55 @@ public class Aircraft {
 	@Getter @Setter public String hexLocation;
 	@Getter @Setter public boolean improvedGunnery;
 	@Getter @Setter public THROTTLE throttle = THROTTLE.IDLE;
+	@Getter @Setter public int initiative;
+	@Getter @Setter public boolean playerControlled;
+	@Getter @Setter public List<Aircraft> tallies = new LinkedList<Aircraft>();
+	@Getter @Setter public LinkedList<Aircraft> locks = new LinkedList<Aircraft>();
 	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append("<-- Characteristics --> \n");
+		sb.append("Aircraft Name / ID: " + aircraftName + " / (" + id + ")\n");
+		sb.append("Entry Date: " + entryDate + "\n");
+		sb.append("Size: " + size + "\n");
+		sb.append("Crew Size: " + crewSize + "\n");
+		sb.append("Canopy Type: " + canopyType + "\n");
+		sb.append("TurnType: " + turnType + "\n");
+		sb.append("Acceleration: " + acceleration + "\n");
+		sb.append("Supersonic: " + supersonic + "\n");
+		sb.append("Missile Rails: " + missileRails + "\n");
+		sb.append("Internal Guns: " + internalGuns + "\n");
+		sb.append("Improved Gunnery: " + improvedGunnery + "\n");
+		sb.append("Rader / Countermeasures: " + radar + " / " + countermeasure + "\n");
+		sb.append("Primary Use: " + primaryUse + "\n");
+		sb.append("Crew Quality / Values: " + crewQuality + " / [" + 
+				crewQualityAValue + ", " + 
+				crewQualityBValue + ", " +
+				crewQualityCValue + ", " +
+				crewQualityDValue + ", " +
+				crewQualityEValue + ", " +
+				crewQualityFValue + "]\n"
+				);
+		sb.append("<-- Current Settings --> \n");
+		sb.append("Current Altitude / Max Altitude: " + currentAltitude + "/" + maxAltitude + "\n");
+		sb.append("Current Speed / Max Speed: " + currentSpeed + "/" + maxSpeed + "\n");
+		sb.append("Throttle Setting: " + throttle + "\n");
+		sb.append("Afterburners: " + afterburner + "\n");
+		sb.append("Facing: " + facing + "\n");
+		sb.append("Hex Location: " + hexLocation+"\n");
+		sb.append("<-- Tallies -->\n");
+		for (Aircraft a:tallies)
+		{
+			sb.append(a+"\n");
+		}
+		sb.append("<-- Locks -->\n");
+		for (Aircraft a:locks)
+		{
+			sb.append(a+"\n");
+		}
+		
+		return sb.toString();
+	}
 }
