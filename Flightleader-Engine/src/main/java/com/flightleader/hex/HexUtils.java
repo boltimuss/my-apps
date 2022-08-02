@@ -8,10 +8,6 @@ import org.hexworks.mixite.core.api.HexagonalGridBuilder;
 import org.hexworks.mixite.core.api.HexagonalGridCalculator;
 import org.hexworks.mixite.core.api.HexagonalGridLayout;
 import org.hexworks.mixite.core.api.Point;
-import org.hexworks.mixite.core.api.contract.SatelliteData;
-
-import javafx.geometry.Dimension2D;
-import javafx.geometry.Point2D;
 
 /**
  * Class used for hex calculations
@@ -102,4 +98,13 @@ public class HexUtils {
 		Hexagon<HexData> destHex = grid.getByCubeCoordinate(CubeCoordinate.fromCoordinates(destX, destY)).get();
 		return instance.calculator.calculateDistanceBetween(srcHex, destHex);
 	}
+	
+	public int getDistance(CubeCoordinate src, CubeCoordinate dest)
+	{
+		
+		Hexagon<HexData> srcHex = grid.getByCubeCoordinate(src).get();
+		Hexagon<HexData> destHex = grid.getByCubeCoordinate(dest).get();
+		return instance.calculator.calculateDistanceBetween(srcHex, destHex);
+	}
+	
 }
