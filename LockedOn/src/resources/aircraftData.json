@@ -1,0 +1,68 @@
+{
+    "aircraft": [
+       {
+          "name": "F-15C Eagle",
+          "electronicWarfare": "2",
+          "image": "",
+          "country": "USA",
+          "serviceYear": "1981",
+          "speedRating": "2",
+          "gunRating": "1",
+          "cmRating": "3",
+          "preTurnThrustRating": "2",
+          "postTurnThrustRating": "2",
+          "preTurnABThrustRating": "4",
+          "postTurnABThrustRating": "4",
+          "performanceRating": "5",
+          "victoryPointNoMissiles": "62",
+          "victoryPointMissiles": "92",
+          "victoryPointReductionNoEnemyMissiles": "12",
+          "missileLoad": [
+             {
+                "number": "4",
+                "missile": "AIM-9L"
+             },
+             {
+                "number": "4",
+                "missile": "AIM-7M"
+             }
+          ]
+       },
+       {
+          "name": "F-16 Falcon",
+          "electronicWarfare": "0",
+          "image": "",
+          "country": "USA",
+          "serviceYear": "1986",
+          "speedRating": "4",
+          "gunRating": "14",
+          "cmRating": "3",
+          "preTurnThrustRating": "4",
+          "postTurnThrustRating": "4",
+          "preTurnABThrustRating": "8",
+          "postTurnABThrustRating": "8",
+          "performanceRating": "8",
+          "victoryPointNoMissiles": "88",
+          "victoryPointMissiles": "111",
+          "victoryPointReductionNoEnemyMissiles": "11",
+          "missileLoad": [
+             {
+                "number": "4",
+                "missile": "AIM-9L"
+             },
+             {
+                "number": "4",
+                "missile": "AIM-7M"
+             },
+             {
+                "number": "4",
+                "missile": "AIM-54C"
+             },
+             {
+                "number": "4",
+                "missile": "AIM-7E2"
+             }
+          ]
+       }
+    ]
+ }

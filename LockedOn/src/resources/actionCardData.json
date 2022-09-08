@@ -1,0 +1,210 @@
+{
+    "actionCards": [
+       {
+          "title": "Yo-Yo",
+          "image": "",
+          "positioning": "1",
+          "range": "1",
+          "effects": [
+            "draw_extra_1_card_next_missile_launch"
+          ],
+          "reactsTo": [
+            "Yo-Yo",
+            "Break",
+            "Scissors",
+            "Barrel Roll",
+            "Vertical Roll"
+          ],
+          "exclusions": ""
+       },
+       {
+         "title": "Tone",
+         "image": "",
+         "positioning": "1",
+         "range": "0",
+         "effects": [
+          "missile_launch"
+         ],
+         "reactsTo": [],
+         "exclusions": ""
+       },
+       {
+         "title": "Tone [Strong]",
+         "image": "",
+         "positioning": "2",
+         "range": "1",
+         "effect": "missile_launch_card_2",
+         "effects": [
+          "missile_launch",
+          "missile_launch_gets_extra_cards_2"
+         ],
+         "reactsTo": [],
+         "exclusions": ""
+       },
+       {
+         "title": "Guns [Jinking]",
+         "image": "",
+         "positioning": "1",
+         "range": "0",
+         "effects": [
+          "discard_3_based_upon_position",
+          "fire_guns"
+         ],
+         "reactsTo": [
+            "Missile",
+            "Guns"
+         ],
+         "exclusions": ""
+       },
+       {
+         "title": "Tone [Steady]",
+         "image": "",
+         "positioning": "2",
+         "range": "1",
+         "effects": [
+          "missile_launch",
+          "missile_launch_gets_extra_cards_1"
+         ],
+         "reactsTo": [],
+         "exclusions": ""
+       },
+       {
+         "title": "Guns [Good Angle]",
+         "image": "",
+         "positioning": "2",
+         "range": "1",
+         "effects": [
+          "discard_2_based_upon_position_fire_guns"
+         ],
+         "reactsTo": [],
+         "exclusions": ""
+       },
+       {
+         "title": "Ace Pilot",
+         "image": "",
+         "positioning": "4",
+         "range": "3",
+         "effects": [
+          "any"
+         ],
+         "reactsTo": [],
+         "exclusions": "missile"
+       },
+       {
+         "title": "Break",
+         "image": "",
+         "positioning": "0",
+         "range": "2",
+         "effects": [
+          "draw_extra_1_card_next_missile_launch"
+         ],
+         "reactsTo": [
+            "Break",
+            "Guns",
+            "Tone",
+            "Missile",
+            "Maneuvering"
+         ],
+         "exclusions": ""
+       },
+       {
+         "title": "Redline",
+         "image": "",
+         "positioning": "2",
+         "range": "3",
+         "effects": [],
+         "reactsTo": [
+            "Gun",
+            "Tone",
+            "Missile",
+            "Redline"
+         ],
+         "exclusions": ""
+       },
+       {
+         "title": "Vertical Roll",
+         "image": "",
+         "positioning": "3",
+         "range": "0",
+         "effects": [
+          "Altitude_change_1"
+         ],
+         "reactsTo": [
+            "Vertical Roll",
+            "Missile",
+            "Tone",
+            "Guns"
+         ],
+         "exclusions": ""
+       },
+       {
+        "title": "Split-S",
+        "image": "",
+        "positioning": "2",
+        "range": "2",
+        "effects": [
+          "end_enemy_turn",
+          "draw_1"
+         ],
+        "reactsTo": [],
+        "exclusions": ""
+      },
+      {
+        "title": "Guns",
+        "image": "",
+        "positioning": "1",
+        "range": "0",
+        "effects": [
+          "discard_3_based_upon_position",
+          "fire_guns"
+         ],
+        "reactsTo": [],
+        "exclusions": ""
+       },
+       {
+        "title": "Barrel Roll",
+        "image": "",
+        "positioning": "0",
+        "range": "1",
+        "effects": [
+          "change_position_tailed_disadvantage_to_neutral"
+         ],
+        "reactsTo": [
+          "Barrel Roll",
+          "Maneuvering",
+          "Gun",
+          "Break",
+          "Scissors"
+        ],
+        "exclusions": ""
+       },
+       {
+        "title": "Scissors",
+        "image": "",
+        "positioning": "1",
+        "range": "1",
+        "effects": [
+          "change_position_disadvantaged_advantaged"
+         ],
+        "reactsTo": [
+          "Countermeasures",
+          "Yo-Yo",
+          "Break",
+          "Scissors"
+        ],
+        "exclusions": ""
+       },
+       {
+        "title": "Tone (Weak) / Guns",
+        "image": "",
+        "positioning": "1",
+        "range": "0",
+        "effects": [
+          "or_launch_misslie_minus_1",
+          "or_discard_3_based_upon_position_fire_guns"
+         ],
+        "reactsTo": [],
+        "exclusions": ""
+       }
+    ]
+ }

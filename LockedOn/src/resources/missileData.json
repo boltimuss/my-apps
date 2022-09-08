@@ -1,0 +1,26 @@
+{
+    "missiles": [
+       {
+          "numberOfMissiles": 1,
+          "image": "",
+          "name": "AA-2A-1",
+          "serviceYear": "1960",
+          "pointValue": "1",
+          "missileType": "HS",
+          "neutralValue": "-",
+          "advantagedValue": "-",
+          "tailingValue": "1"
+       },
+       {
+          "numberOfMissiles": 2,
+          "image": "",
+          "name": "AA-2A-2",
+          "serviceYear": "1960",
+          "pointValue": "1",
+          "missileType": "HS",
+          "neutralValue": "-",
+          "advantagedValue": "-",
+          "tailingValue": "1"
+       }
+    ]
+ }

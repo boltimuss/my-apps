@@ -14,4 +14,9 @@ public class Missile {
 	@Getter @Setter private String neutralValue;
 	@Getter @Setter private String advantagedValue;
 	@Getter @Setter private String tailingValue;
+	
+	public class MissileListData {
+		
+		@Getter @Setter private Missile[] missiles;
+	}
 }

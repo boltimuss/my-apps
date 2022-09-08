@@ -28,9 +28,12 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Pane prefHeight="800.0" prefWidth="1024.0">
+      <Pane fx:id="mainPane" prefHeight="800.0" prefWidth="1024.0">
          <children>
             <ImageView fx:id="mainWindowGraphic" fitHeight="800.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="mfdLeft" fitHeight="250.0" fitWidth="250.0" layoutX="86.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="mfdMiddle" fitHeight="250.0" fitWidth="250.0" layoutX="384.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="mfdRight" fitHeight="250.0" fitWidth="250.0" layoutX="630.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" />
          </children></Pane>
    </children>
 </VBox>
