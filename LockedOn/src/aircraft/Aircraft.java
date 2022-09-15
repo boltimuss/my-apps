@@ -3,6 +3,7 @@ package aircraft;
 import Missile.Missile;
 import aircraft.card.AircraftCard;
 import aircraft.display.Altitude;
+import aircraft.display.Range;
 import lombok.Getter;
 import lombok.Setter;
 

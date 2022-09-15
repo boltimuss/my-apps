@@ -3,7 +3,7 @@
        {
           "name": "F-15C Eagle",
           "electronicWarfare": "2",
-          "image": "",
+          "image": "F18",
           "country": "USA",
           "serviceYear": "1981",
           "speedRating": "2",
@@ -29,9 +29,9 @@
           ]
        },
        {
-          "name": "F-16 Falcon",
+          "name": "F-18",
           "electronicWarfare": "0",
-          "image": "",
+          "image": "F18",
           "country": "USA",
           "serviceYear": "1986",
           "speedRating": "4",

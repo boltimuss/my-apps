@@ -1,10 +1,13 @@
 package aircraft.card;
 
+import javafx.scene.image.Image;
 import lombok.Getter;
 import lombok.Setter;
 
 public class AircraftCard {
 
+	
+	@Getter @Setter transient private Image card;
 	@Getter @Setter private String electronicWarfare;
 	@Getter @Setter private String name;
 	@Getter @Setter private String image;
