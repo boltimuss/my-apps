@@ -1,68 +1,1461 @@
 {
-    "aircraft": [
-       {
-          "name": "F-15C Eagle",
-          "electronicWarfare": "2",
-          "image": "F18",
-          "country": "USA",
-          "serviceYear": "1981",
-          "speedRating": "2",
-          "gunRating": "1",
-          "cmRating": "3",
-          "preTurnThrustRating": "2",
-          "postTurnThrustRating": "2",
-          "preTurnABThrustRating": "4",
-          "postTurnABThrustRating": "4",
-          "performanceRating": "5",
-          "victoryPointNoMissiles": "62",
-          "victoryPointMissiles": "92",
-          "victoryPointReductionNoEnemyMissiles": "12",
-          "missileLoad": [
-             {
-                "number": "4",
-                "missile": "AIM-9L"
-             },
-             {
-                "number": "4",
-                "missile": "AIM-7M"
-             }
-          ]
-       },
-       {
-          "name": "F-18",
-          "electronicWarfare": "0",
-          "image": "F18",
-          "country": "USA",
-          "serviceYear": "1986",
-          "speedRating": "4",
-          "gunRating": "14",
-          "cmRating": "3",
-          "preTurnThrustRating": "4",
-          "postTurnThrustRating": "4",
-          "preTurnABThrustRating": "8",
-          "postTurnABThrustRating": "8",
-          "performanceRating": "8",
-          "victoryPointNoMissiles": "88",
-          "victoryPointMissiles": "111",
-          "victoryPointReductionNoEnemyMissiles": "11",
-          "missileLoad": [
-             {
-                "number": "4",
-                "missile": "AIM-9L"
-             },
-             {
-                "number": "4",
-                "missile": "AIM-7M"
-             },
-             {
-                "number": "4",
-                "missile": "AIM-54C"
-             },
-             {
-                "number": "4",
-                "missile": "AIM-7E2"
-             }
-          ]
-       }
-    ]
- }
+   "aircraft": [
+      {
+         "name": "A-4C Skyhawk",
+         "electronicWarfare": "0",
+         "image": "A-4C",
+         "country": "Argentina",
+         "serviceYear": "1960",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "4",
+         "victoryPointNoMissiles": "12",
+         "victoryPointMissiles": "15",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "A-4E Skyhawk - Israel",
+         "electronicWarfare": "1",
+         "image": "A-4E",
+         "country": "Israel",
+         "serviceYear": "1962",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "15",
+         "victoryPointMissiles": "19",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "A-4E Skyhawk - US",
+         "electronicWarfare": "1",
+         "image": "A-4E-US",
+         "country": "USA",
+         "serviceYear": "1962",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "15",
+         "victoryPointMissiles": "19",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "A-7D Corsair II",
+         "electronicWarfare": "1",
+         "image": "A-7D",
+         "country": "USA",
+         "serviceYear": "1967",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "17",
+         "victoryPointMissiles": "26",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9G"
+            }
+         ]
+      },
+      {
+         "name": "A-7E Corsair II",
+         "electronicWarfare": "1",
+         "image": "A-7E",
+         "country": "USA",
+         "serviceYear": "1968",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "22",
+         "victoryPointMissiles": "31",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9G"
+            }
+         ]
+      },
+      {
+         "name": "Dagger-A",
+         "electronicWarfare": "0",
+         "image": "Dagger-A",
+         "country": "Argentina",
+         "serviceYear": "1972",
+         "speedRating": "1",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "30",
+         "victoryPointMissiles": "39",
+         "victoryPointReductionNoEnemyMissiles": "3",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "Shafrir II"
+            }
+         ]
+      },
+      {
+         "name": "F-4B Phantom II",
+         "electronicWarfare": "1",
+         "image": "F-4B",
+         "country": "USA",
+         "serviceYear": "1962",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "22",
+         "victoryPointMissiles": "44",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9E"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7E-2"
+            }
+         ]
+      },
+      {
+         "name": "F-4D Phantom II",
+         "electronicWarfare": "1",
+         "image": "F-4D",
+         "country": "USA",
+         "serviceYear": "1967",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "22",
+         "victoryPointMissiles": "44",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9E"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7E-2"
+            }
+         ]
+      },
+      {
+         "name": "F4-E Phantom II",
+         "electronicWarfare": "1",
+         "image": "F-4E",
+         "country": "USA",
+         "serviceYear": "1967",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "33",
+         "victoryPointMissiles": "55",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9E"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7E-2"
+            }
+         ]
+      },
+      {
+         "name": "F4-E Phantom II",
+         "electronicWarfare": "1",
+         "image": "F-4E_Israel",
+         "country": "Israel",
+         "serviceYear": "1967",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "39",
+         "victoryPointMissiles": "61",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9E"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7E-2"
+            }
+         ]
+      },
+      {
+         "name": "F-4F Phantom II",
+         "electronicWarfare": "1",
+         "image": "F-4F",
+         "country": "Germany",
+         "serviceYear": "1974",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "39",
+         "victoryPointMissiles": "61",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9E"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7E-2"
+            }
+         ]
+      },
+      {
+         "name": "F-4J Phantom II",
+         "electronicWarfare": "1",
+         "image": "F-4J",
+         "country": "USA",
+         "serviceYear": "1970",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "22",
+         "victoryPointMissiles": "46",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9G"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7E-2"
+            }
+         ]
+      },
+      {
+         "name": "F4U-4 Corsair",
+         "electronicWarfare": "0",
+         "image": "F4U-4",
+         "country": "USA",
+         "serviceYear": "1944",
+         "speedRating": "0",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "4",
+         "victoryPointNoMissiles": "6",
+         "victoryPointMissiles": "6",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "F-8E Crusader",
+         "electronicWarfare": "1",
+         "image": "F-8E",
+         "country": "USA",
+         "serviceYear": "1957",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "36",
+         "victoryPointMissiles": "48",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9G"
+            }
+         ]
+      },
+      {
+         "name": "F-9F Panther",
+         "electronicWarfare": "0",
+         "image": "F-9F",
+         "country": "USA",
+         "serviceYear": "1950",
+         "speedRating": "1",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "17",
+         "victoryPointMissiles": "17",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "F-14A Tomcat",
+         "electronicWarfare": "2",
+         "image": "F-14A",
+         "country": "USA",
+         "serviceYear": "1973",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "2",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "6",
+         "postTurnABThrustRating": "6",
+         "performanceRating": "8",
+         "victoryPointNoMissiles": "71",
+         "victoryPointMissiles": "114",
+         "victoryPointReductionNoEnemyMissiles": "13",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9L"
+            },
+            {
+               "number": "2",
+               "missile": "AIM-7M"
+            },
+            {
+               "number": "2",
+               "missile": "AIM-54"
+            }
+         ]
+      },
+      {
+         "name": "F-15A",
+         "electronicWarfare": "2",
+         "image": "F-15A",
+         "country": "USA",
+         "serviceYear": "1972",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "2",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "6",
+         "postTurnABThrustRating": "6",
+         "performanceRating": "8",
+         "victoryPointNoMissiles": "71",
+         "victoryPointMissiles": "107",
+         "victoryPointReductionNoEnemyMissiles": "13",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7F"
+            }
+         ]
+      },
+      {
+         "name": "F-15C Eagle_Israel",
+         "electronicWarfare": "3",
+         "image": "F-15C",
+         "country": "Israel",
+         "serviceYear": "1979",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "3",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "6",
+         "postTurnABThrustRating": "6",
+         "performanceRating": "9",
+         "victoryPointNoMissiles": "82",
+         "victoryPointMissiles": "119",
+         "victoryPointReductionNoEnemyMissiles": "21",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-7M"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            }
+         ]
+      },
+      {
+         "name": "F-15C Eagle_US",
+         "electronicWarfare": "3",
+         "image": "F-15C-US",
+         "country": "USA",
+         "serviceYear": "1979",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "3",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "6",
+         "postTurnABThrustRating": "6",
+         "performanceRating": "9",
+         "victoryPointNoMissiles": "82",
+         "victoryPointMissiles": "119",
+         "victoryPointReductionNoEnemyMissiles": "21",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            },
+            {
+               "number": "4",
+               "missile": "AIM-7M"
+            }
+         ]
+      },
+      {
+         "name": "F-16A Fighting Falcon",
+         "electronicWarfare": "2",
+         "image": "F-16A",
+         "country": "USA",
+         "serviceYear": "1980",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "2",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "5",
+         "postTurnABThrustRating": "5",
+         "performanceRating": "9",
+         "victoryPointNoMissiles": "68",
+         "victoryPointMissiles": "86",
+         "victoryPointReductionNoEnemyMissiles": "14",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            }
+         ]
+      },
+      {
+         "name": "F-22 Raptor",
+         "electronicWarfare": "4",
+         "image": "F-22",
+         "country": "USA",
+         "serviceYear": "2007",
+         "speedRating": "4",
+         "gunRating": "3",
+         "cmRating": "4-Stealth",
+         "preTurnThrustRating": "4",
+         "postTurnThrustRating": "4",
+         "preTurnABThrustRating": "7",
+         "postTurnABThrustRating": "7",
+         "performanceRating": "10",
+         "victoryPointNoMissiles": "107",
+         "victoryPointMissiles": "149",
+         "victoryPointReductionNoEnemyMissiles": "29",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-120"
+            },
+            {
+               "number": "2",
+               "missile": "AIM-9M"
+            }
+         ]
+      },
+      {
+         "name": "F-80C Shooting Star",
+         "electronicWarfare": "0",
+         "image": "F-80C",
+         "country": "USA",
+         "serviceYear": "1945",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "10",
+         "victoryPointMissiles": "10",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "F-86A Sabre",
+         "electronicWarfare": "0",
+         "image": "F-86A",
+         "country": "USA",
+         "serviceYear": "1949",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "12",
+         "victoryPointMissiles": "12",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "F-86F Sabre",
+         "electronicWarfare": "0",
+         "image": "F-86F",
+         "country": "Pakistan",
+         "serviceYear": "1949",
+         "speedRating": "1",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "12",
+         "victoryPointMissiles": "12",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "F-100 Super Sabre",
+         "electronicWarfare": "1",
+         "image": "F-100",
+         "country": "USA",
+         "serviceYear": "1956",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "2",
+         "postTurnABThrustRating": "2",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "27",
+         "victoryPointMissiles": "37",
+         "victoryPointReductionNoEnemyMissiles": "2",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9B"
+            }
+         ]
+      },
+      {
+         "name": "F-104A Starfighter",
+         "electronicWarfare": "1",
+         "image": "F-104A",
+         "country": "Pakistan",
+         "serviceYear": "1956",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "33",
+         "victoryPointMissiles": "40",
+         "victoryPointReductionNoEnemyMissiles": "3",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9E"
+            }
+         ]
+      },
+      {
+         "name": "F-104C Starfighter",
+         "electronicWarfare": "1",
+         "image": "F-104C",
+         "country": "USA",
+         "serviceYear": "1956",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "33",
+         "victoryPointMissiles": "40",
+         "victoryPointReductionNoEnemyMissiles": "3",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9E"
+            }
+         ]
+      },
+      {
+         "name": "F-104G Starfighter",
+         "electronicWarfare": "1",
+         "image": "F-104G",
+         "country": "Germany",
+         "serviceYear": "1963",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "33",
+         "victoryPointMissiles": "40",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9E"
+            }
+         ]
+      },
+      {
+         "name": "F-105D Thunderchief",
+         "electronicWarfare": "1",
+         "image": "F-105D",
+         "country": "USA",
+         "serviceYear": "1961",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "30",
+         "victoryPointMissiles": "37",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9B"
+            }
+         ]
+      },
+      {
+         "name": "F/A-18A Hornet",
+         "electronicWarfare": "3",
+         "image": "FA-18A",
+         "country": "USA",
+         "serviceYear": "1981",
+         "speedRating": "3",
+         "gunRating": "3",
+         "cmRating": "2",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "9",
+         "victoryPointNoMissiles": "68",
+         "victoryPointMissiles": "100",
+         "victoryPointReductionNoEnemyMissiles": "16",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            },
+            {
+               "number": "2",
+               "missile": "AIM-7M"
+            }
+         ]
+      },
+      {
+         "name": "Gnat",
+         "electronicWarfare": "0",
+         "image": "Gnat",
+         "country": "India",
+         "serviceYear": "1955",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "15",
+         "victoryPointMissiles": "15",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "Hawker Hunter",
+         "electronicWarfare": "0",
+         "image": "Hawker-Hunter",
+         "country": "India",
+         "serviceYear": "1954",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "2",
+         "postTurnABThrustRating": "2",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "19",
+         "victoryPointMissiles": "26",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9E"
+            }
+         ]
+      },
+      {
+         "name": "Kfir",
+         "electronicWarfare": "1",
+         "image": "Kfir",
+         "country": "Israel",
+         "serviceYear": "1975",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "36",
+         "victoryPointMissiles": "49",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AIM-9L"
+            }
+         ]
+      },
+      {
+         "name": "Mig-15bis Fagot",
+         "electronicWarfare": "0",
+         "image": "Mig-15bis",
+         "country": "North Korea",
+         "serviceYear": "1949",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "4",
+         "victoryPointNoMissiles": "12",
+         "victoryPointMissiles": "12",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "Mig-17F Fresco",
+         "electronicWarfare": "0",
+         "image": "Mig-17F",
+         "country": "Vietnam",
+         "serviceYear": "1952",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "2",
+         "postTurnABThrustRating": "2",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "19",
+         "victoryPointMissiles": "19",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "Mig-17F Fresco-Egypt",
+         "electronicWarfare": "0",
+         "image": "M-17F-Egypt",
+         "country": "Egypt",
+         "serviceYear": "1952",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "2",
+         "postTurnABThrustRating": "2",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "15",
+         "victoryPointMissiles": "15",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "Mig-19S Farmer",
+         "electronicWarfare": "0",
+         "image": "Mig-19S",
+         "country": "Egypt",
+         "serviceYear": "1952",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "25",
+         "victoryPointMissiles": "25",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "Mig-19SF Farmer",
+         "electronicWarfare": "0",
+         "image": "Mig-19SF",
+         "country": "Vietnam",
+         "serviceYear": "1952",
+         "speedRating": "1",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "25",
+         "victoryPointMissiles": "25",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      },
+      {
+         "name": "Mig-21 Fishbed C",
+         "electronicWarfare": "0",
+         "image": "Mig-21-C",
+         "country": "Iraq",
+         "serviceYear": "1970",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "27",
+         "victoryPointMissiles": "36",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AA-8A"
+            }
+         ]
+      },
+      {
+         "name": "Mig-21F Fishbed",
+         "electronicWarfare": "1",
+         "image": "Mig-21F",
+         "country": "Vietnam",
+         "serviceYear": "1959",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "36",
+         "victoryPointMissiles": "43",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AA-2A"
+            }
+         ]
+      },
+      {
+         "name": "Mig-21F Fishbed C",
+         "electronicWarfare": "0",
+         "image": "Mig-21F_C",
+         "country": "India",
+         "serviceYear": "1972",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "30",
+         "victoryPointMissiles": "37",
+         "victoryPointReductionNoEnemyMissiles": "3",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AA-2A"
+            }
+         ]
+      },
+      {
+         "name": "Mig-21F Fishbed C USSR",
+         "electronicWarfare": "1",
+         "image": "Mig-21F_C-Rus",
+         "country": "USSR",
+         "serviceYear": "1959",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "36",
+         "victoryPointMissiles": "46",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AA-2A"
+            }
+         ]
+      },
+      {
+         "name": "Mig-21PF Fishbed",
+         "electronicWarfare": "0",
+         "image": "Mig-21PF",
+         "country": "Egypt",
+         "serviceYear": "1961",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "25",
+         "victoryPointMissiles": "32",
+         "victoryPointReductionNoEnemyMissiles": "3",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AA-2A"
+            }
+         ]
+      },
+      {
+         "name": "Mig-23 Flogger",
+         "electronicWarfare": "0",
+         "image": "Mig-23",
+         "country": "Iraq",
+         "serviceYear": "1978",
+         "speedRating": "1",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "30",
+         "victoryPointMissiles": "51",
+         "victoryPointReductionNoEnemyMissiles": "3",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AA-8B"
+            },
+            {
+               "number": "2",
+               "missile": "AA-7A"
+            }
+         ]
+      },
+      {
+         "name": "Mig-23ML Flogger G",
+         "electronicWarfare": "1",
+         "image": "Mig-23ML",
+         "country": "USSR",
+         "serviceYear": "1978",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "36",
+         "victoryPointMissiles": "61",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AA-2B"
+            },
+            {
+               "number": "2",
+               "missile": "AA-7C"
+            }
+         ]
+      },
+      {
+         "name": "Mig-25 Foxbat",
+         "electronicWarfare": "0",
+         "image": "Mig-25",
+         "country": "Iraq",
+         "serviceYear": "1979",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "2",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "5",
+         "victoryPointNoMissiles": "22",
+         "victoryPointMissiles": "44",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "AA-6C"
+            },
+            {
+               "number": "2",
+               "missile": "AA-6D"
+            }
+         ]
+      },
+      {
+         "name": "Mig-25E Foxbat",
+         "electronicWarfare": "1",
+         "image": "Mig-25E",
+         "country": "USSR",
+         "serviceYear": "1978",
+         "speedRating": "2",
+         "gunRating": "0",
+         "cmRating": "2",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "30",
+         "victoryPointMissiles": "52",
+         "victoryPointReductionNoEnemyMissiles": "8",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AA-6C"
+            },
+            {
+               "number": "4",
+               "missile": "AA-6D"
+            }
+         ]
+      },
+      {
+         "name": "Mig-29 Fulcrum-A",
+         "electronicWarfare": "2",
+         "image": "Mig-29",
+         "country": "USSR",
+         "serviceYear": "1983",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "2",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "6",
+         "postTurnABThrustRating": "6",
+         "performanceRating": "9",
+         "victoryPointNoMissiles": "75",
+         "victoryPointMissiles": "107",
+         "victoryPointReductionNoEnemyMissiles": "14",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AA-11"
+            },
+            {
+               "number": "2",
+               "missile": "AA-10A"
+            }
+         ]
+      },
+      {
+         "name": "Mirage IIICJ",
+         "electronicWarfare": "1",
+         "image": "Mirage_IIICJ",
+         "country": "Israel",
+         "serviceYear": "1962",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "42",
+         "victoryPointMissiles": "51",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "Shafrir II"
+            }
+         ]
+      },
+      {
+         "name": "Mirage IIIEA",
+         "electronicWarfare": "0",
+         "image": "Mirage_IIIEA",
+         "country": "Argentina",
+         "serviceYear": "1962",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "0",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "33",
+         "victoryPointMissiles": "42",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "R-550 I"
+            }
+         ]
+      },
+      {
+         "name": "Mirage IIIEP",
+         "electronicWarfare": "1",
+         "image": "Mirage_IIIEP",
+         "country": "Pakistan",
+         "serviceYear": "1962",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "39",
+         "victoryPointMissiles": "64",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "R-550 II"
+            },
+            {
+               "number": "2",
+               "missile": "R-530F"
+            }
+         ]
+      },
+      {
+         "name": "Mirage 2000",
+         "electronicWarfare": "2",
+         "image": "Mirage-2000",
+         "country": "France",
+         "serviceYear": "1983",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "2",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "5",
+         "postTurnABThrustRating": "5",
+         "performanceRating": "8",
+         "victoryPointNoMissiles": "64",
+         "victoryPointMissiles": "89",
+         "victoryPointReductionNoEnemyMissiles": "13",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "R-550 II"
+            },
+            {
+               "number": "2",
+               "missile": "R-530F"
+            }
+         ]
+      },
+      {
+         "name": "Mirage F-1C",
+         "electronicWarfare": "1",
+         "image": "Mirage-F-1C",
+         "country": "France",
+         "serviceYear": "1973",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "42",
+         "victoryPointMissiles": "67",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "R-550 II"
+            },
+            {
+               "number": "2",
+               "missile": "R-530F"
+            }
+         ]
+      },
+      {
+         "name": "Nesher-S",
+         "electronicWarfare": "1",
+         "image": "Nesher-S",
+         "country": "Israel",
+         "serviceYear": "1971",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "3",
+         "postTurnABThrustRating": "3",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "33",
+         "victoryPointMissiles": "42",
+         "victoryPointReductionNoEnemyMissiles": "6",
+         "missileLoad": [
+            {
+               "number": "2",
+               "missile": "Shafrir II"
+            }
+         ]
+      },
+      {
+         "name": "Sea Harrier FRS.1",
+         "electronicWarfare": "1",
+         "image": "SeaHarrier-FRS1",
+         "country": "England",
+         "serviceYear": "1979",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "27",
+         "victoryPointMissiles": "45",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            }
+         ]
+      },
+      {
+         "name": "Sea Harrier GR.3",
+         "electronicWarfare": "1",
+         "image": "SeaHarrier-GR3",
+         "country": "England",
+         "serviceYear": "1974",
+         "speedRating": "2",
+         "gunRating": "1",
+         "cmRating": "1",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "27",
+         "victoryPointMissiles": "39",
+         "victoryPointReductionNoEnemyMissiles": "5",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9G"
+            }
+         ]
+      },
+      {
+         "name": "Su-27 Flanker D",
+         "electronicWarfare": "3",
+         "image": "Su-27",
+         "country": "USSR",
+         "serviceYear": "1994",
+         "speedRating": "3",
+         "gunRating": "3",
+         "cmRating": "2",
+         "preTurnThrustRating": "3",
+         "postTurnThrustRating": "3",
+         "preTurnABThrustRating": "5",
+         "postTurnABThrustRating": "5",
+         "performanceRating": "9",
+         "victoryPointNoMissiles": "75",
+         "victoryPointMissiles": "107",
+         "victoryPointReductionNoEnemyMissiles": "17",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AA-11"
+            },
+            {
+               "number": "2",
+               "missile": "AA-10A"
+            }
+         ]
+      },
+      {
+         "name": "Tornado F.3",
+         "electronicWarfare": "2",
+         "image": "Tornado-F3",
+         "country": "England",
+         "serviceYear": "1986",
+         "speedRating": "3",
+         "gunRating": "2",
+         "cmRating": "2",
+         "preTurnThrustRating": "2",
+         "postTurnThrustRating": "2",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "7",
+         "victoryPointNoMissiles": "54",
+         "victoryPointMissiles": "91",
+         "victoryPointReductionNoEnemyMissiles": "12",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "Sky Flash"
+            },
+            {
+               "number": "2",
+               "missile": "AIM-9L"
+            }
+         ]
+      },
+      {
+         "name": "Tornado GR.1",
+         "electronicWarfare": "2",
+         "image": "Tornado-GR1",
+         "country": "England",
+         "serviceYear": "1979",
+         "speedRating": "2",
+         "gunRating": "2",
+         "cmRating": "1",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "4",
+         "postTurnABThrustRating": "4",
+         "performanceRating": "6",
+         "victoryPointNoMissiles": "45",
+         "victoryPointMissiles": "63",
+         "victoryPointReductionNoEnemyMissiles": "9",
+         "missileLoad": [
+            {
+               "number": "4",
+               "missile": "AIM-9L"
+            }
+         ]
+      },
+      {
+         "name": "Yak-9",
+         "electronicWarfare": "0",
+         "image": "Yak-9",
+         "country": "North Korea",
+         "serviceYear": "1944",
+         "speedRating": "0",
+         "gunRating": "0",
+         "cmRating": "0",
+         "preTurnThrustRating": "1",
+         "postTurnThrustRating": "1",
+         "preTurnABThrustRating": "0",
+         "postTurnABThrustRating": "0",
+         "performanceRating": "3",
+         "victoryPointNoMissiles": "4",
+         "victoryPointMissiles": "4",
+         "victoryPointReductionNoEnemyMissiles": "0",
+         "missileLoad": []
+      }
+   ]
+}

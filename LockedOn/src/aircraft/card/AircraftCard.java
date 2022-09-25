@@ -1,5 +1,6 @@
 package aircraft.card;
 
+import data.AircraftData.MissileLoad;
 import javafx.scene.image.Image;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.PlayerSetupBlockController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="playerNumberLbl" text="Player 1" />
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="191.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="305.0" prefWidth="100.0" spacing="4.0">
+               <children>
+                  <Label text="Aircraft" />
+                  <ScrollPane prefHeight="316.0" prefWidth="96.0">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <TextArea fx:id="aircraftList" editable="false" prefHeight="320.0" prefWidth="70.0" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" spacing="4.0">
+               <children>
+                  <Button fx:id="removePlayerAircraft" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="&lt;&lt;" />
+                  <Button fx:id="addPlayerAircraft" mnemonicParsing="false" text="&gt;&gt;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="305.0" prefWidth="100.0" spacing="4.0">
+               <children>
+                  <Label text="Player Aircraft" />
+                  <ScrollPane prefHeight="316.0" prefWidth="96.0">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TextArea fx:id="playerAircraftList" editable="false" prefHeight="320.0" prefWidth="70.0" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox>
+               <HBox.margin>
+                  <Insets bottom="4.0" right="4.0" top="4.0" />
+               </HBox.margin>
+               <children>
+                  <Label />
+                  <ImageView fx:id="aircraftCardImage" fitHeight="212.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true" />
+               </children></VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets bottom="4.0" right="4.0" top="4.0" />
+               </HBox.margin>
+               <children>
+                  <Label text="Skills" />
+                  <ScrollPane prefHeight="368.0" prefWidth="100.0">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TextArea fx:id="skillsList" editable="false" prefHeight="367.0" prefWidth="70.0" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children></VBox>
+            <VBox alignment="CENTER" spacing="4.0">
+               <children>
+                  <Button fx:id="removePlayerSkills" mnemonicParsing="false" prefHeight="25.0" prefWidth="44.0" text="&lt;&lt;" />
+                  <Button fx:id="addPlayerSkills" mnemonicParsing="false" text="&gt;&gt;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Player Skills" />
+                  <ScrollPane prefHeight="368.0" prefWidth="100.0">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TextArea fx:id="playerSkillsList" editable="false" prefHeight="367.0" prefWidth="70.0" wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="367.0" prefWidth="214.0">
+               <HBox.margin>
+                  <Insets bottom="4.0" right="4.0" top="4.0" />
+               </HBox.margin>
+               <children>
+                  <Label />
+                  <TextArea fx:id="skillDescription" editable="false" prefHeight="367.0" prefWidth="173.0" wrapText="true" />
+               </children></VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+</VBox>
