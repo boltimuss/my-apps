@@ -5,8 +5,17 @@
           "image": "",
           "positioning": "1",
           "range": "1",
-          "effects": [
-            "draw_extra_1_card_next_missile_launch"
+          "mechanics": [
+            {
+              "and": [
+                  {
+                      "mechanic": "DRAW_CARDS",
+                      "inputs": ["1"],
+                      "executionOccurence": "MISSILE_LAUNCH",
+                      "executionMultpile": "1"
+                  }
+              ]
+            }
           ],
           "reactsTo": [
             "Yo-Yo",
@@ -22,8 +31,17 @@
          "image": "",
          "positioning": "1",
          "range": "0",
-         "effects": [
-          "missile_launch"
+         "mechanics": [
+          {
+            "and": [
+                {
+                    "mechanic": "LAUNCH_MISSILE",
+                    "inputs": ["1"],
+                    "executionOccurence": "WHEN_PLAYED",
+                    "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [],
          "exclusions": ""
@@ -33,10 +51,23 @@
          "image": "",
          "positioning": "2",
          "range": "1",
-         "effect": "missile_launch_card_2",
-         "effects": [
-          "missile_launch",
-          "missile_launch_gets_extra_cards_2"
+         "mechanics": [
+          {
+            "and": [
+                {
+                    "mechanic": "LAUNCH_MISSILE",
+                    "inputs": ["1"],
+                    "executionOccurence": "WHEN_PLAYED",
+                    "executionMultpile": "1"
+                },
+                {
+                    "mechanic": "DRAW_EXTRA_MISSILE_CARDS",
+                    "inputs": ["2"],
+                    "executionOccurence": "MISSILE_LAUNCH",
+                    "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [],
          "exclusions": ""
@@ -46,9 +77,44 @@
          "image": "",
          "positioning": "1",
          "range": "0",
-         "effects": [
-          "discard_3_based_upon_position",
-          "fire_guns"
+         "mechanics": [
+          {
+            "if": [
+                {
+                    "condition" : [
+                      {
+                        "AIRCRAFT_POSITION": "NEUTRAL"
+                      }
+                    ],
+                    "mechanic": "DISCARD_FEWER",
+                    "inputs": ["3"],
+                    "executionOccurence": "FIRING_GUNS",
+                    "executionMultpile": "1"
+                },
+                {
+                  "condition" : [
+                    {
+                      "AIRCRAFT_POSITION": "ADVANTAGED"
+                    }
+                  ],
+                  "mechanic": "DISCARD_FEWER",
+                  "inputs": ["2"],
+                  "executionOccurence": "FIRING_GUNS",
+                  "executionMultpile": "1"
+                },
+                {
+                  "condition" : [
+                    {
+                      "AIRCRAFT_POSITION": "TAILING"
+                    }
+                  ],
+                  "mechanic": "DISCARD_FEWER",
+                  "inputs": ["1"],
+                  "executionOccurence": "FIRING_GUNS",
+                  "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [
             "Missile",
@@ -61,9 +127,23 @@
          "image": "",
          "positioning": "2",
          "range": "1",
-         "effects": [
-          "missile_launch",
-          "missile_launch_gets_extra_cards_1"
+         "mechanics": [
+          {
+            "and": [
+                {
+                    "mechanic": "LAUNCH_MISSILE",
+                    "inputs": ["1"],
+                    "executionOccurence": "WHEN_PLAYED",
+                    "executionMultpile": "1"
+                },
+                {
+                    "mechanic": "DRAW_EXTRA_MISSILE_CARDS",
+                    "inputs": ["1"],
+                    "executionOccurence": "MISSILE_LAUNCH",
+                    "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [],
          "exclusions": ""
@@ -73,8 +153,54 @@
          "image": "",
          "positioning": "2",
          "range": "1",
-         "effects": [
-          "discard_2_based_upon_position_fire_guns"
+         "mechanics": [
+          {
+            "and": [
+                {
+                    "mechanic": "FIRE_GUN",
+                    "inputs": ["1"],
+                    "executionOccurence": "WHEN_PLAYED",
+                    "executionMultpile": "1"
+                }
+            ]
+          },
+          {
+            "if": [
+                {
+                    "condition" : [
+                      {
+                        "AIRCRAFT_POSITION": "NEUTRAL"
+                      }
+                    ],
+                    "mechanic": "DISCARD_FEWER",
+                    "inputs": ["2"],
+                    "executionOccurence": "FIRING_GUNS",
+                    "executionMultpile": "1"
+                },
+                {
+                  "condition" : [
+                    {
+                      "AIRCRAFT_POSITION": "ADVANTAGED"
+                    }
+                  ],
+                  "mechanic": "DISCARD_FEWER",
+                  "inputs": ["1"],
+                  "executionOccurence": "FIRING_GUNS",
+                  "executionMultpile": "1"
+                },
+                {
+                  "condition" : [
+                    {
+                      "AIRCRAFT_POSITION": "TAILING"
+                    }
+                  ],
+                  "mechanic": "DISCARD_FEWER",
+                  "inputs": ["NONE"],
+                  "executionOccurence": "FIRING_GUNS",
+                  "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [],
          "exclusions": ""
@@ -84,10 +210,8 @@
          "image": "",
          "positioning": "4",
          "range": "3",
-         "effects": [
-          "any"
-         ],
-         "reactsTo": [],
+         "mechanics": [],
+         "reactsTo": ["ANY"],
          "exclusions": "missile"
        },
        {
@@ -95,8 +219,17 @@
          "image": "",
          "positioning": "0",
          "range": "2",
-         "effects": [
-          "draw_extra_1_card_next_missile_launch"
+         "mechanics": [
+          {
+            "and": [
+                {
+                    "mechanic": "DRAW_EXTRA_MISSILE_CARDS",
+                    "inputs": ["1"],
+                    "executionOccurence": "MISSILE_LAUNCH",
+                    "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [
             "Break",
@@ -112,7 +245,7 @@
          "image": "",
          "positioning": "2",
          "range": "3",
-         "effects": [],
+         "mechanics": [],
          "reactsTo": [
             "Gun",
             "Tone",
@@ -126,8 +259,17 @@
          "image": "",
          "positioning": "3",
          "range": "0",
-         "effects": [
-          "Altitude_change_1"
+         "mechanics": [
+          {
+            "and": [
+                {
+                    "mechanic": "CHANGE_ALTITUDE",
+                    "inputs": ["1"],
+                    "executionOccurence": "WHEN_PLAYED",
+                    "executionMultpile": "1"
+                }
+            ]
+          }
          ],
          "reactsTo": [
             "Vertical Roll",
@@ -142,9 +284,33 @@
         "image": "",
         "positioning": "2",
         "range": "2",
-        "effects": [
-          "end_enemy_turn",
-          "draw_1"
+        "mechanics": [
+          {
+            "if": [
+                {
+                  "condition" : [
+                    {
+                      "CARD_PLAYED_IN_CYCLE": "LAST_CARD"
+                    }
+                  ],
+                  "mechanic": "END_ENEMY_TURN",
+                  "inputs": [],
+                  "executionOccurence": "WHEN_PLAYED",
+                  "executionMultpile": "1"
+                },
+                {
+                  "condition" : [
+                    {
+                      "CARD_PLAYED_IN_CYCLE": "LAST_CARD"
+                    }
+                  ],
+                  "mechanic": "DRAW_CARDS",
+                  "inputs": ["1"],
+                  "executionOccurence": "WHEN_PLAYED",
+                  "executionMultpile": "1"
+                }
+            ]
+          }
          ],
         "reactsTo": [],
         "exclusions": ""
@@ -154,7 +320,7 @@
         "image": "",
         "positioning": "1",
         "range": "0",
-        "effects": [
+        "mechanics": [
           "discard_3_based_upon_position",
           "fire_guns"
          ],
@@ -166,7 +332,7 @@
         "image": "",
         "positioning": "0",
         "range": "1",
-        "effects": [
+        "mechanics": [
           "change_position_tailed_disadvantage_to_neutral"
          ],
         "reactsTo": [
@@ -183,7 +349,7 @@
         "image": "",
         "positioning": "1",
         "range": "1",
-        "effects": [
+        "mechanics": [
           "change_position_disadvantaged_advantaged"
          ],
         "reactsTo": [
@@ -199,7 +365,7 @@
         "image": "",
         "positioning": "1",
         "range": "0",
-        "effects": [
+        "mechanics": [
           "or_launch_misslie_minus_1",
           "or_discard_3_based_upon_position_fire_guns"
          ],

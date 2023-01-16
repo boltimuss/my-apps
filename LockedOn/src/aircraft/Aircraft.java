@@ -19,10 +19,16 @@ public class Aircraft {
 	@Getter @Setter private Range range;
 	@Getter @Setter private Afterburner afterburner1;
 	@Getter @Setter private Afterburner afterburner2;
+	@Getter @Setter private boolean stealth;
 	
 	public Aircraft(AircraftCard aircraftCard)
 	{
 		this.aircraftCard = aircraftCard;
-		this.cmNumber = Integer.valueOf(aircraftCard.getCmRating());
+		
+		if (aircraftCard.getCmRating().endsWith("-stealth"))
+		{
+			stealth = true;
+			this.cmNumber = Integer.valueOf(aircraftCard.getCmRating().substring(0,1));
+		}
 	}
 }

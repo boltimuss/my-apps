@@ -36,6 +36,7 @@ public class StartNewGameController {
 			
 			PlayerSetupBlockController controller = loader.getController();
 			controller.setPlayerName((i == 0) ? "CPU" : "Human Player");
+			controller.init();
 			playerStatBlocks.getChildren().add(statBlock);
 		}
 	}

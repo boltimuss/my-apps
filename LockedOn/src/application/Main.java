@@ -36,6 +36,7 @@ public class Main extends Application implements Subscriber {
 	
 	private Stage mainWindow;
 	private Mfd mfd1, mfd2, mfd3;
+	private GameData gameData;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -48,7 +49,7 @@ public class Main extends Application implements Subscriber {
 			MainWindowController controller = loader.getController();
 			controller.loadGraphics();
 			
-			GameData gameData = new GameData();
+			gameData = new GameData();
 			loadData(gameData);
 			loadActionCardData(gameData);
 			
@@ -59,6 +60,7 @@ public class Main extends Application implements Subscriber {
 			mainWindow.setResizable(false);
 			mainWindow.setScene(scene);
 			MessageBus.getInstanceOf().addSubscriber("close", this);
+			MessageBus.getInstanceOf().addSubscriber("getGameData", this);
 			
 			mfd1 = new Mfd(1, mainWindow);
 			mfd2 = new Mfd(2, mainWindow);
@@ -93,36 +95,36 @@ public class Main extends Application implements Subscriber {
 			
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
-//			Aircraft a1 = new Aircraft(gameData.getAircraftCards().get("F-18"));
-//			Aircraft a2 = new Aircraft(gameData.getAircraftCards().get("F-15C Eagle"));
-//			Aircraft a3 = new Aircraft(gameData.getAircraftCards().get("F-15C Eagle"));
-//			a1.setMissile1(gameData.getMissiles().get("AA-8B-1"));
-//			a1.setMissile2(gameData.getMissiles().get("AA-8B-1"));
-//			a1.setMissile3(gameData.getMissiles().get("AA-8B-1"));
-//			a1.setMissile4(gameData.getMissiles().get("AA-8B-1"));
-//			a2.setMissile1(gameData.getMissiles().get("AA-8B-1"));
-//			a2.setMissile2(gameData.getMissiles().get("AA-8B-1"));
-//			a2.setMissile3(gameData.getMissiles().get("AA-8B-1"));
-//			a2.setMissile4(gameData.getMissiles().get("AA-8B-1"));
-//			a3.setMissile1(gameData.getMissiles().get("AA-8B-1"));
-//			a3.setMissile2(gameData.getMissiles().get("AA-8B-1"));
-//			a3.setMissile3(gameData.getMissiles().get("AA-8B-1"));
-//			a3.setMissile4(gameData.getMissiles().get("AA-8B-1"));
-//			a1.setAltitude(Altitude.HIGH);
-//			a2.setAltitude(Altitude.MEDIUM);
-//			a3.setAltitude(Altitude.LOW);
-//			a1.setAfterburner1(Afterburner.ON);
-//			a1.setAfterburner2(Afterburner.ON);
-//			a2.setAfterburner1(Afterburner.OFF);
-//			a2.setAfterburner2(Afterburner.OFF);
-//			a3.setAfterburner1(Afterburner.VACANT);
-//			a3.setAfterburner2(Afterburner.OFF);
-//			a1.setRange(Range.GUNS);
-//			a2.setRange(Range.HEAT_SEEKING);
-//			a3.setRange(Range.ACTIVE_HOMING);
-//			MessageBus.getInstanceOf().sendMessage("loadMfd1", a1);
-//			MessageBus.getInstanceOf().sendMessage("loadMfd2", a2);
-//			MessageBus.getInstanceOf().sendMessage("loadMfd3", a3);
+			Aircraft a1 = new Aircraft(gameData.getAircraftCards().get("F-15A"));
+			Aircraft a2 = new Aircraft(gameData.getAircraftCards().get("F-22 Raptor"));
+			Aircraft a3 = new Aircraft(gameData.getAircraftCards().get("F/A-18A Hornet"));
+			a1.setMissile1(gameData.getMissiles().get("AA-8B-1"));
+			a1.setMissile2(gameData.getMissiles().get("AA-8B-1"));
+			a1.setMissile3(gameData.getMissiles().get("AA-8B-1"));
+			a1.setMissile4(gameData.getMissiles().get("AA-8B-1"));
+			a2.setMissile1(gameData.getMissiles().get("AA-8B-1"));
+			a2.setMissile2(gameData.getMissiles().get("AA-8B-1"));
+			a2.setMissile3(gameData.getMissiles().get("AA-8B-1"));
+			a2.setMissile4(gameData.getMissiles().get("AA-8B-1"));
+			a3.setMissile1(gameData.getMissiles().get("AA-8B-1"));
+			a3.setMissile2(gameData.getMissiles().get("AA-8B-1"));
+			a3.setMissile3(gameData.getMissiles().get("AA-8B-1"));
+			a3.setMissile4(gameData.getMissiles().get("AA-8B-1"));
+			a1.setAltitude(Altitude.HIGH);
+			a2.setAltitude(Altitude.MEDIUM);
+			a3.setAltitude(Altitude.LOW);
+			a1.setAfterburner1(Afterburner.ON);
+			a1.setAfterburner2(Afterburner.ON);
+			a2.setAfterburner1(Afterburner.OFF);
+			a2.setAfterburner2(Afterburner.OFF);
+			a3.setAfterburner1(Afterburner.VACANT);
+			a3.setAfterburner2(Afterburner.OFF);
+			a1.setRange(Range.GUNS);
+			a2.setRange(Range.HEAT_SEEKING);
+			a3.setRange(Range.ACTIVE_HOMING);
+			MessageBus.getInstanceOf().sendMessage("loadMfd1", a1);
+			MessageBus.getInstanceOf().sendMessage("loadMfd2", a2);
+			MessageBus.getInstanceOf().sendMessage("loadMfd3", a3);
 			
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
@@ -171,8 +173,8 @@ public class Main extends Application implements Subscriber {
 	
 	private void loadData(GameData gameData) throws IOException 
 	{
-//		loadMissileData(gameData);
-//		loadAircraftData(gameData);
+		loadMissileData(gameData);
+		loadAircraftData(gameData);
 	}
 	
 	private void loadActionCardData(GameData gameData) throws IOException
@@ -205,7 +207,7 @@ public class Main extends Application implements Subscriber {
 		for (AircraftData aircraft:aircraftData.getAircraft())
 		{
 			gameData.getAircraftCards().put(aircraft.getName(), mapper.map(aircraft, AircraftCard.class));
-			
+		
 			AircraftCard a = gameData.getAircraftCards().get(aircraft.getName());
 			gameData.getAircraftCards().get(aircraft.getName()).setCard(
 					new Image(getClass().getResourceAsStream("/resources/aircraftcards/" + a.getImage() + ".png")));
@@ -231,6 +233,10 @@ public class Main extends Application implements Subscriber {
 			mfd1.close();
 			mfd2.close();
 			mfd3.close();
+		}
+		else if (topic.equals("getGameData"))
+		{
+			return gameData;
 		}
 		
 		return null;

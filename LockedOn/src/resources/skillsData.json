@@ -1,0 +1,760 @@
+{
+    "skills": [
+        {
+            "name": "Newbie",
+            "image": "newbie",
+            "cost": "-10",
+            "description": "Reduce either 1 Aircraft Rating by 2, or 2 Aircraft Ratings by 1.",
+            "mechanics": [
+                {
+                    "or": [
+                        {
+                            "mechanic": "REDUCE_AIRCRAFT_RATING",
+                            "inputs": ["2"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "REDUCE_AIRCRAFT_RATING",
+                            "inputs": ["1"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Nugget",
+            "image": "nugget",
+            "cost": "-10",
+            "description": "Discard all Vertical Roll, Tone (Strong), and Ace Pilot Action cards whenever drawn. Do not redraw.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DISCARD",
+                            "inputs": ["Vertical Roll"],
+                            "executionOccurence": "WHEN_DRAWN",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "DISCARD",
+                            "inputs": ["Tone (Strong)"],
+                            "executionOccurence": "WHEN_DRAWN",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "DISCARD",
+                            "inputs": ["Ace Pilot"],
+                            "executionOccurence": "WHEN_DRAWN",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Green",
+            "image": "green",
+            "cost": "-5",
+            "description": "Reduce 1 Aircraft Rating by 1.",
+            "mechanics": [
+                {
+                    "or": [
+                        {
+                            "mechanic": "REDUCE_AIRCRAFT_RATING",
+                            "inputs": ["1"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Plumber(missing)",
+            "image": "plumber",
+            "cost": "-5",
+            "description": "Discard all Ace Pilot Action cards when drawn. Do not redraw.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DISCARD",
+                            "inputs": ["Ace Pilot"],
+                            "executionOccurence": "WHEN_DRAWN",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "DriftFactor",
+            "image": "driftFactor",
+            "cost": "-5",
+            "description": "Cannot give or receive Teamwork cards. (There must be 2 or more Aircraft on your Team at the beginning of the Dogfight).",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "CANNOT_RECEIVE",
+                            "inputs": ["Teamwork cards"],
+                            "executionOccurence": "CARD_RECEIVE",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "CANNOT_GIVE",
+                            "inputs": ["Teamwork cards"],
+                            "executionOccurence": "CARD_GIVE",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Guided_intercept_2",
+            "image": "guided_intercept_2",
+            "cost": "1",
+            "description": "Start with +2 cards in your hand after drawing cards at the beginning of the Dogfight.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["2"],
+                            "executionOccurence": "INITIAL_CARD_DRAW",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Edge",
+            "image": "edge",
+            "cost": "1",
+            "description": "Add a Redline Action card to your hand after drawing cards at the beginning of the Dogfight.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "ADD_CARD",
+                            "inputs": ["Redline"],
+                            "executionOccurence": "INITIAL_CARD_DRAW",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Gunfighter",
+            "image": "gunfighter",
+            "cost": "1",
+            "description": "Once per game, when making a Guns attack, discard 2 fewer cards than required.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DISCARD_FEWER",
+                            "inputs": ["2"],
+                            "executionOccurence": "GUN_ATTACK",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Guided_intercept_3",
+            "image": "guided_intercept_3",
+            "cost": "2",
+            "description": "Start with +3 cards in your hand after drawing cards at the beginning of the Dogfight.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["3"],
+                            "executionOccurence": "INITIAL_CARD_DRAW",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Locked (missing)",
+            "image": "locked",
+            "cost": "2",
+            "description": "Add a Tone (Strong) Action card to your hand after drawing cards at the beginning of the Dogfight.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "ADD_CARD",
+                            "inputs": ["Tone (Strong)"],
+                            "executionOccurence": "INITIAL_CARD_DRAW",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "90 degree Angle",
+            "image": "90_angle",
+            "cost": "2",
+            "description": "Begin the Dogfight at any Range. Adjust 1 enemy Aircraft's Range to match yours. After Range adjustments, if the other Aircraft is within Range of any of your Weapons, adjust your Position to being Advantaged on that Aircraft.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "SELECT_RANGE",
+                            "inputs": ["ANY"],
+                            "executionOccurence": "DOGFIGHT_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "ADJUST_ENEMY_RANGE",
+                            "inputs": ["TO_MATCH_YOURS"],
+                            "executionOccurence": "DOGFIGHT_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "ADJUST_POSITION",
+                            "inputs": ["TO_ADVANTAGED_IF_WITHIN_WEAPON_RANGE"],
+                            "executionOccurence": "DOGFIGHT_START",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Alert (missing)",
+            "image": "alert",
+            "cost": "2",
+            "description": "Once per game immediately after a missile is fired at you, reduce that Missile's Action cards to 0.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "REDUCE_MISSILE_CARDS",
+                            "inputs": ["TO", "0"],
+                            "executionOccurence": "AFTER_MISSILE_FIRE",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Cocky",
+            "image": "cocky",
+            "cost": "2",
+            "description": "When firing 2 missiles from any type of Tone Action card, draw another extra card to the Missile attacking hand. This is in addition to the extra card you would normally draw when firing 2 missiles, for a total of 2 extra cards.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_EXTRA_MISSILE_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "2_MISSILE_FIRE_FROM_TONE",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "EagleEyes",
+            "image": "eagleEyes",
+            "cost": "2",
+            "description": "Start the game with initiative.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "START_WITH_INITIATIVE",
+                            "inputs": ["PLAYER"],
+                            "executionOccurence": "",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "FighterPilot",
+            "image": "fighterPilot",
+            "cost": "2",
+            "description": "Increase your Gun rating by 1. (Cannot be used if plane has gun rating of '-'",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "INCREASE_AIRCRAFT_RATING",
+                            "inputs": ["GUN_RATING", "1"],
+                            "executionOccurence": "",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Focused",
+            "image": "focused",
+            "cost": "2",
+            "description": "Draw 1 card when an enemy adjusts their Range.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "ENEMY_ADJUSTS_RANGE",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Grit",
+            "image": "grit",
+            "cost": "2",
+            "description": "Adjust the Aircraft's ratings as follows: -1 Performance; +1 Thrust, +1 A/B",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "REDUCE_AIRCRAFT_RATING",
+                            "inputs": ["1", "PERFORMANCE"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "INCREASE_AIRCRAFT_RATING",
+                            "inputs": ["1", "THRUST"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "INCREASE_AIRCRAFT_RATING",
+                            "inputs": ["1", "AFTERBURNER"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Lucky (missing)",
+            "image": "lucky",
+            "cost": "2",
+            "description": "Once per game, you may expend a Countermeasure as an Ace Pilot Action card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "SUBSTITUTE",
+                            "inputs": ["Countermeasure", "Ace Pilot"],
+                            "executionOccurence": "WHEN_PLAYING_ACTION_CARDS",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Relief",
+            "image": "relief",
+            "cost": "2",
+            "description": "Every time an enemy Tone is cancelled or stopped, draw 1 card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "ENEMY_TONE_STOPPED_CANCELLED",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Jink",
+            "image": "jink",
+            "cost": "2",
+            "description": "Once per game, when reacting to a Gun attack, you may react with any card as an Ace Pilot action card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "SUBSTITUTE",
+                            "inputs": ["Any Card", "Ace Pilot"],
+                            "executionOccurence": "REACTING_TO_GUN_ATTACK",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Skilled",
+            "image": "skilled",
+            "cost": "5",
+            "description": "Increase 1 Aircraft Rating by 1.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "INCREASE_AIRCRAFT_RATING",
+                            "inputs": ["ANY", "1"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Up The Sleeve",
+            "image": "upTheSleeve",
+            "cost": "5",
+            "description": "Start the game with an Ace Pilot Action card in your hand after drawing cards at the beginning of the Dogfight.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "ADD_CARD",
+                            "inputs": ["Ace Pilot"],
+                            "executionOccurence": "INITIAL_CARD_DRAW",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "0 degree Angle",
+            "image": "0_angle",
+            "cost": "5",
+            "description": "Begin the Dogfight at any Range. Adjust 1 enemy Aircraft's Range to match yours. After Range adjustments, if you are within Range of any of your Weapons, adjust your Position to being Tailing on that Aircraft. Your Team begins with initiative. (Cannot be used outside of Campaigns).",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "SELECT_RANGE",
+                            "inputs": ["ANY"],
+                            "executionOccurence": "DOGFIGHT_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "ADJUST_ENEMY_RANGE",
+                            "inputs": ["TO_MATCH_YOURS"],
+                            "executionOccurence": "DOGFIGHT_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "ADJUST_POSITION",
+                            "inputs": ["TO_TAILING_IF_WITHIN_WEAPON_RANGE"],
+                            "executionOccurence": "DOGFIGHT_START",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "START_WITH_INITIATIVE",
+                            "inputs": ["TEAM"],
+                            "executionOccurence": "",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Agile",
+            "image": "agile",
+            "cost": "5",
+            "description": "Once per game, play any card as an Ace Pilot Action card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "SUBSTITUTE",
+                            "inputs": ["ANY", "Ace Pilot"],
+                            "executionOccurence": "ANY",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Brave",
+            "image": "brave",
+            "cost": "5",
+            "description": "When an enemy plays any type of Tone Action card to launch a missile, draw 1 card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "ENEMY_PLAYS_TONE_FOR_MISSILE_LAUNCH",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Diligent",
+            "image": "diligent",
+            "cost": "5",
+            "description": "When playing a Vertical Roll Action card, draw 1 card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "WHEN_PLAYING_VERTICAL_ROLL",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Quick Hands",
+            "image": "quickHands",
+            "cost": "5",
+            "description": "For every missile fired against you, immediately draw 1 card.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "FOR_EVERY_MISSILE_FIRED_AT_YOU",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Test Pilot",
+            "image": "testPilot",
+            "cost": "5",
+            "description": "Your beginning and end of turn Thrust and A/B card draws may exceed your Performance Rating.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "MAY_EXCEED_PERFORMANCE_RATING",
+                            "inputs": ["BEGINNING_THRUST", "ENDING_THRUST", "BEGINNING_AB", "ENDING_AB"],
+                            "executionOccurence": "FOR_EVERY_MISSILE_FIRED_AT_YOU",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Timely",
+            "image": "timely",
+            "cost": "5",
+            "description": "Once per game, at any time, you may discard any Action cards, and draw the same number of Action cards back in your hand.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DISCARD",
+                            "inputs": ["ANY", "WRITE_INTO_ACC"],
+                            "executionOccurence": "ANY",
+                            "executionMultpile": "1"
+                        },
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["READ_FROM_ACC"],
+                            "executionOccurence": "ANY",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Better Envelope",
+            "image": "betterEnvelope",
+            "cost": "5",
+            "description": "When you play any type of Tone Action card to launch a Missile, draw 1 extra card in your Missile attacking hand.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_EXTRA_MISSILE_CARDS",
+                            "inputs": ["1"],
+                            "executionOccurence": "WHEN_PLAYING_TONE_TO_LAUNCH_MISSILE",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "NFOD",
+            "image": "nfod",
+            "cost": "5",
+            "description": "At the start of the Dogfight, gain Campaign points equal to the difference in VP between sides. (Cannot be used outside of Campaigns)",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "GAIN_CAMPAIGN_POINTS",
+                            "inputs": ["VP_DIFFERENCE"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Veteran",
+            "image": "veteran",
+            "cost": "10",
+            "description": "Increase up to 2 Aircraft ratings by a total of 2.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "INCREASE_AIRCRAFT_RATING",
+                            "inputs": ["ANY", 2],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "In My sights",
+            "image": "inMySights",
+            "cost": "10",
+            "description": "Discard 0 cards when performing a Gun Attack.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DISCARD_FEWER",
+                            "inputs": ["NONE"],
+                            "executionOccurence": "GUN_ATTACK",
+                            "executionMultpile": "2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tiger",
+            "image": "tiger",
+            "cost": "10",
+            "description": "Start with Ace Pilot and Tone (Strong) in your hand after drawing cards at the beginning of the Dogfight.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "ADD_CARD",
+                            "inputs": ["Ace Pilot", "Tone (Strong)"],
+                            "executionOccurence": "INITIAL_CARD_DRAW",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Bat-Turn",
+            "image": "bat_turn",
+            "cost": "10",
+            "description": "You may freely return to Neutral at the beginning of each Aircraft's turn.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "ADJUST_POSITION",
+                            "inputs": ["NEUTRAL"],
+                            "executionOccurence": "BEGINNING_OF_AIRCRAFT_TURN",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Ace",
+            "image": "ace",
+            "cost": "15",
+            "description": "Increase up to 3 Aircraft Ratings by a total of 3.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "INCREASE_AIRCRAFT_RATING",
+                            "inputs": ["ANY", "3"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Edge of Envelope",
+            "image": "edgeOfEnvelope",
+            "cost": "15",
+            "description": "Draw Action Cards equal to your Performance rating during your Aircraft's Discard/Draw Steps. Discard any extra cards down to your Performance rating.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS",
+                            "inputs": ["PERFORMANCE_RATING"],
+                            "executionOccurence": "WHEN_DRAWING_CARDS",
+                            "executionMultpile": "3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Aircraft Expertise",
+            "image": "aircraftExpertise",
+            "cost": "15",
+            "description": "At the beginning of the game, draw Action Cards equal to your Performance Rating. Place them to the side. These cards do not count against your Performance. During every Aircraft's turn you may play 1 of these cards as if it were from your hand.",
+            "mechanics": [
+                {
+                    "and": [
+                        {
+                            "mechanic": "DRAW_CARDS_INTO_QUEUE",
+                            "inputs": ["PERFORMANCE_RATING"],
+                            "executionOccurence": "GAME_START",
+                            "executionMultpile": "1"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

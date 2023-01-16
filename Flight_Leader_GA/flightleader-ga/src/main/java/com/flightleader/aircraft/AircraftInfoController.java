@@ -314,6 +314,10 @@ public class AircraftInfoController extends ViewController {
 	{
 		GraphicsContext gc = tokenView.getGraphicsContext2D();
 		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.rgb(156, 206, 250));
+//		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.rgb(224, 238, 249));
+//		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.RED);
+//		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.rgb(94, 255, 113));
+//		aircraft.draw(gc, tokenView.getWidth(), tokenView.getHeight(), 0, 0, Color.LIGHTGRAY);
 	}
 	
 	public void selectTokenImage(MouseEvent event)

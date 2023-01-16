@@ -1,0 +1,23 @@
+{
+    "mechanics": [
+        "ADD_CARD",
+        "ADJUST_ENEMY_RANGE",
+        "ADJUST_POSITION",
+        "CANNOT_GIVE",
+        "CANNOT_RECEIVE",
+        "CHANGE_ALTITUDE",
+        "DISCARD",
+        "DISCARD_FEWER",
+        "DRAW_CARDS",
+        "DRAW_CARDS_INTO_QUEUE",
+        "DRAW_EXTRA_MISSILE_CARDS",
+        "GAIN_CAMPAIGN_POINTS",
+        "INCREASE_AIRCRAFT_RATING",
+        "LAUNCH_MISSILE",
+        "MAY_EXCEED_PERFORMANCE_RATING",
+        "REDUCE_AIRCRAFT_RATING",
+        "REDUCE_MISSILE_CARDS",
+        "SELECT_RANGE",
+        "SUBSTITUTE"
+    ]
+}

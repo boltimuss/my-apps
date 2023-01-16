@@ -21,7 +21,7 @@
       </HBox>
       <HBox>
          <children>
-            <ScrollPane fx:id="playerStatsSP">
+            <ScrollPane fx:id="playerStatsSP" HBox.hgrow="ALWAYS">
                <content>
                   <VBox fx:id="playerStatBlocks" />
                </content></ScrollPane>
