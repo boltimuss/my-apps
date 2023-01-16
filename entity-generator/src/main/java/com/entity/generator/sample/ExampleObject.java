@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 2885593688887424005L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ExampleObject\",\"namespace\":\"com.entity.generator.sample\",\"fields\":[{\"name\":\"field1\",\"type\":\"string\",\"doc\":\"Name of the user account on Thecodebuzz.com\"},{\"name\":\"field2\",\"type\":\"string\",\"doc\":\"The email of the user logging message on the blog\"},{\"name\":\"field3\",\"type\":\"long\",\"doc\":\"time in seconds\"}],\"doc:\":\"A basic schema for storing thecodebuzz blogs messages\"}");
+  private static final long serialVersionUID = -6469217302065895737L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ExampleObject\",\"namespace\":\"com.entity.generator.sample\",\"fields\":[{\"name\":\"exampleFieldOne\",\"type\":\"string\",\"doc\":\"Name of the user account on Thecodebuzz.com\"},{\"name\":\"exampleFieldTwo\",\"type\":\"string\",\"doc\":\"The email of the user logging message on the blog\"},{\"name\":\"exampleFieldThree\",\"type\":\"long\",\"doc\":\"time in seconds\"}],\"doc:\":\"A basic schema for storing thecodebuzz blogs messages\"}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,11 +72,11 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
   }
 
   /** Name of the user account on Thecodebuzz.com */
-  @Deprecated public java.lang.CharSequence field1;
+  public java.lang.CharSequence exampleFieldOne;
   /** The email of the user logging message on the blog */
-  @Deprecated public java.lang.CharSequence field2;
+  @Deprecated public java.lang.CharSequence exampleFieldTwo;
   /** time in seconds */
-  @Deprecated public long field3;
+  @Deprecated public long exampleFieldThree;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -87,14 +87,14 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
 
   /**
    * All-args constructor.
-   * @param field1 Name of the user account on Thecodebuzz.com
-   * @param field2 The email of the user logging message on the blog
-   * @param field3 time in seconds
+   * @param exampleFieldOne Name of the user account on Thecodebuzz.com
+   * @param exampleFieldTwo The email of the user logging message on the blog
+   * @param exampleFieldThree time in seconds
    */
-  public ExampleObject(java.lang.CharSequence field1, java.lang.CharSequence field2, java.lang.Long field3) {
-    this.field1 = field1;
-    this.field2 = field2;
-    this.field3 = field3;
+  public ExampleObject(java.lang.CharSequence exampleFieldOne, java.lang.CharSequence exampleFieldTwo, java.lang.Long exampleFieldThree) {
+    this.exampleFieldOne = exampleFieldOne;
+    this.exampleFieldTwo = exampleFieldTwo;
+    this.exampleFieldThree = exampleFieldThree;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -102,9 +102,9 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return field1;
-    case 1: return field2;
-    case 2: return field3;
+    case 0: return exampleFieldOne;
+    case 1: return exampleFieldTwo;
+    case 2: return exampleFieldThree;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -113,65 +113,65 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: field1 = (java.lang.CharSequence)value$; break;
-    case 1: field2 = (java.lang.CharSequence)value$; break;
-    case 2: field3 = (java.lang.Long)value$; break;
+    case 0: exampleFieldOne = (java.lang.CharSequence)value$; break;
+    case 1: exampleFieldTwo = (java.lang.CharSequence)value$; break;
+    case 2: exampleFieldThree = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
-   * Gets the value of the 'field1' field.
+   * Gets the value of the 'exampleFieldOne' field.
    * @return Name of the user account on Thecodebuzz.com
    */
-  public java.lang.CharSequence getField1() {
-    return field1;
+  public java.lang.CharSequence getExampleFieldOne() {
+    return exampleFieldOne;
   }
 
 
   /**
-   * Sets the value of the 'field1' field.
+   * Sets the value of the 'exampleFieldOne' field.
    * Name of the user account on Thecodebuzz.com
    * @param value the value to set.
    */
-  public void setField1(java.lang.CharSequence value) {
-    this.field1 = value;
+  public void setExampleFieldOne(java.lang.CharSequence value) {
+    this.exampleFieldOne = value;
   }
 
   /**
-   * Gets the value of the 'field2' field.
+   * Gets the value of the 'exampleFieldTwo' field.
    * @return The email of the user logging message on the blog
    */
-  public java.lang.CharSequence getField2() {
-    return field2;
+  public java.lang.CharSequence getExampleFieldTwo() {
+    return exampleFieldTwo;
   }
 
 
   /**
-   * Sets the value of the 'field2' field.
+   * Sets the value of the 'exampleFieldTwo' field.
    * The email of the user logging message on the blog
    * @param value the value to set.
    */
-  public void setField2(java.lang.CharSequence value) {
-    this.field2 = value;
+  public void setExampleFieldTwo(java.lang.CharSequence value) {
+    this.exampleFieldTwo = value;
   }
 
   /**
-   * Gets the value of the 'field3' field.
+   * Gets the value of the 'exampleFieldThree' field.
    * @return time in seconds
    */
-  public long getField3() {
-    return field3;
+  public long getExampleFieldThree() {
+    return exampleFieldThree;
   }
 
 
   /**
-   * Sets the value of the 'field3' field.
+   * Sets the value of the 'exampleFieldThree' field.
    * time in seconds
    * @param value the value to set.
    */
-  public void setField3(long value) {
-    this.field3 = value;
+  public void setExampleFieldThree(long value) {
+    this.exampleFieldThree = value;
   }
 
   /**
@@ -216,11 +216,11 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
     implements org.apache.avro.data.RecordBuilder<ExampleObject> {
 
     /** Name of the user account on Thecodebuzz.com */
-    private java.lang.CharSequence field1;
+    private java.lang.CharSequence exampleFieldOne;
     /** The email of the user logging message on the blog */
-    private java.lang.CharSequence field2;
+    private java.lang.CharSequence exampleFieldTwo;
     /** time in seconds */
-    private long field3;
+    private long exampleFieldThree;
 
     /** Creates a new Builder */
     private Builder() {
@@ -233,16 +233,16 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
      */
     private Builder(com.entity.generator.sample.ExampleObject.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.field1)) {
-        this.field1 = data().deepCopy(fields()[0].schema(), other.field1);
+      if (isValidValue(fields()[0], other.exampleFieldOne)) {
+        this.exampleFieldOne = data().deepCopy(fields()[0].schema(), other.exampleFieldOne);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.field2)) {
-        this.field2 = data().deepCopy(fields()[1].schema(), other.field2);
+      if (isValidValue(fields()[1], other.exampleFieldTwo)) {
+        this.exampleFieldTwo = data().deepCopy(fields()[1].schema(), other.exampleFieldTwo);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.field3)) {
-        this.field3 = data().deepCopy(fields()[2].schema(), other.field3);
+      if (isValidValue(fields()[2], other.exampleFieldThree)) {
+        this.exampleFieldThree = data().deepCopy(fields()[2].schema(), other.exampleFieldThree);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
     }
@@ -253,147 +253,147 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
      */
     private Builder(com.entity.generator.sample.ExampleObject other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.field1)) {
-        this.field1 = data().deepCopy(fields()[0].schema(), other.field1);
+      if (isValidValue(fields()[0], other.exampleFieldOne)) {
+        this.exampleFieldOne = data().deepCopy(fields()[0].schema(), other.exampleFieldOne);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.field2)) {
-        this.field2 = data().deepCopy(fields()[1].schema(), other.field2);
+      if (isValidValue(fields()[1], other.exampleFieldTwo)) {
+        this.exampleFieldTwo = data().deepCopy(fields()[1].schema(), other.exampleFieldTwo);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.field3)) {
-        this.field3 = data().deepCopy(fields()[2].schema(), other.field3);
+      if (isValidValue(fields()[2], other.exampleFieldThree)) {
+        this.exampleFieldThree = data().deepCopy(fields()[2].schema(), other.exampleFieldThree);
         fieldSetFlags()[2] = true;
       }
     }
 
     /**
-      * Gets the value of the 'field1' field.
+      * Gets the value of the 'exampleFieldOne' field.
       * Name of the user account on Thecodebuzz.com
       * @return The value.
       */
-    public java.lang.CharSequence getField1() {
-      return field1;
+    public java.lang.CharSequence getExampleFieldOne() {
+      return exampleFieldOne;
     }
 
 
     /**
-      * Sets the value of the 'field1' field.
+      * Sets the value of the 'exampleFieldOne' field.
       * Name of the user account on Thecodebuzz.com
-      * @param value The value of 'field1'.
+      * @param value The value of 'exampleFieldOne'.
       * @return This builder.
       */
-    public com.entity.generator.sample.ExampleObject.Builder setField1(java.lang.CharSequence value) {
+    public com.entity.generator.sample.ExampleObject.Builder setExampleFieldOne(java.lang.CharSequence value) {
       validate(fields()[0], value);
-      this.field1 = value;
+      this.exampleFieldOne = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'field1' field has been set.
+      * Checks whether the 'exampleFieldOne' field has been set.
       * Name of the user account on Thecodebuzz.com
-      * @return True if the 'field1' field has been set, false otherwise.
+      * @return True if the 'exampleFieldOne' field has been set, false otherwise.
       */
-    public boolean hasField1() {
+    public boolean hasExampleFieldOne() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'field1' field.
+      * Clears the value of the 'exampleFieldOne' field.
       * Name of the user account on Thecodebuzz.com
       * @return This builder.
       */
-    public com.entity.generator.sample.ExampleObject.Builder clearField1() {
-      field1 = null;
+    public com.entity.generator.sample.ExampleObject.Builder clearExampleFieldOne() {
+      exampleFieldOne = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'field2' field.
+      * Gets the value of the 'exampleFieldTwo' field.
       * The email of the user logging message on the blog
       * @return The value.
       */
-    public java.lang.CharSequence getField2() {
-      return field2;
+    public java.lang.CharSequence getExampleFieldTwo() {
+      return exampleFieldTwo;
     }
 
 
     /**
-      * Sets the value of the 'field2' field.
+      * Sets the value of the 'exampleFieldTwo' field.
       * The email of the user logging message on the blog
-      * @param value The value of 'field2'.
+      * @param value The value of 'exampleFieldTwo'.
       * @return This builder.
       */
-    public com.entity.generator.sample.ExampleObject.Builder setField2(java.lang.CharSequence value) {
+    public com.entity.generator.sample.ExampleObject.Builder setExampleFieldTwo(java.lang.CharSequence value) {
       validate(fields()[1], value);
-      this.field2 = value;
+      this.exampleFieldTwo = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'field2' field has been set.
+      * Checks whether the 'exampleFieldTwo' field has been set.
       * The email of the user logging message on the blog
-      * @return True if the 'field2' field has been set, false otherwise.
+      * @return True if the 'exampleFieldTwo' field has been set, false otherwise.
       */
-    public boolean hasField2() {
+    public boolean hasExampleFieldTwo() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-      * Clears the value of the 'field2' field.
+      * Clears the value of the 'exampleFieldTwo' field.
       * The email of the user logging message on the blog
       * @return This builder.
       */
-    public com.entity.generator.sample.ExampleObject.Builder clearField2() {
-      field2 = null;
+    public com.entity.generator.sample.ExampleObject.Builder clearExampleFieldTwo() {
+      exampleFieldTwo = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'field3' field.
+      * Gets the value of the 'exampleFieldThree' field.
       * time in seconds
       * @return The value.
       */
-    public long getField3() {
-      return field3;
+    public long getExampleFieldThree() {
+      return exampleFieldThree;
     }
 
 
     /**
-      * Sets the value of the 'field3' field.
+      * Sets the value of the 'exampleFieldThree' field.
       * time in seconds
-      * @param value The value of 'field3'.
+      * @param value The value of 'exampleFieldThree'.
       * @return This builder.
       */
-    public com.entity.generator.sample.ExampleObject.Builder setField3(long value) {
+    public com.entity.generator.sample.ExampleObject.Builder setExampleFieldThree(long value) {
       validate(fields()[2], value);
-      this.field3 = value;
+      this.exampleFieldThree = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'field3' field has been set.
+      * Checks whether the 'exampleFieldThree' field has been set.
       * time in seconds
-      * @return True if the 'field3' field has been set, false otherwise.
+      * @return True if the 'exampleFieldThree' field has been set, false otherwise.
       */
-    public boolean hasField3() {
+    public boolean hasExampleFieldThree() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'field3' field.
+      * Clears the value of the 'exampleFieldThree' field.
       * time in seconds
       * @return This builder.
       */
-    public com.entity.generator.sample.ExampleObject.Builder clearField3() {
+    public com.entity.generator.sample.ExampleObject.Builder clearExampleFieldThree() {
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -403,9 +403,9 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
     public ExampleObject build() {
       try {
         ExampleObject record = new ExampleObject();
-        record.field1 = fieldSetFlags()[0] ? this.field1 : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.field2 = fieldSetFlags()[1] ? this.field2 : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.field3 = fieldSetFlags()[2] ? this.field3 : (java.lang.Long) defaultValue(fields()[2]);
+        record.exampleFieldOne = fieldSetFlags()[0] ? this.exampleFieldOne : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.exampleFieldTwo = fieldSetFlags()[1] ? this.exampleFieldTwo : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.exampleFieldThree = fieldSetFlags()[2] ? this.exampleFieldThree : (java.lang.Long) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -438,11 +438,11 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    out.writeString(this.field1);
+    out.writeString(this.exampleFieldOne);
 
-    out.writeString(this.field2);
+    out.writeString(this.exampleFieldTwo);
 
-    out.writeLong(this.field3);
+    out.writeLong(this.exampleFieldThree);
 
   }
 
@@ -451,25 +451,25 @@ public class ExampleObject extends org.apache.avro.specific.SpecificRecordBase i
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.field1 = in.readString(this.field1 instanceof Utf8 ? (Utf8)this.field1 : null);
+      this.exampleFieldOne = in.readString(this.exampleFieldOne instanceof Utf8 ? (Utf8)this.exampleFieldOne : null);
 
-      this.field2 = in.readString(this.field2 instanceof Utf8 ? (Utf8)this.field2 : null);
+      this.exampleFieldTwo = in.readString(this.exampleFieldTwo instanceof Utf8 ? (Utf8)this.exampleFieldTwo : null);
 
-      this.field3 = in.readLong();
+      this.exampleFieldThree = in.readLong();
 
     } else {
       for (int i = 0; i < 3; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.field1 = in.readString(this.field1 instanceof Utf8 ? (Utf8)this.field1 : null);
+          this.exampleFieldOne = in.readString(this.exampleFieldOne instanceof Utf8 ? (Utf8)this.exampleFieldOne : null);
           break;
 
         case 1:
-          this.field2 = in.readString(this.field2 instanceof Utf8 ? (Utf8)this.field2 : null);
+          this.exampleFieldTwo = in.readString(this.exampleFieldTwo instanceof Utf8 ? (Utf8)this.exampleFieldTwo : null);
           break;
 
         case 2:
-          this.field3 = in.readLong();
+          this.exampleFieldThree = in.readLong();
           break;
 
         default:

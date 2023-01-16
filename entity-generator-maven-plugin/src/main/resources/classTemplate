@@ -1,0 +1,10 @@
+package <package-name>;
+
+import lombok.Data;
+
+@Data
+public class <class-name> {
+	
+	<first-field>
+	
+}
