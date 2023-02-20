@@ -1,0 +1,25 @@
+Official dice v2.2 - RPG dice roller homepage:
+*****************************************************
+
+http://sourceforge.net/projects/dice-roll
+
+Recommended sites:
+**************************
+
+* UltraDefrag: Powerful Open Source Defragmentation tool for Windows Platform
+
+http://ultradefrag.sourceforge.net
+
+* Hungarian RPG forum
+
+http://forum.rpg.hu
+
+* My projects:
+
+http://nagyzs.users.sourceforge.net
+
+Contact: FreeNode IRC server #bigjoe666 channel (if you don't use IRC client: http://webchat.freenode.net/)
+
+* My website:
+
+http://www.bigjoe666.com/

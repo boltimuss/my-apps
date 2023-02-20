@@ -1,0 +1,27 @@
+dice v2.2 (2012-01-14)
+--------------------------------
+
+- added Minimize Window box
+- small GUI change
+- added continuous increase or decrease on mouse down for No. of sides, No. of dices buttons and +/- Modifier buttons
+
+dice v2.1 (2010-10-08)
+--------------------------------
+
+- fixed window
+
+dice v2.0 (2010-08-29)
+--------------------------------
+
+- program's name changed to "RPG dice roller"
+- rebuild for Microsoft .NET Framework 2.0
+- program is portable
+- added custom dice (number of side: 1-999)
+- added modifier buttons to modify: number of sides, number of dices, +/- modifier
+- detailed result
+- new dice images
+
+dice v1.0 (2010-08-22)
+--------------------------------
+
+- first release

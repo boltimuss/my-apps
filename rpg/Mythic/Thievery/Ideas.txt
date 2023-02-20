@@ -1,0 +1,33 @@
+[ ] - need generator for cities
+[ ] - need generator for buildings, along with floor plans, furniture
+[ ] - need generator for security in city, and buildings
+    - each room/section of the house has security. there are so many fake and real security measures.
+	  some are active, some are passive. 
+	- when the thief arrives at a security measure, it is determined if it is real or fake, If it is
+	  real, then it is determined if the thief can detect it, then disable it. If not, it goes off.
+	- passive security measures are: locked doors, bars on doors/windows
+	- active security measures are: guards, guard dogs, mechanical devices that detect and attack, 
+	  trap doors, traps
+	- location of patrols in city by guards, same as for security measures. sometimes a patrol might
+	  mix things up and change its routes
+	- size of patrol may change too, depending on security level of city. more crimes, activity increases
+	  security level
+[ ] - need generator for target profiles, behaviours, movement in home/city
+    - profile on target: race, sex, age, profession, disposition, how they react when awoken or
+	  confronted, habits through day, routes, how careful they are
+[ ] - chaos: sometimes things dont go as planned
+    - target is not where it should be
+	- security is different then what was expected
+	- house layout was different than what was expected
+	
+	
+The thief adventure should cover the following phases of a heist:
+* Planning: the thief has to plan things before performing the heist. They dont have to plan at all but
+            the chances of success are nill if they dont.
+  - scope out the route they will take to/from target, patrols, etc
+  - scope out target, try to nail down as much info about target: movements, etc
+  - scope out location of target's building, get as much external info
+  - the hard part, try to get info on the inside security of the target house using social engineering.
+* ingress:
+* heist:
+* egress:

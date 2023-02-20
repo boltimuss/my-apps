@@ -1,0 +1,13 @@
+dice v2.2 - RPG dice roller
+********************************
+
+Created by Zsolt Nagy
+
+http://www.bigjoe666.com/
+
+2012
+********************************
+
+http://sourceforge.net/projects/dice-roll
+
+Contact: FreeNode IRC server #bigjoe666 channel (if you don't use IRC client: http://webchat.freenode.net/)

@@ -1,0 +1,21 @@
+dice v2.2 - RPG dice roller
+********************************
+
+Created by Zsolt Nagy
+
+http://www.bigjoe666.com/
+
+2012
+********************************
+
+Special thanks to:
+
+- Csaba "facsa" Farago for help and debug
+- Dmitri Arkhangelski for help and debug (http://ultradefrag.sourceforge.net)
+
+Thanks to
+
+- junggle, LoafDV for wav files (www.freesound.org)
+- iconcubic for dice images (www.deviantart.com)
+- pitr for arrow images (www.openclipart.org)
+- DnD section of http://forum.rpg.hu
