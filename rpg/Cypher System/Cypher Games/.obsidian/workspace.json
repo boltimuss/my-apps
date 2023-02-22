@@ -4,47 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "73af5138c30337fd",
+        "id": "33755a807a378408",
         "type": "tabs",
         "children": [
           {
-            "id": "ad08eff05e402b93",
+            "id": "833b946dda25dfa2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Needed References.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5b841e401ab10c66",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Char List/Character Detail Template.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9c406599dbece1c7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Plotlines/Plotlines and Characters List.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Plotlines/Plotlines and Characters List.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Plotlines/Plotlines and Characters List.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Plotlines/Plotlines and Characters List.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -171,9 +138,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9c406599dbece1c7",
+  "active": "833b946dda25dfa2",
   "lastOpenFiles": [
-    "Char List/Character Detail Template.md",
+    "House Rules/House Rules Template.md",
+    "Locations/Location Crafter Template.md",
+    "NPC List/Character Detail Template.md",
+    "Plotlines and Characters/Plotlines and Characters List.md",
     "Needed References.md",
     "Adventure Sheets/Adventure Sheet Template.md",
     "assets/xMark.png",
