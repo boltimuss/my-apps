@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rules/Rules Template Json.md",
+                "file": "Action Constraints/Action Constraints Template Json.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,26 +25,86 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rules/Example.md",
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "dffae1cd21eddbc8",
+            "id": "3a8b5c88a49035bb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Example Games/Tic Tac Toe.md",
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "59223f4d322aac7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Winning Conditions/Winning Conditions Template Json.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f22ed292296c4ffc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Actions/Actions Template Json.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c7031cb69ee40a43",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Fitness Function/Fitness Function Template Json.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a375d9a5871cbed9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "edcaefd5099682d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -110,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Rules/Example.md",
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Rules/Example.md",
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rules/Example.md"
+                "file": "Action Constraints/Action Constraints Example - Tic Tac Toe.md"
               }
             }
           }
@@ -171,11 +231,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "cc4a47d36eedc817",
+  "active": "7c2554aca30dad06",
   "lastOpenFiles": [
-    "Rules/Rules Template Json.md",
+    "Action Constraints/Action Constraints Template Json.md",
+    "Action Constraints/Action Constraints Example - Tic Tac Toe.md",
+    "Fitness Function/Fitness Function Example - Tic Tac Toe.md",
+    "Action Constraints",
+    "Fitness Function/Fitness Function Template Json.md",
     "Example Games/Tic Tac Toe.md",
-    "Rules/Example.md",
+    "Actions/Actions Example - Tic Tac Toe.md",
+    "Actions/Actions Template Json.md",
+    "Winning Conditions/Winning Conditions Example - Tic Tac Toe.md",
+    "Winning Conditions/Winning Conditions Template Json.md",
+    "Winning Conditions",
+    "Actions",
     "Example Games",
     "Fitness Function",
     "Rules",
