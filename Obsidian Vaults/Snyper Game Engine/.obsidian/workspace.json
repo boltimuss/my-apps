@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "47bae4926ba9918f",
+    "type": "split",
+    "children": [
+      {
+        "id": "0aab127705e87abd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c810d5342fb01a6b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Rules/Rules Template Json.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cc4a47d36eedc817",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Rules/Example.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "dffae1cd21eddbc8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Example Games/Tic Tac Toe.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "53a49565c9c467e0",
+    "type": "split",
+    "children": [
+      {
+        "id": "88ca92d2d961bb5c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c2554aca30dad06",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7b356eb77c629697",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "16562b9d6bbd31bc",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "37753d0ca0cc5e48",
+    "type": "split",
+    "children": [
+      {
+        "id": "4cafcf0249613447",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a6476a92994fe62",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Rules/Example.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "08dc9b304b632862",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Rules/Example.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "89c0d453a8b3d9a1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "030cd6eb27e2169c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Rules/Example.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "cc4a47d36eedc817",
+  "lastOpenFiles": [
+    "Rules/Rules Template Json.md",
+    "Example Games/Tic Tac Toe.md",
+    "Rules/Example.md",
+    "Example Games",
+    "Fitness Function",
+    "Rules",
+    "Untitled.md"
+  ]
+}
