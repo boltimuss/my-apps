@@ -20,6 +20,24 @@
             }
           }
         ]
+      },
+      {
+        "id": "d5aa7694470cea94",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36b7c4db4495a93f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Character Sheets/Character Sheets.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
