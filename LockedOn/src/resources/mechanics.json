@@ -11,6 +11,8 @@
         "DRAW_CARDS",
         "DRAW_CARDS_INTO_QUEUE",
         "DRAW_EXTRA_MISSILE_CARDS",
+        "END_ENEMY_TURN",
+        "FIRE_GUN",
         "GAIN_CAMPAIGN_POINTS",
         "INCREASE_AIRCRAFT_RATING",
         "LAUNCH_MISSILE",

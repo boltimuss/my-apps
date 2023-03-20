@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "d86230825ca42811",
+    "id": "a15e68de72a85048",
     "type": "split",
     "children": [
       {
-        "id": "b118bab79b60c2fc",
+        "id": "4c8fe4a85e063008",
         "type": "tabs",
         "children": [
           {
-            "id": "5c2e5528503280fc",
+            "id": "3266e63e37248b16",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
+                "file": "Character Sheets/Character Sheets.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "33b5bbf670c6b19a",
+    "id": "1c5633008762729c",
     "type": "split",
     "children": [
       {
-        "id": "d0051b8b1461967f",
+        "id": "bb4eb34b4650d56e",
         "type": "tabs",
         "children": [
           {
-            "id": "ed1a8a2fe6b696ec",
+            "id": "d4b21d8724fd9a6d",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "005f6e7a710df765",
+            "id": "28bbcb5c99a3e16a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "9f12cfb0cca3c46f",
+            "id": "86ba98cf96784002",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -69,23 +69,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 235.5
+    "width": 300,
+    "collapsed": true
   },
   "right": {
-    "id": "00fbecd96a40c640",
+    "id": "92f68e5c9e2a0c78",
     "type": "split",
     "children": [
       {
-        "id": "3f47869e5720b1bd",
+        "id": "973233e450e5d805",
         "type": "tabs",
         "children": [
           {
-            "id": "b070d2fc9387b83c",
+            "id": "47ebfdce1446da02",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
+                "file": "Character Sheets/Character Sheets.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +98,19 @@
             }
           },
           {
-            "id": "76a059e431ba3252",
+            "id": "7623bc5a359c041c",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
+                "file": "Character Sheets/Character Sheets.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "5f048680b858b2a0",
+            "id": "10eb736ae0917db0",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,12 +121,12 @@
             }
           },
           {
-            "id": "c3f5ffb1326ae5a9",
+            "id": "4c63c7e600c0503d",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "NPC List/Character Detail Template.md"
+                "file": "Character Sheets/Character Sheets.md"
               }
             }
           }
@@ -146,21 +147,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5c2e5528503280fc",
+  "active": "3266e63e37248b16",
   "lastOpenFiles": [
-    "House Rules/House Rules Template.md",
-    "Plotlines and Characters/Plotlines and Characters List.md",
     "NPC List/Character Detail Template.md",
+    "Plotlines and Characters/Plotlines and Characters List.md",
+    "Character Sheets/Character Sheets.md",
+    "Maps",
+    "Character Sheets",
+    "Plotlines and Characters",
     "Locations/Location Crafter Template.md",
-    "assets/xMark.png",
-    "assets/checkMark.png",
-    "Adventure Sheets/Adventure Sheet Template.md",
-    "NPL work/Glyph Design.md",
-    "NPL work/Allowable verbiage.md",
-    "Untitled",
-    "Plotlines/Plotlines and Characters List.md",
-    "Char List/Character Detail Template.md",
-    "Needed References.md",
-    "Untitled.png"
+    "NPC List",
+    "Mission Reports",
+    "Locations",
+    "Ships"
   ]
 }
