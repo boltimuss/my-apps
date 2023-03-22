@@ -18,20 +18,44 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "76f448097937d9bc",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "1020d0e201a9b0f1",
+            "id": "9587287f442acc87",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mission Reports/Initial Mission.md",
+                "file": "NPC List/Character Detail Template.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a5d92f6a8c3d543e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Plotlines and Characters/Plotlines and Characters List.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "9602fc12bf465dd3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "382ebe6f64225e35",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPC List/Character Detail Template.md",
                 "mode": "preview",
                 "source": false
               }
@@ -87,7 +111,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "92f68e5c9e2a0c78",
@@ -166,12 +191,12 @@
   },
   "active": "dd9a0441335987da",
   "lastOpenFiles": [
-    "Character Sheets/Character Sheets.md",
+    "Plotlines and Characters/Plotlines and Characters List.md",
     "Mission Reports/Initial Mission.md",
+    "NPC List/Character Detail Template.md",
+    "Character Sheets/Character Sheets.md",
     "Locations/Location Crafter Template.md",
     "Mission Reports",
-    "NPC List/Character Detail Template.md",
-    "Plotlines and Characters/Plotlines and Characters List.md",
     "Maps",
     "Character Sheets",
     "Plotlines and Characters",

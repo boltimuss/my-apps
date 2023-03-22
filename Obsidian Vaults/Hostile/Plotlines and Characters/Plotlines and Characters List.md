@@ -29,7 +29,7 @@ ___
 
 |Characters List||
 |--------------|---------------|
-|1-4|<span style="color:DimGray">NEW CHARACTER</span> |
+|1-4|<span style="color:white">Kipper</span> |
 |5-8|<span style="color:DimGray">NEW CHARACTER</span> |
 |9-12|<span style="color:DimGray">NEW CHARACTER</span> |
 |13-16|<span style="color:DimGray">CHOOSE MOST LOGICAL CHARACTER</span> |
