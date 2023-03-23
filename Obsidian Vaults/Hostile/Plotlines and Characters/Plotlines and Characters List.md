@@ -1,8 +1,8 @@
 ___
 |Plotlines List||
 |--------------|---------------|
-|1-4|<span style="color:DimGray">CHOOSE MOST LOGICAL PLOTLINE</span> |
-|5-8|<span style="color:DimGray">NEW PLOTLINE</span> |
+|1-4|<span style="color:#AAFFAA"> Kipper's subtle offer to Brent in starport [[Initial Mission]] </span> |
+|5-8|<span style="color:#AAFFAA"> Uptick in piracy</span> [[Initial Mission]] |
 |9-12|<span style="color:DimGray">CHOOSE MOST LOGICAL PLOTLINE</span> |
 |13-16|<span style="color:DimGray">CHOOSE MOST LOGICAL PLOTLINE</span> |
 |17-20|<span style="color:DimGray">CHOOSE MOST LOGICAL PLOTLINE</span> |

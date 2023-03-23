@@ -37,7 +37,7 @@ TODO: rolling characteristics
 **STR**: <span class="orange">7</span> **DEX**: <span class="orange">6</span>   **END**: <span class="orange">7</span>   **INT**: <span class="orange">7</span> <span class="yellow">**EDU**: </span> <span class="orange">10</span>   **SOC**: <span class="orange">6</span> Age: <span class="orange">21</span>
 **Skills**: <span class="green">Gambling-1, Electronics-1, Engineering-1, Mechanical-2, Computer-1, Comms-1, Security-1</span>
 ---
-<font size="5"> Patten Dustshout <font size="4">
+<font size="5"> Patten Dustshout - male<font size="4">
  **Career**: <span class="green">Scientist (edu)  </span>**Position**: <span class="green">Scientist   </span>**Psych Evaluation**: <span class="green"> Comically pessimistic and a paranoid </span>
 **STR**: <span class="orange">5</span> **DEX**: <span class="orange">5</span>   **END**: <span class="orange">6</span>   **INT**: <span class="orange">7</span> <span class="yellow">**EDU**: </span> <span class="orange">8</span>   **SOC**: <span class="orange">6</span> Age: <span class="orange">35</span>
 **Skills**: <span class="green">Medical-1, Computer-2, Investigation-3, Survival-2</span>

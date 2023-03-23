@@ -20,6 +20,49 @@
             }
           },
           {
+            "id": "56a32eddddac898f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Surveys/System Survey Sheet Template.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "9602fc12bf465dd3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "382ebe6f64225e35",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPC List/Character Detail Template.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2ebfa4ab1f890c69",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Character Sheets/Character Sheets.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "9587287f442acc87",
             "type": "leaf",
             "state": {
@@ -43,25 +86,8 @@
               }
             }
           }
-        ]
-      },
-      {
-        "id": "9602fc12bf465dd3",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "382ebe6f64225e35",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPC List/Character Detail Template.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -111,8 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "92f68e5c9e2a0c78",
@@ -128,7 +153,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mission Reports/Initial Mission.md",
+                "file": "NPC List/Character Detail Template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +170,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mission Reports/Initial Mission.md",
+                "file": "NPC List/Character Detail Template.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,7 +193,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mission Reports/Initial Mission.md"
+                "file": "NPC List/Character Detail Template.md"
               }
             }
           }
@@ -189,12 +214,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "dd9a0441335987da",
+  "active": "9587287f442acc87",
   "lastOpenFiles": [
-    "Plotlines and Characters/Plotlines and Characters List.md",
-    "Mission Reports/Initial Mission.md",
+    "Surveys/System Survey Sheet Template.md",
     "NPC List/Character Detail Template.md",
+    "NPC List/Kipper Stursk.md",
+    "Plotlines and Characters/Plotlines and Characters List.md",
     "Character Sheets/Character Sheets.md",
+    "Mission Reports/Initial Mission.md",
+    "Surveys",
     "Locations/Location Crafter Template.md",
     "Mission Reports",
     "Maps",
