@@ -10,7 +10,7 @@ ___
 		"piece place location": 
 		{
 			"location": "BOARD"
-			"name": "main board"
+			"name": "main_board"
 			"type": "EMPTY_SPACE"
 		}
 	}

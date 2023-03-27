@@ -1,0 +1,2 @@
+ - 2023-03-25 17:29:25 // SimPlot 2.3 launched
+ - 2023-03-25 17:29:47 // SimPlot terminated

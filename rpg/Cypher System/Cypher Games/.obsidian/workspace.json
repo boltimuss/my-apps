@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
+                "file": "Adventure Sheets/Adventure Sheet Template.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +101,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +122,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "NPC List/Character Detail Template.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,15 +142,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5c2e5528503280fc",
+  "active": "ed1a8a2fe6b696ec",
   "lastOpenFiles": [
-    "House Rules/House Rules Template.md",
-    "Plotlines and Characters/Plotlines and Characters List.md",
+    "Adventure Sheets/Adventure Sheet Template.md",
+    "Logs/Untitled.md",
     "NPC List/Character Detail Template.md",
+    "Plotlines and Characters/Plotlines and Characters List.md",
+    "House Rules/House Rules Template.md",
     "Locations/Location Crafter Template.md",
     "assets/xMark.png",
     "assets/checkMark.png",
-    "Adventure Sheets/Adventure Sheet Template.md",
     "NPL work/Glyph Design.md",
     "NPL work/Allowable verbiage.md",
     "Untitled",

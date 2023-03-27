@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>The Display</h2>
+
+<p>The application display is composed of the map, the Scenario and Selected Unit information boxes, the Turn Interval and Move controls, the Zoom control, and the Undo buttons.</p>
+<p>The "game world" consists of a Cartesian coordinate system with the center of the world at (0,0). Each whole number represents one nautical mile. The X values increase to the right of center, and the Y values increase up from center. Each decimal number of the coordinates represent a fraction of a nautical mile.</p>
+<p>If the scenario uses a map, the map center is located at (0,0). The display can be panned and zoomed (with or without a map) by using the mouse and keyboard commands. There is no limit to how far the map may be panned. The zoom factors are powers of 2 from 1 to 256, which represent the number of pixels per nautical mile in the display.</p>
+
+<h3>Map Controls</h3>
+
+<p>Here is a list of the display controls:<br>
+	<ul>
+		<li><b>C key:</b> Center map at the selected unit, at the map cursor location, or at (0,0) if nothing is selected.</li>
+		<li><b>+ key:</b> Zoom the map in.</li>
+		<li><b>- key:</b> Zoom the map out.</li>
+		<li><b>Mouse Scroll Wheel:</b> Zoom the map in or out. This also adjusts the Zoom control. Zoom can be changed by dragging the Zoom slider.</li>
+		<li><b>Left Mouse-Click:</b> Select a unit, or if no unit is under the mouse cursor then a map cursor will be displayed showing the X, Y coordinates. If the map has depth data associated with it, the depth under the cursor is also shown.</li>
+		<li><b>SHIFT+Left Mouse-Click:</b> While a unit is selected, the map cursor will display the bearing and range from the selected unit to the mouse-click location.</li>
+		<li><b>Right Mouse-Click:</b> With a unit selected, or with the cursor over a unit, a unit options menu will appear. Right mouse-clicking anywhere except on a unit will re-center the map at the mouse cursor.</li>
+		<li><b>Arrow Keys:</b> Pan the map up, down, left, and right.</li>
+		<li><b>ESC key:</b> Cancels unit selection, or cancels the map cursor.</li>
+		<li><b>CTRL+A key:</b> Show All sides units. Referee/single player only.</li>
+		<li><b>CTRL+B key:</b> Show Blue side units. Referee/single player only.</li>
+		<li><b>CTRL+R key:</b> Show Red side units. Referee/single player only.</li>
+	</ul>
+</p>
+
+</body>
+</html>

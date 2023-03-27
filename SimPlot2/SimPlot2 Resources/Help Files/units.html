@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Units</h2>
+
+<p>A SimPlot unit is an abstract item that represents some kind of real world platform within a <i>Harpoon</i> scenario.  A unit could represent a single vessel, aircraft, or weapon. A unit could also be used to represent groups of platforms with a single icon.</p>
+
+<h3>Unit Categories</h3>
+
+<p>All units fall into a generic category. The categories are:
+	<ul>
+		<li><b>Air:</b> This type includes all aircraft, helicopters, and missiles.</li>
+		<li><b>Surface:</b> This type includes surface ships, both civilian and military.</li>
+		<li><b>Subsurface:</b> This type includes all submarines, torpedoes, sonobuoys, and mines.</li>
+		<li><b>Sonobuoys:</b> These units represent active and passive sonobuoys.</li>
+		<li><b>Installation:</b> This type includes military or civilian bases such as airports and seaports.</li>
+		<li><b>Land Formation:</b> This type is used to represent military land formations, such as armor and infantry units of any size.</li>
+		<li><b>Vehicle:</b> Single vehicles of several types can be represented by a vehicle icon.</li>
+		<li><b>Reference Points:</b> RPs and datums are used to mark important locations. They do not move, and they have no other function in the program. This is the only unit type that users (non-referee) in a multiplayer games may create.</li>
+	</ul>
+</p>
+
+<h3>Unit Attributes</h3>
+
+<p>All units in the program have basic attributes that describe what they are, who they are, and where they are. Units that move have additional movement related attributes. Other units such as air and subsurface units have altitude and depth attributes, respectively. The full list of attributes are as follows:
+	<ul>
+		<li><b>Track Number:</b> All units are assigned a 4-digit track number. The Track Number is used as a reference to units and is always known for visible opposing units.</li>
+		<li><b>Side:</b> Units are either Blue, Red, or Neutral.</li>
+		<li><b>Unit Type:</b> Within most unit categories there are sub-types that can help distinguish the unit in greater detail.</li>
+		<li><b>Position:</b> The X, Y location of the unit within SimPlot's Cartesian coordinate system.</li>
+		<li><b>Name:</b> The name given to a unit. It could be the name of a ship, base, formation, etc.</li>
+		<li><b>Class:</b> The ship, sub, or aircraft class.</li>
+		<li><b>Callsign:</b> Air units can be assigned an optional Callsign to identify different groups of the same aircraft type.</li>
+		<li><b>Speed:</b> All movable units have a speed in knots.</li>
+		<li><b>Course:</b> All movable units have a course in degrees true.</li>
+		<li><b>Range:</b> Movable units can have an optional range expressed in nautical miles. If a range is specified, then the range will decrease every turn the unit moves until it reaches zero. The unit will then stop all movement and its speed is set to zero.</li>
+		<li><b>Altitude:</b> Air units can have an optional altitude expressed in meters. This is for player reference purposes only and does not affect anything in the program.</li>
+		<li><b>Depth:</b> Subsurface units can have an optional depth expressed in meters. This is for player reference only and does not affect anything in the program.</li>
+		<li><b>Perception:</b> This is the way a player may know about non-friendly forces. The perceived information about non-friendly forces can be restricted per <i>Harpoon</i> detection rules.</li>
+	</ul>
+</p>
+
+</body>
+</html>

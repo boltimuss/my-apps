@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Menus</h2>
+
+<h3>File Menu</h3>
+
+<p><b>New Scenario:</b> This will bring up the New Scenario Window, where you can choose the scenario name, time, and map (optional). Press "OK" to create a blank scenario that is ready for new units.</p>
+<p><b>Load Scenario:</b> This will bring up a file chooser set to the default "Scenarios" folder. Choose a scenario file to load. If there is a map assigned to the scenario, then it will be loaded automatically.</p>
+<p><b>Save Scenario:</b> This will save all unit/map information in an "as is" condition--that is all units, range circles, text tags, perceptions, and ES/sonar bearings will be saved with their original ownership attributes. Four files will be saved: a referee (single player) version of the scenario, red and blue multi-player files, and a player settings file that contains non-sharable data for the player.</p>
+<p><b>Save Player Settings:</b> This will save player preferences and modifications to the player_settings.json file that is only used by that player. Changes to colors, range circles/arcs, reference points, etc. will be saved.</p>
+<p><b>Update Current Scenario:</b> This will update a currently running scenario from an update file the referee will provide. This method will also update the player's scenario without having to reload the map, thus saving loading time.</p>
+<p><b>Import Move Orders:</b> This is for a referee to import waypoints from players in a multiplayer game. The imported waypoints will supercede any existing waypoints for the units specified in the file.</p>
+<p><b>Export Move Orders:</b> This is for players of a multiplayer game to send waypoints to the referee. A player will be prompted to select which units are under their control.</p>
+<p><b>Save Map Screenshot:</b> This will save a bitmap (.png) image of SimPlot's map canvas. A file chooser will ask for the save folder location.</p>
+<p><b>Quit Scenario:</b> This will quit the current scenario without quitting the app. You will be asked if you want to save the scenario file before quitting.</p>
+<p><b>Exit:</b> Exits the application. You will be asked if you want to save the scenario file before quitting.</p>
+
+<h3>Customize Menu</h3>
+
+	<p><b>Controls:</b> This will bring up the Control Options window that allows players the option to use the mouse scroll wheel to control map zoom. Some touchpads do not work well with this feature. An autosave feature is selectable, which will save a unique file at the end of every turn. Also, players may adjust how many pixels the arrow keys will pan the map.</p>
+	<p><b>Color Options:</b> This will bring up the Customize Colors window. From there, players may change the colors used in the map display. The currently displayed colors can be saved as a "palette" for future use. The color palette can also be reset to the application's default colors. Please note the unit symbol colors cannot be modified.</p>
+	<p><b>Display Options (F9):</b>This will open/close the Customize Display window. Many of the options replicate the Common Warfighting Symbology standards (as implemented by the U.S. Navy). Below are the options:
+		<ul>
+			<li><b>Symbol Set:</b> Change between the classic NTDS or several of the newer CWS symbol sets.</li>
+			<li><b>Symbol Size:</b> Choose between four sizes of symbols.</li>
+			<li><b>Symbol Scale:</b> This will multiply the size of the symbols and unit text tags for easier reading.</li>
+			<li><b>Unit of Distance:</b> This will define which unit of distance to use for measuring ranges between units.  The options are Nautical Miles, Yards, and Meters.</li>
+			<li><b>Use "Friend" Symbols:</b> When checked, it will display your "side" as friendly (blue symbols) and the opposing side as hostile (red symbols).</li>
+		</ul></p>
+
+<h3>Units Menu</h3>
+
+<p>New units can be placed on the map by using the "Units" menu. Select the general type of unit to create from the menu, then select the specific type within the unit window.</p>
+<p>Existing units can be modified by first selecting the desired unit, then select the "Modify Existing Unit" option (or F1 key) to bring up the unit window. Any attribute can be changed in a referee/single player scenario.</p>
+<p>Unit waypoints may be created and modified by selecting the "Waypoints" menu item.</p>
+<p>A selected unit may be deleted by using the "Delete Unit" menu item.</p>
+<p>Units can be saved as individual files for reuse later by using the Export Unit menu item. In addition to saving unit attributes, the Sensor and Weapon ranges are also saved so they do not have to be re-typed later. Units saved this way can be Imported instead of created as a new unit.</p>
+<p>Units may also be copied and pasted within a scenario by using the Copy Unit and Paste Unit menu items.</p>
+
+<h3>Show Side Menu</h3>
+
+<p>Referees may use this menu (or keyboard shortcuts) to modify which side is shown on screen. The "All" side shows all units in their proper ownership colors, along with range circles, ES and sonar bearings. Selecting either "Blue" or "Red" will show the respective side's units, plus any units that are visible to that side (via unit perception). Range circles, ES and sonar bearings will only display for the currently selected side's units. This feature allows a referee to double-check that perceptions are correctly set for opposing units.</p>
+
+<h3>Turn Replay Menu</h3>
+       
+<p>Use this menu to show the Turn Replay window. The window will display the current day and time of the scenario when first opened. As the turns are replayed, the day and time shown will update to reflect the replay turn shown.</p>
+<p>Pressing the Play button will start the replay from the first turn in the scenario. The Back and Forward buttons will cycle through the turns one at a time.  The Pause button will halt the playback. Please note the Turn Replay window must be closed to continue with the scenario.</p>
+       
+<h3>Help Menu</h3>
+
+<p>This menu item opens the help window.</p>
+
+</body>
+</html>

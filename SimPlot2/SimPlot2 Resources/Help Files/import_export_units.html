@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Importing and Exporting Units</h2>
+
+<p>Rather than constantly building new units from scratch, units may be pre-built, saved, and then loaded into an existing scenario.</p>
+
+<h3>Importing Units</h3>
+
+<p>Units that have been previously exported (saved) may be imported as new units. These units are the equivalent of units created using the Units menu but with some pre-filled information.</p>
+<p>Use the <b>Units/Import Unit</b> menu item to import a unit.</p>
+<p>The basic unit category is assigned upon import (air, surface, etc.). The specific Unit Type and Class is also assigned if it was saved in the export.</p>
+<p>Imported units will have their Side set to "Neutral" unless the unit Side was set during export. However, if another unit is selected first, then the imported unit is assumed to be the same side as the selected unit (as if a missile or aircraft was launched).</p> 
+<p>The location of the imported unit will be set to 0, 0 by default. Just as with creating new units using the Units menu, if the map cursor is displayed, then the imported unit will be located there instead. If another unit is selected first, then the imported unit will be co-located with that unit.</p>
+<p>For missiles and torpedoes, the Speed and Range values will also be imported if they were saved. This is a special consideration since missiles usually have a set speed and range, but some torpedoes may have a dual setting.</p>
+<p>If Sensors and Weapons circles/arcs were saved, then they too will be imported into the new unit. All Sensors and Weapons are imported as not visible and not filled, but the ranges, arcs and colors are preserved.</p>
+
+<h3>Exporting Units</h3>
+
+<p>Units created inside a scenario may be saved (exported) for future use. Only some of the unit information is exported.</p>
+<p>With a unit selected, use the <b>Units/Export Unit</b> menu item to export the unit.</p>
+<p>The following unit information is saved into the export file:<br>
+	<ul>
+		<li>the basic unit category (Air, Surface, etc.);</li>
+		<li>the unit's Side;</li>
+		<li>the specific Unit Type;</li>
+		<li>the Class if it's specified;</li>
+		<li>the Name if it's specified;</li>
+		<li>the Sensors and Weapons if there are any.</li>
+	</ul>
+</p>
+<p>Missiles and torpedoes will have their Speed and Range exported since they are usually constant. When exporting a missile or torpedo, please take care to specify the full range for that type.</p>
+<p>Additional information such as X, Y, Course, Altitude, Depth, Perception, and ES/Sonar bearings are not saved. The exported unit is meant to be generic so that additional units of the same type can be imported as unique scenario elements.</p>
+
+</body>
+</html>

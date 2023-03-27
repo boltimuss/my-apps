@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Introduction</h2>
+
+<p>SimPlot (short for Simple Plotter) is a utility program that supports <i>Harpoon</i> games by automating the movement process in a graphical environment. SimPlot uses a simplified X, Y coordinate system that makes range and bearing calculations easier. North is always at the top of the screen, and the 0, 0 coordinate is the center of the "game area". Each whole number of the coordinate system represents one nautical mile.</p>
+<p>Presently, SimPlot supports the display and movement for many of the common unit types found in <i>Harpoon:</i> surface ships, subs, aircraft, helicopters, missiles, and torpedoes. Additional non-moving unit types that can be displayed are sonobuoys, reference points, and bases. Units can be displayed using the NTDS or Common Warfighting Symbology styles. All units are either red player, blue player, or referee-controlled neutral.</p>
+<p>Games in progress can be saved and reloaded using simple JSON text files that SimPlot creates. There is even an option to replay the movement from a current or saved game, so the battle can be reviewed at a later time.</p>
+
+<h3>What SimPlot Does</h3>
+
+<p>SimPlot allows users to add, modify, and delete units from the screen via pop-up forms. The screen can be zoomed in or out using the keyboard or mouse wheel, and it can also be panned using the arrow keys or right-mouse clicks. Units are selectable and additional data can be displayed, such as the range and bearing to other units on screen.</p>
+<p>Units can be given additional graphics such as sensor/weapon arcs, and ES/sonar bearings. The arcs are typically used for reference (e.g. when will another unit be in detection or weapons range), and the ES/sonar bearings are used to represent passive detections. These graphics can also be colored and labeled for easier reference.</p>
+<p>Scenarios can be played on a blank screen or on maps created from bitmap images. The maps are just a background image that can give players a sense of location, but they do not by themselves enforce <i>Harpoon</i> rules regarding terrain.</p>
+<p>SimPlot can be used for single or multiple player scenarios. In single-player games, the player implements his own orders and will see the results immediately. Multiplayer games will need a referee to carry out the player's orders. The referee will run the game turns until players need to interact with the situation, and then sends player-only versions of the game file. The players will then communicate orders to the referee (via email for example) so the units can be updated and the game continues.</p>
+<p>Units can be assigned attributes of "perception" by the referee that denies an opposing player information about enemy units. The visible attributes of a newly detected unit can be restricted in items such as location, course, speed, class, or size. Even whose side it's on can be restricted until such time that additional information is available per <i>Harpoon</i> detection rules. Perception plays a great role in enforcing fog-of-war for multiplayer refereed games.</p>
+
+<h3>What SimPlot Doesn't Do</h3>
+
+<p>SimPlot simply uses computer graphics to track the location, course, speed, etc. of units in a scenario. It does not roll dice for you, neither does it implement specific <i>Harpoon</i> rules. SimPlot is therefore not an actual "game program". A copy of the <i>Harpoon</i> rules is required to use SimPlot to its fullest potential.</p>
+<p><i>Harpoon</i> is a registered trademark of Larry Bond and Chris Carlson.</p>
+</body>
+</html>

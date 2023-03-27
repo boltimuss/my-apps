@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Creating, Modifying, and Deleting Waypoints</h2>
+
+<p>Any unit that has the ability to move (any non-fixed units) may use waypoints to pre-plan movement. The course, speed, altitude and depth (where applicable) may be set as a series of waypoints.</p>
+<p>The waypoint values, as seen in the Waypoints window, represent the location, distance, and course to the waypoint from either the unit or the previous waypoint. The estimated time of arrival at the waypoint is calculated using the speed and distance fields.</p>
+
+<h3>Create a New Waypoint</h3>
+
+<p>With a unit selected, use either the <b>Units/Waypoints</b> menu item, the <b>CTRL+W</b> keys, or right-click and select the <b>Modify Waypoints</b> menu item. These will open the Waypoints window for the selected unit.</p>
+<p>Press the <b>Add Waypoints</b> button to add a waypoint. With the mouse cursor over the map, a line will be drawn to the cursor from the unit. Left-click anywhere on the map to place the waypoint. This must be done before any modifications to the waypoint can be made.</p>
+<p>A series of waypoints may be created, with each new waypoint added to the end of the previous waypoint.</p>
+<p>Once a waypoint is created on the map, it can be modified using the techniques described below.</p>
+
+<h3>Modify a Waypoint</h3>
+
+<p>Waypoints can be modified after they are created on the map. With a unit selected and the Waypoints window open, a waypoint can be selected by clicking its row in the window and editing the fields. Also, a waypoint may be moved by left-click and dragging the waypoint square on the map.</p>
+<p>The <b>Name</b> field is for player reference, and does not have any function in the application.</p>
+<p>The <b>X</b> and <b>Y</b> coordinates are the location of the waypoint. Editing them may also change the Distance, Course and Arrival Time values.</p>
+<p>The <b>Distance (nmi)</b> field may be fine-tuned by typing in a value. The value is the distance to that waypoint in nautical miles.</p>
+<p>The <b>Course (deg)</b> field may also be fine-tuned by typing in a value. The value is the course in degrees true to that waypoint.</p>
+<p>The <b>Speed (kts)</b> field is the speed in knots the unit will travel on that leg to the waypoint.</p>
+<p>The <b>Alt/Depth (m)</b> field is for air units (altitude) or sub-surface units (depth) expressed in meters. This value is for player reference only and has no function in the application.</p>
+<p>The <b>Arrival Time</b> field is an estimation of when the selected unit will arrive at each waypoint. No times will be given if the speed is set to zero. Also, times are not calculated for new waypoints that have not yet been placed on the map.</p>
+
+<h3>Delete a Waypoint</h3>
+
+<p>Waypoints may be deleted by selecting the waypoint row in the Waypoints window and pressing the <b>Delete Waypoint</b> button. Waypoints may also be deleted by selecting the waypoint square on the map and pressing the <b>Delete Waypoint</b> button.</p>
+
+</body>
+</html>

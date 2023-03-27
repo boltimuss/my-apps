@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Creating and Modifying Units</h2>
+
+<p>New units are created using the Units menu. There are submenu items for each unit category. This will open a New Unit window which is tailored to the type of unit being created.</p>
+<p>The new unit's starting position will default to (0, 0) or the current map cursor location. Selecting another unit first will set the new starting position to the selected unit's location. Shift-clicking after selecting an existing unit will create an offset starting position for the new unit. Units may also be placed relative to an existing unit using a specified bearing and range within the New Unit window.</p>
+<p>An existing unit can be modified by selecting the unit and using the Units/Modify Unit menu item, pressing F1, or right-clicking the unit and selecting the Modify Unit menu item. This will bring up the same window used to create new units, but all the fields will be filled with existing unit data. The unit's attributes are modified and saved in real time. Use the OK button to close the window. Below are the descriptions of the tab panels of most unit windows.</p>
+
+<h3>Identification</h3>
+
+<p>The Identification tab allows players to set or modify the sub-type of unit, whose side it's on, how many units does the icon represent, the unit class, and the displayable text tags.</p>
+<p>For a new unit, you must first select a <b>Side</b> (Red, Blue, Neutral). Then you may select a specific <b>Unit Type</b>, as well as the <b>Number</b> of units this icon will represent. The <b>Class</b> is the exact real-world type (Nimitz, F-15, AA-10). The <b>Name</b> could be the name of a ship or a nickname for the unit (USS Dale, CAP, TF 201). Air units have a <b>Callsign</b> instead of a name, which can be used to represent the callsign of an aircraft or formation. Please note that only the Side and Unit Type are required, and the rest may be left blank.</p>
+<p>The <b>Text Tags</b> group box contains check boxes that will select which unit information will appears on the map when the Text Tags display button is selected. The tag selections will vary depending on the category of the unit. You may also add Additional Text using the bottom textbox.</p>
+<p>The <b>Active Sensors</b> group box allows players to display an icon as a visual reminder of a unit's active radar or sonar status. On the map display, a letter "R" will appear for radars, and a letter "S" for sonars. The group box will appear for units that ususally have either a radar, sonar, or both. Reference points do not have any.
+
+<h3>Navigation</h3>
+
+<p>The Position group box places a new unit at a specified location. The exact location can be entered into the X and Y fields. The cursor location will automatically fill the X and Y fields if the cursor is visible.</p>
+<p>The relative (or offset) location of a new unit can be specified by filling in the Bearing, Range, and From Unit information (based on the relative unit's Track Number). Then click the Calc Position button to calculate the X and Y values relative to the selected unit. The position values will then populate into the Position group box. If you do not press the Calc Position button, the position will not update.</p>
+<p>Existing unit positions can also be updated using either the direct entry of X and Y values or by using relative location.</p>
+<p>The Movement group box will be visible for unit types that are movable. Enter the Course and Speed values to allow movement to take place. Range is optional, and it represents how far a unit may move in Nautical Miles. Range will decrease with movement, and a unit will move every turn until the Range is zero. The unit will then stop all movement.</p>
+<p>Air units will have an Altitude field so the current altitude (in meters) can be entered. SimPlot does not use the information for anything, so it only serves as a reference for players. Subsurface units have a Depth field (in meters) and, again, is only a reference for players.</p>
+
+<h3>Perception</h3>
+
+<p>Perception is the way players know about opposing units, and is set by the referee for the purpose of restricting knowledge of a given unit. Perception only applies to units that have been detected by radar, sonar, and visual sighting.</p>
+<p>Perceptions for Red or Blue units apply only to the opposing side. Perceptions for Neutral units may apply to both sides since each side may have different levels of detection of the same Neutral unit. Neutral units are referee-controlled and they do not perceive each other in SimPlot.</p>
+<p>The Seen By Blue and Seen By Red group boxes will be enabled for the opposing side only (Neutral units will have both enabled).</p>
+<p>The "Visible to" checkbox will enable a unit to be displayed on the opposing player's screen. The amount of information that is to be known to the opposing player is set with the remaining checkboxes. The kind of checkboxes shown will vary by unit category. Unchecking the "Visible to" checkbox will cause a unit to disappear from the opposing player's screen.</p>
+<p>The Show Side popup menu allows the referee to control how the unit is displayed to the opposing player. The Side popup menu will have the options of Unknown, Neutral, Blue, and Red. Initial detections of a unit would usually be shown as Unknown. Any other side perception should be judged by the opposing player based on their knowledge of the unit and situation. That judgement is communicated back to the referee so the side can be changed.</p>
+<p>The Show Type popup menu will be populated with all the types for the unit's category. The referee can control what type of air, surface, subsurface, etc. is displayed to the opposing player. In the absence of specific knowledge of an opposing unit, the type selected should be generic. The referee could make the type more accurate as more sensor information is gained, or at the request of the opposing player based on a judgement call.</p>
+
+<h3>Sensors</h3>
+
+<p>The Sensors tab is where range circles and arcs that represent radar, sonar, and horizons are created, modified and deleted. Each sensor occupies one row.</p>
+<p>The <b>Visible</b> checkbox will show the sensor when the Sensors toolbar button is active.</p>
+<p>The <b>Name</b> cell holds a unique name of the sensor. Each row represents one detection range for the sensor. A recommended standard for naming a sensor is {name} {type} {(arc) if applicable} {signature}. For example, Monolit-T radar Names may be:<br><br>
+	Monolit-T SS-T Large<br>
+	Monolit-T SS-T Med<br>
+	Monolit-T SS-T Small<br>
+	Monolit-T SS-T VSmall<br>
+Monolit-T SS-T Stealthy</p>
+<p>An MR-123 Gunfire Control Radar Name may be:<br><br>
+MR-123 GFC (F) Large<br>
+etc.</p>
+<p>One or more of the radar horizons may be expressed as a sensor. For example, the radar horizon from a Medium size ship to an aircraft at High altitude may be shown as:<br><br>
+RH Medium vs High Alt</p>
+<p>The <b>Minimum</b> cell is for the minimum range of the sensor in Nautical Miles. Sensors typically do not have minimum ranges, so a 0 is used.</p>
+<p>The <b>Maximum</b> cell is for the maximum range of the sensor in Nautical Miles.</p>
+<p>The <b>Start Angle</b> applies to arcs. It's the angle in degrees clockwise, with 0 being the heading of the unit, from which to draw an arc. Circles should have a Start Angle of 0.</p>
+<p>The <b>Arc Angle</b> also applies to arcs. It's the "sweep angle" in degrees clockwise from the Start Angle. For example, a Forward arc has a start of 210 and an arc of 300. Circles should have an Arc Angle of 0.</p>
+<p>The <b>Color</b> cell shows the color of the sensor when it is displayed. Left-click the cell to bring up a color chooser. Select a color and press the OK button. Canceling the color chooser will return Black as the color.</p>
+<p>The <b>Filled</b> checkbox will fill the sensor arc/circle with a transparency the same color as the Color cell.</p>
+<p>Sensors may be created by the referee or by players. Typically, the referee will have created or imported units that contain sensors. The files sent by the referee contain all the sensor data. But, if a player modifies a sensor and uses the File|Save Player Settings menu, all subsequent sensors from the referee file will be ignored.</p>
+<p>Hint: you can create filled min/max circles by specifying an Arc Angle of 360 (you can use any Start Angle).</p>
+
+<h3>Weapons</h3>
+
+<p>The Weapons tab is where range circles and arcs that represent firing arcs and range limits of mounts and missiles/guns are created, modified and deleted. Each weapon occupies one row. Please note that in the case of missiles, the actual missile fired is a seperate unit. The weapon arc/circle merely represents the opportunity to fire.</p>
+<p>The <b>Visible</b> checkbox will show the weapon when the Weapons toolbar button is active.</p>
+<p>The <b>Name</b> cell holds a unique name of the weapon. Each row represents one firing range for the weapon, if there is more than one. A recommended standard for naming a weapon is {name} {type/caliber} {(arc) if applicable} {range}. For example, AK-176 Names may be:<br><br>
+	AK-176 76mm/59 (F) Short<br>
+	AK-176 76mm/59 (F) Med<br>
+	AK-176 76mm/59 (F) Long<br>
+	AK-176 76mm/59 (F) Extreme<br>
+AK-176 76mm/59 (F) Air</p>
+<p>Some missile Names may be:<br><br>
+P-15M Termit-M (PB&SB)<br>
+Igla (A)</p>
+
+<p>The <b>Minimum</b> cell is for the minimum range of the weapon in Nautical Miles. If there is no minium range then a 0 is used.</p>
+<p>The <b>Maximum</b> cell is for the maximum range of the weapon in Nautical Miles.</p>
+<p>The <b>Start Angle</b> applies to arcs. It's the angle in degrees clockwise, with 0 being the heading of the unit, from which to draw an arc. Circles should have a Start Angle of 0.</p>
+<p>The <b>Arc Angle</b> also applies to arcs. It's the "sweep angle" in degrees clockwise from the Start Angle. For example, a Forward arc has a start of 210 and an arc of 300. Circles should have an Arc Angle of 0.</p>
+<p>Many arcs will have minimum and maximum ranges, and will be drawn as a complete polygon. But, if you need a circle with a minimum and maximum range (drawn as a "donut"), then the Start Angle will be 0 and the Arc Angle will be 360. The circle will depict the minimum and maximum extents but a line connecting the two will be drawn on the unit heading. This is presently the only way to draw a filled circle with a hole in it.</p>
+<p>The <b>Color</b> cell shows the color of the weapon when it is displayed. Left-click the cell to bring up a color chooser. Select a color and press the OK button. Canceling the color chooser will return Black as the color.</p>
+<p>The <b>Filled</b> checkbox will fill the weapon arc/circle with a transparency the same color as the Color cell.</p>
+<p>Weapons may be created by the referee or by players. Typically, the referee will have created or imported units that contain weapons. The files sent by the referee contain all the weapon data. But, if a player modifies a weapon and uses the File|Save Player Settings menu, all subsequent weapons from the referee file will be ignored.</p>
+<p>Hint: you can create filled min/max circles by specifying an Arc Angle of 360 (you can use any Start Angle).</p>
+
+<h3>Passive Bearings</h3>
+
+<p>Passive bearings represent the detection of a non-friendly unit that is radiating radar or sound energy. The referee must apply passive detection rules to know when to create a passive bearing. Only the referee can create passive bearings.</p>
+<p>Use the <b>Add Bearing</b> button to create a new passive bearing. All modifications to the bearing information must be in the cells of that bearing's row.</p>
+<p>Right-click the <b>Type</b> cell and select either ES or Sonar bearing.</p>
+<p>Right-click the <b>Emitting</b> Unit cell and select the radiating unit.</p>
+<p>Left-click the <b>ES/Sonar Label</b> cell and type a label for the bearing.</p>
+<p>Right-click the <b>Show As</b> cell and select the affiliation of the bearing. The choices are: Friendly, Hostile, Neutral, and Unknown.</p>
+<p>Left-click the <b>Beam Width</b> cell and type in the beam width in degrees. Some passive bearings are more precise than others. The default value is 20 degrees.</p>
+<p>A specific bearing can be deleted by selecting it and pressing the <b>Delete Bearing</b> button.</p>
+
+</body>
+</html>

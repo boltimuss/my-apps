@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "681695c81edb3a5e",
+        "id": "9bc8ee1d004cea83",
         "type": "tabs",
         "children": [
           {
-            "id": "dd9a0441335987da",
+            "id": "d8b96abf317b8682",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,36 +20,23 @@
             }
           },
           {
-            "id": "56a32eddddac898f",
+            "id": "9028af800d337938",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Surveys/System Survey Sheet Template.md",
+                "file": "Animals/Exomorph - 94-Ceti-beta.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "9602fc12bf465dd3",
         "type": "tabs",
         "children": [
-          {
-            "id": "382ebe6f64225e35",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPC List/Character Detail Template.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
           {
             "id": "2ebfa4ab1f890c69",
             "type": "leaf",
@@ -57,19 +44,7 @@
               "type": "markdown",
               "state": {
                 "file": "Character Sheets/Character Sheets.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9587287f442acc87",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPC List/Character Detail Template.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -80,14 +55,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Plotlines and Characters/Plotlines and Characters List.md",
+                "file": "Surveys/94 Ceti - System Survey.md",
                 "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fb55937df9cb7883",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Plotlines and Characters/Plotlines and Characters List.md",
+                "mode": "preview",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -153,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
+                "file": "Mission Reports/Initial Mission.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NPC List/Character Detail Template.md",
+                "file": "Mission Reports/Initial Mission.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -193,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NPC List/Character Detail Template.md"
+                "file": "Mission Reports/Initial Mission.md"
               }
             }
           }
@@ -214,23 +201,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9587287f442acc87",
+  "active": "d8b96abf317b8682",
   "lastOpenFiles": [
-    "Surveys/System Survey Sheet Template.md",
-    "NPC List/Character Detail Template.md",
-    "NPC List/Kipper Stursk.md",
-    "Plotlines and Characters/Plotlines and Characters List.md",
-    "Character Sheets/Character Sheets.md",
+    "Surveys/94 Ceti - System Survey.md",
     "Mission Reports/Initial Mission.md",
+    "Animals/Exomorph - 94-Ceti-beta.md",
+    "Character Sheets/Character Sheets.md",
+    "Plotlines and Characters/Plotlines and Characters List.md",
+    "Animals",
+    "Star System Diagrams/94-ceti.png",
+    "Star System Diagrams",
+    "Star Systems/Star System Diagrams/94-ceti.png",
+    "Star Systems/Star System Diagrams",
+    "Star Systems",
+    "New folder",
+    "NPC List/Character Detail Template.md",
+    "Surveys/System Survey Sheet Template.md",
+    "NPC List/Kipper Stursk.md",
     "Surveys",
     "Locations/Location Crafter Template.md",
     "Mission Reports",
     "Maps",
     "Character Sheets",
-    "Plotlines and Characters",
-    "NPC List",
-    "Mission Reports",
-    "Locations",
-    "Ships"
+    "Plotlines and Characters"
   ]
 }
