@@ -1,7 +1,7 @@
 ___
 ## Star System: <span style="color: green">94 Ceti</span>
-## Fuel: <span style="color: green">15 burns</span>
-## Elapsed Time: <span style="color: yellow">96:20:00</span>
+## Fuel: <span style="color: green">24 burns</span>
+## Elapsed Time: <span style="color: yellow">117:02:00</span>
 
 ## Logs:
 
@@ -106,9 +106,13 @@ Range to survey target: 600km
 	* Is the ATV attacked instead of the group? (mv2 fate, very likely) Yes
 	* **Resolution**: the group escapes whilte the worm like creature attacks what it perceives to be the biggest threat the ATV. The crew manages to escape and hide in the nearby area as they watch it wrap around the ATV and crush it. After making several attempts to eat the ATV, it realizes that its not edible and retreats back to its lair. The ATV was crushed to the size of a beachball, and totally unusable. Aurelia retrieves the crew using the remaining Coyote Jeep. They are able to carefully retrieve the supplies and wander away. Loss of 2 survey points.
 
-(25)
+(25) Takeoff, and enter orbit around the second planet to survey: 94-ceti-gamma
 
-(14-15)
+(14-15) arrival at the 94-ceti-gamma, entered orbit around the gas giant
+|Entering orbit|600 Mkm|20:00:00|<span style="color: red">4 burns</s>|<span style="color: green">11 burns</s>|
+|--|--|--|--|--|
+
+Brent orders the Nostromo to enter 94-ceti-gamma's upper atmosphere to perform a scoop operation in order to refuel. Pilot roll of 10, <span style="color: green"> SUCCESS </span>. It takes 6 hours to refuel.
 
 (16-19) check for radiation damage
 

@@ -8,13 +8,43 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5c2e5528503280fc",
+            "id": "92cbc68712248f2d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Adventure Sheets/Adventure Sheet Template.md",
+                "file": "Logs/Adventure Notes - 4.7.23.md",
                 "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c27975427303786d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPC List/Virgil (pub waiter).md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "a264a696ac74d818",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "98e2432513f0eec4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Logs/Adventure Notes - 4.7.23.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,6 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Logs/Adventure Notes - 4.7.23.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Logs/Adventure Notes - 4.7.23.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -122,7 +154,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Logs/Adventure Notes - 4.7.23.md"
+              }
             }
           }
         ]
@@ -142,11 +176,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ed1a8a2fe6b696ec",
+  "active": "92cbc68712248f2d",
   "lastOpenFiles": [
-    "Adventure Sheets/Adventure Sheet Template.md",
-    "Logs/Untitled.md",
+    "NPC List/Virgil (pub waiter).md",
+    "Logs/Adventure Notes - 4.7.23.md",
     "NPC List/Character Detail Template.md",
+    "Adventure Sheets/Adventure Sheet Template.md",
     "Plotlines and Characters/Plotlines and Characters List.md",
     "House Rules/House Rules Template.md",
     "Locations/Location Crafter Template.md",
